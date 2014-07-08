@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  get 'contact/index'
+  resources :goods
 
   devise_for :admins
+  get 'contact/index'
+
   resources :partners
 
   resources :offers
-
-  resources :goods
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

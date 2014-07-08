@@ -18,7 +18,7 @@ class GoodsControllerTest < ActionController::TestCase
 
   test "should create good" do
     assert_difference('Good.count') do
-      post :create, good: { available: @good.available, description: @good.description, img: @good.img, name: @good.name, price: @good.price, producer: @good.producer, type: @good.type }
+      post :create, good: { available: @good.available, description: @good.description, img: @good.img, kind: @good.kind, price: @good.price, producer: @good.producer, title: @good.title }
     end
 
     assert_redirected_to good_path(assigns(:good))
@@ -35,7 +35,7 @@ class GoodsControllerTest < ActionController::TestCase
   end
 
   test "should update good" do
-    patch :update, id: @good, good: { available: @good.available, description: @good.description, img: @good.img, name: @good.name, price: @good.price, producer: @good.producer, type: @good.type }
+    patch :update, id: @good, good: { available: @good.available, description: @good.description, img: @good.img, kind: @good.kind, price: @good.price, producer: @good.producer, title: @good.title }
     assert_redirected_to good_path(assigns(:good))
   end
 
