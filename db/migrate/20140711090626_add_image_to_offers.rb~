@@ -1,0 +1,9 @@
+class AddImageToOffers < ActiveRecord::Migration
+def self.down
+	remove_column :contacts :image_file_name
+
+remove_column :contacts :image_content_type
+
+remove_column :contacts :image_file_size    
+end
+end

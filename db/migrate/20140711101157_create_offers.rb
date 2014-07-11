@@ -3,7 +3,6 @@ class CreateOffers < ActiveRecord::Migration
     create_table :offers do |t|
       t.string :title
       t.text :description
-      t.text :img
 
       t.timestamps
     end
