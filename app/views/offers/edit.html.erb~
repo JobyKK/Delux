@@ -1,0 +1,8 @@
+<h1>Editing offer</h1>
+
+<%= render 'form' %>
+<%= form_for @offer, :url => offers_path, :html => { :multipart => true } do |form| %>
+    <%= form.file_field :avatar %>
+<% end %>
+<%= link_to 'Show', @offer %> |
+<%= link_to 'Back', offers_path %>
