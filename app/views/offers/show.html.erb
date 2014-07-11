@@ -7,7 +7,7 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @offer.description %>
+  <%= @offer.description.html_safe if @offer.description %>
 </p>
 
 <%= image_tag @offer.avatar.url(:medium) %>
