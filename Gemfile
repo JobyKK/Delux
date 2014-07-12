@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
 gem 'sunspot_rails'
 gem 'paperclip'
+gem 'mail_form'
+gem 'simple_form'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

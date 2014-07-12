@@ -1,4 +1,64 @@
 <!--DOCTYPE html-->
+  <head>
+   <meta charset="utf-8">
+    <title>Carousel Template &middot; Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="../assets/stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="../assets/stylesheets/bootstrap-theme.css" rel="stylesheet">
+<style>
+.carousel {
+      margin-bottom: 60px;
+    }
+
+    .carousel .container {
+      position: relative;
+      z-index: 9;
+    }
+
+    .carousel-control {
+      height: 80px;
+      margin-top: 0;
+      font-size: 120px;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+      background-color: transparent;
+      border: 0;
+      z-index: 10;
+    }
+
+    .carousel .item {
+      height: 500px;
+    }
+    .carousel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      height: 500px;
+    }
+
+    .carousel-caption {
+      background-color: transparent;
+      position: static;
+      max-width: 550px;
+      padding: 0 20px;
+      margin-top: 200px;
+    }
+    .carousel-caption h1,
+    .carousel-caption .lead {
+      margin: 0;
+      line-height: 1.25;
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    }
+    .carousel-caption .btn {
+      margin-top: 10px;
+    }
+</style>
+  </head>
       <!-- Jumbotron -->
       <div class="jumbotron">
 	<% if current_admin %>
@@ -9,13 +69,63 @@
 	<%end%>
 	<%else%>
 	<h1>No Admin</h1>
-	<%= link_to "Sign in", new_admin_session_path, :method => :new %>
+	<p><%= link_to "Sign in", new_admin_session_path, :method => :new %></p>
 	<%end%>
-        <img src="<%= asset_path("fon.png") %>" height="350px">
+	
+
+
+
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="<%= asset_path("images.jpeg") %>"  height="200px" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Example headline.</h1>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+	  <img src="<%= asset_path("WelcomeLook1.png")  %>" height="200px" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="<%= asset_path("WelcomeLook1.png") %>" height="350px"  alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>One more for good measure.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
       </div>
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+  <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+<a class="carousel-control right" href="#myCarousel" data-slide="next">
+  <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+    </div><!-- /.carousel -->
+
+      	</div>
+	
 	<div>
 		<h1>Новости_____________________________________________________</h1>
 	</div>
+	
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-lg-4">
