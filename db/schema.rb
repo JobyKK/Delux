@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711101237) do
+ActiveRecord::Schema.define(version: 20140714160716) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20140711101237) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+
+  create_table "categories", force: true do |t|
+    t.string   "title"
+    t.string   "sub_category"
+    t.string   "super_category"
+    t.text     "descritpion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contacts", force: true do |t|
     t.datetime "created_at"

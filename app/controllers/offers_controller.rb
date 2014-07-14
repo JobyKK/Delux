@@ -26,8 +26,9 @@ class OffersController < ApplicationController
   # POST /offers
   # POST /offers.json
   def create
+	
     @offer = Offer.new(offer_params)
-
+    
     respond_to do |format|
       if @offer.save
         format.html { redirect_to @offer, notice: 'Offer was successfully created.' }

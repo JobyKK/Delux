@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :categories
+  post 'categories/add/:id' => 'categories#add'
+
   resources :goods
 
   devise_for :admins
