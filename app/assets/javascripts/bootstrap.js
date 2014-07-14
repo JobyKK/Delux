@@ -334,7 +334,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     this.$items = item.parent().children('.item')
     return this.$items.index(item || this.$active)
   }
-
+carousel-controlf
   Carousel.prototype.to = function (pos) {
     var that        = this
     var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'))
