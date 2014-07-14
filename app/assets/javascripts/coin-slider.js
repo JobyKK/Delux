@@ -486,7 +486,7 @@
 			// set panel
 			$(el).css({
 				'background-image': 'url(' + images[el.id][0] + ')',
-				'width': document.body.clientWidth,
+				'width': params[el.id].width,
 				'height': params[el.id].height,
 				'position': 'relative',
 				'background-position': 'top left'
@@ -515,7 +515,7 @@
 
 	// default values
 	$.fn.coinslider.defaults = {
-		width: document.body.clientWidth, // width of slider panel
+		width: 565, // width of slider panel
 		height: 290, // height of slider panel
 		spw: 7, // squares per width
 		sph: 5, // squares per height

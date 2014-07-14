@@ -38,54 +38,42 @@
 	<p><%= link_to "Sign in", new_admin_session_path, :method => :new %></p>
 	<%end%>
 	
-	<div id="games">
-		
-			<a href="http://www.minininjas.com/" target="_blank">
-				<img src="assets/images.jpeg" alt="Mini Ninjas" />
-				<span>
-					<b>Mini Ninjas</b><br />
-					Your quest to defeat the Evil Samurai Warlord has begun. Control the powers of nature, possess creatures, use your
-					furious Ninja skills to free your Ninja friends.
-				</span>
-			</a>
-			
-			<a href="http://www.princeofpersiagame.com/" target="_blank">
-				<img src="http://workshop.rs/projects/coin-slider/games/prince_of_persia.jpg" alt="Price of Persia" />
-			</a>
-			
-			<a href="http://spidermandimensions.marvel.com/" target="_blank">
-				<img src="http://workshop.rs/projects/coin-slider/games/spiderman_shattered_dimensions.jpg" alt="Spiderman: Shattered Dimensions" />
-			</a>
-			
-			<a href="http://brinkthegame.com/" target="_blank">
-				<img src="http://workshop.rs/projects/coin-slider/games/brink.jpg" alt="Brink" />
-			</a>
-		
-			<a href="http://www.godofwar.com/" target="_blank" >
-				<img src="http://workshop.rs/projects/coin-slider/games/god_of_war_3.jpg" alt="God of War III" />
-			</a>
-			
-			<a href="http://www.borderlandsthegame.com/" target="_blank">
-				<img src="http://workshop.rs/projects/coin-slider/games/borderlands.jpg" alt="Borderlands" />
-				<span>
-					<b>Borderlands</b><br />
-					Fun combat and a steady flow of rewards make this journey a massively enjoyable one, especially with some fellow mercenaries along for the ride.
-				</span>
-			</a>
-			
-			<a href="http://www.swtor.com/" target="_blank">
-				<img src="http://workshop.rs/projects/coin-slider/games/star_wars_the_old_republic.jpg" alt="Star Wars: The Old Republic" />
-			</a>
-				
-			<a href="http://www.batmanarkhamasylum.com/" target="_blank">
-				<img src="http://workshop.rs/projects/coin-slider/games/batman_arkham_asylum.jpg" alt="Batman: Arkham Asylum" />
-			</a>
-			
+<div class="row-fluid">
+	<div class="span9">
+	<div id="myCarousel" class="carousel slide">
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="item active">
+              <img src="//placehold.it/1024x700" width="100%">
+				<div class="carousel-caption">
+					<h4>First label</h4>
+					<p>A working Bootstrap carousel example.</p>
+				</div>
+			</div>
+			<div class="item">
+              <img src="//placehold.it/1024x700/662222" width="100%">
+				<div class="carousel-caption">
+					<h4>Second label</h4>
+					<p>This is the second slide text.</p>
+				</div>
+			</div>
+			<div class="item">
+				<img src="//placehold.it/1024x700/119922" width="100%">
+				<div class="carousel-caption">
+					<h4>Third label</h4>
+					<p>Take note of the 'active' and 'slide' classes.</p>
+				</div>
+			</div>
 		</div>
-		<script>
-			$('#games').coinslider();
-		</script>
-
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+		<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+	</div>
+	</div>
+</div>
 
 
 	<div>

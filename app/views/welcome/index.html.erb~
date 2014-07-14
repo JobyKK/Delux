@@ -1,30 +1,5 @@
 <!--DOCTYPE html-->
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>Carousel Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="/home/andrey/Work/Plumbing/delux/app/assets/stylesheets/bootstrap.min.css" rel="stylesheet">
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-	<script src="holder.js"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/coin-slider.js"></script>
-
-	<link rel="stylesheet" href="assets/coin-slider-styles.css" type="text/css" />
-
-  </head>
+  
       <!-- Jumbotron -->
       <div class="jumbotron">
 	<% if current_admin %>
@@ -38,54 +13,52 @@
 	<p><%= link_to "Sign in", new_admin_session_path, :method => :new %></p>
 	<%end%>
 	
-	<div id="games">
-		
-			<a href="http://www.minininjas.com/" target="_blank">
-				<img src="http://workshop.rs/projects/coin-slider/games/mini_ninjas.jpg" alt="Mini Ninjas" />
-				<span>
-					<b>Mini Ninjas</b><br />
-					Your quest to defeat the Evil Samurai Warlord has begun. Control the powers of nature, possess creatures, use your
-					furious Ninja skills to free your Ninja friends.
-				</span>
-			</a>
-			
-			<a href="http://www.princeofpersiagame.com/" target="_blank">
-				<img src="http://workshop.rs/projects/coin-slider/games/prince_of_persia.jpg" alt="Price of Persia" />
-			</a>
-			
-			<a href="http://spidermandimensions.marvel.com/" target="_blank">
-				<img src="http://workshop.rs/projects/coin-slider/games/spiderman_shattered_dimensions.jpg" alt="Spiderman: Shattered Dimensions" />
-			</a>
-			
-			<a href="http://brinkthegame.com/" target="_blank">
-				<img src="http://workshop.rs/projects/coin-slider/games/brink.jpg" alt="Brink" />
-			</a>
-		
-			<a href="http://www.godofwar.com/" target="_blank" >
-				<img src="http://workshop.rs/projects/coin-slider/games/god_of_war_3.jpg" alt="God of War III" />
-			</a>
-			
-			<a href="http://www.borderlandsthegame.com/" target="_blank">
-				<img src="http://workshop.rs/projects/coin-slider/games/borderlands.jpg" alt="Borderlands" />
-				<span>
-					<b>Borderlands</b><br />
-					Fun combat and a steady flow of rewards make this journey a massively enjoyable one, especially with some fellow mercenaries along for the ride.
-				</span>
-			</a>
-			
-			<a href="http://www.swtor.com/" target="_blank">
-				<img src="http://workshop.rs/projects/coin-slider/games/star_wars_the_old_republic.jpg" alt="Star Wars: The Old Republic" />
-			</a>
-				
-			<a href="http://www.batmanarkhamasylum.com/" target="_blank">
-				<img src="http://workshop.rs/projects/coin-slider/games/batman_arkham_asylum.jpg" alt="Batman: Arkham Asylum" />
-			</a>
-			
+<div class="row-fluid">
+	<div class="span9">
+	<div id="myCarousel" class="carousel slide">
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="item active">
+              <img src="//placehold.it/1024x700" width="100%">
+				<div class="carousel-caption">
+					<h4>First label</h4>
+					<p>A working Bootstrap carousel example.</p>
+				</div>
+			</div>
+			<div class="item">
+              <img src="//placehold.it/1024x700/662222" width="100%">
+				<div class="carousel-caption">
+					<h4>Second label</h4>
+					<p>This is the second slide text.</p>
+				</div>
+			</div>
+			<div class="item">
+				<img src="//placehold.it/1024x700/119922" width="100%">
+				<div class="carousel-caption">
+					<h4>Third label</h4>
+					<p>Take note of the 'active' and 'slide' classes.</p>
+				</div>
+			</div>
 		</div>
-		<script>
-			$('#games').coinslider();
-		</script>
-
+		<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+		<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+	</div>
+	</div>
+  	<div class="span3">
+      <h4>Bootstrap Examples</h4>
+      <a href="/63523" target="ext">Modal</a><br>
+      <a href="/61459" target="ext">Typeahead</a><br>
+      <a href="/tagged/calendar" target="ext">Calendar</a><br>
+      <a href="/tagged/bootstrap-3" target="ext">Bootstrap 3</a><br>
+      <a href="/tagged/dropdown" target="ext">Dropdown</a><br>
+      <a href="/tagged/nav" target="ext">Navigation</a><br>
+      <a href="/tagged/tab" target="ext">Tabs</a>
+  	</div>
+</div>
 
 
 	<div>
