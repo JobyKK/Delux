@@ -5,20 +5,20 @@
   <%= @category.title %>
 </p>
 
-<p>
-  <strong>Sub category:</strong>
-  <%= @category.sub_category %>
-</p>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="field"> 
+    <%= f.label :descritpion %><br>
+    <%= f.text_area :descritpion %>
+  </div>
 
-<p>
-  <strong>Super category:</strong>
-  <%= @category.super_category %>
-</p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% flash[:notice] = 'lol' %>
+  <%= flash[:notice] = 'lol' %>
 
-<p>
-  <strong>Descritpion:</strong>
-  <%= @category.descritpion %>
-</p>
-
-<%= link_to 'LOL',  category, method: :add %> |
-<%= link_to 'Back', categories_path %>
+<% end %>

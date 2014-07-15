@@ -24,26 +24,24 @@ class CategoriesController < ApplicationController
     
   # GET /categories/1/edit
   def add
-   
-   @new_category = Category.new
-   @new_category = Category.create
-   if @category.sub_category != nil
-   @category.sub_category += @new_category.id.to_s
-   @category.sub_category += ","
+
+   @old_category = @category
+   @category = Category.new
+   @category.super_category = @old_category.title
+   category = Category.last
+   session[:id] = category.title
+ if @old_category.sub_category != nil
+   	@old_category.sub_category += category.id.to_s
+  	@old_category.sub_category += ","
+
    else
-   @category.sub_category = @new_category.id.to_s
-   @category.sub_category += ","
+  	@old_category.sub_category = category.id.to_s
+  	@old_category.sub_category += ","
    end
-   @new_category.super_category = @category.title
-    respond_to do |format|
-      if @new_category.save && @category.save
-        format.html { redirect_to "/categories/new", notice: 'Category was successfully created.' }
-        format.json { render :new, status: :created, location: @new_category }
-      else
-        format.html { render :new }
-        format.json { render json: @new_category.errors, status: :unprocessable_entity }
-      end
-    end
+
+   @old_category.save
+   @category.save
+   
   end
 
   # POST /categories
