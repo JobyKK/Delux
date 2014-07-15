@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :categories
-  get 'categories/add/:id' => 'categories#add'
+  post 'categories/:id' => 'categories#add'
 
   resources :goods
 

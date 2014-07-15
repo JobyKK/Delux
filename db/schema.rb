@@ -40,11 +40,6 @@ ActiveRecord::Schema.define(version: 20140714160716) do
     t.datetime "updated_at"
   end
 
-  create_table "contacts", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "goods", force: true do |t|
     t.string   "title"
     t.float    "price"
