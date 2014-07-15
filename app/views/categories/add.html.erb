@@ -1,26 +1,24 @@
-<%= form_for(@category) do |f| %>
-  <% if @category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<p id="notice"><%= notice %></p>
 
-      <ul>
-      <% @category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<p>
+  <strong>Title:</strong>
+  <%= @category.title %>
+</p>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <!--<div class="field">
-    <%= f.label :sub_category %><br>
-    <%= f.text_field :sub_category %>
-  </div>
-  <% :super_category = @category%>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<p>
+  <strong>Sub category:</strong>
+  <%= @category.sub_category %>
+</p>
+
+<p>
+  <strong>Super category:</strong>
+  <%= @category.super_category %>
+</p>
+
+<p>
+  <strong>Descritpion:</strong>
+  <%= @category.descritpion %>
+</p>
+
+<%= link_to 'LOL',  category, method: :add %> |
+<%= link_to 'Back', categories_path %>

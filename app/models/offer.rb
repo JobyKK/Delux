@@ -1,4 +1,5 @@
 class Offer < ActiveRecord::Base
+  include Bootsy::Container
     #accepts_nested_attributes_for :avatar
 	validates :title, presence: true
 	validates :avatar,
