@@ -26,18 +26,17 @@ class CategoriesController < ApplicationController
   def add
    @old_category = @category
    @category = Category.new
-   @category.super_category = @old_category.title
-   category = Category.last
-   session[:id] = category.title
- if @old_category.sub_category != nil
-   	@old_category.sub_category += category.id.to_s
+   @category.super_category = @old_category.id.to_s
+   @category.save
+   if @old_category.sub_category != nil
+   	@old_category.sub_category += Category.last.id.to_s
   	@old_category.sub_category += ","
    else
-  	@old_category.sub_category = category.id.to_s
+  	@old_category.sub_category = Category.last.id.to_s
   	@old_category.sub_category += ","
    end
    @old_category.save
-   @category.save
+   
    
   end
 
@@ -63,7 +62,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+        format.html { redirect_to '/categories', notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit }
@@ -75,11 +74,18 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    @category.destroy
+
+    if @category.super_category != nil 
+    	@category.destroy_sub
+    end	
+	
     respond_to do |format|
       format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
       format.json { head :no_content }
+      format.html { redirect_to @categor, notice: 'Category was successfully created.' }
+        format.json { render :show, status: :ok, location: @categor }
     end
+    
   end
 
   private
@@ -91,5 +97,8 @@ class CategoriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
       params.require(:category).permit(:title, :sub_category, :super_category, :descritpion)
+      
     end
+
+    
 end

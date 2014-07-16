@@ -12,7 +12,7 @@ def destroy_sub
 	end
 	@categor.sub_category = temp
         @categor.save
-	
+	self.destroy
 		
     end
 end
