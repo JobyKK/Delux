@@ -23,14 +23,14 @@
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
 	<td><%= link_to 'Добавить', category, method: :add %></td>
-        <% if category.sub_category == nil || ""%>
+        <% if category.sub_category == nil || category.sub_category == ""%>
 	<td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%> 
      </tr>
     <% end %>
   </tbody>
 </table>
+<%= render_navigation :expand_all => true, :renderer => :bootstrap %>
+
 
 <br>
-<%=session[:id]%>
-

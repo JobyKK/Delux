@@ -77,10 +77,7 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-
-    if @category.super_category != nil 
     	@category.destroy_sub
-    end	
 	
     respond_to do |format|
       format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
