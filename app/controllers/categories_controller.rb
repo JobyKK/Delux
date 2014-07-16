@@ -24,6 +24,7 @@ class CategoriesController < ApplicationController
     
   # GET /categories/1/edit
   def add
+
    @old_category = @category
    @category = Category.new
    @category.super_category = @old_category.id.to_s
@@ -31,10 +32,12 @@ class CategoriesController < ApplicationController
    if @old_category.sub_category != nil
    	@old_category.sub_category += Category.last.id.to_s
   	@old_category.sub_category += ","
+
    else
   	@old_category.sub_category = Category.last.id.to_s
   	@old_category.sub_category += ","
    end
+
    @old_category.save
    
    

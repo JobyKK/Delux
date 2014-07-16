@@ -3,11 +3,7 @@
 one:
   title: MyString
   description: MyText
-  img: MyText
-  link: MyString
 
 two:
   title: MyString
   description: MyText
-  img: MyText
-  link: MyString

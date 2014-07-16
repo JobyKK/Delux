@@ -1,8 +1,8 @@
 <h1><%if current_admin %>
-<%= link_to "Новый партнер", new_partner_path %>
+<%= link_to "Новая новость", new_partner_path %>
 <%end%>
 </h1>
-<h1>Партнеры</h1>
+<h1>Новости</h1>
 <div class="row">
 <% @list.each do |element| %>
 	<div class="col-md-6">
