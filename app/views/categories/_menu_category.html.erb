@@ -1,7 +1,9 @@
 <ul>
 	<% Category.all.each do |r| %>
 		<%if r.super_category == ""%>
-	    		<li><a style="font-size:12pt"><%=r.title%></a>
+
+	    		<li onclick=<%='MyOnClick("'+r.sub_category.to_s+'")'%>><a style="font-size:12pt"><%=r.title%></a>
+			<%#= link_to r.title, '#', :onclick => 'MyOnClick("'+r.sub_category.to_s+'")' %>
 			<%= link_to 'Edit', edit_category_path(r) %>
 			<%= link_to 'Добавить', r, method: :add %>
        			
