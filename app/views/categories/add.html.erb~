@@ -5,25 +5,6 @@
   <%= @category.title %>
 </p>
 
-<<<<<<< HEAD
-<p>
-  <strong>Sub category:</strong>
-  <%= @category.sub_category %>
-</p>
-
-<p>
-  <strong>Super category:</strong>
-  <%= @category.super_category %>
-</p>
-
-<p>
-  <strong>Descritpion:</strong>
-  <%= @category.descritpion %>
-</p>
-
-<%= link_to 'LOL',  category, method: :add %> |
-<%= link_to 'Back', categories_path %>
-=======
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -40,5 +21,4 @@
   <% flash[:notice] = 'lol' %>
   <%= flash[:notice] = 'lol' %>
 
-<% end %>
->>>>>>> 75a2466b0990bb695d8f3011dfe777ed01e4ffb3
+
