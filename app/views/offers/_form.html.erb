@@ -1,3 +1,9 @@
+<style>
+textarea{
+  width: 650px;
+  height: 200px;
+}
+</style>
 <%= form_for(@offer, multipart: true) do |f| %>
   <% if @offer.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +19,7 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :cols => 20, :rows => 10 %>
   </div>
   <!-- <div class="field">
     <%= f.label :description %><br>
@@ -23,8 +29,13 @@
     <%= f.label :avatar %>
     <%= f.file_field :avatar %>
   </div>
+ <div class="field">
+
+    <%= f.label :Short %>
+    <%= f.bootsy_area :short_description %>
+  </div> 
   <div class="field">
-    <%= f.label :content %>
+    <%= f.label :Full %>
     <%= f.bootsy_area :description %>
   </div>       
   <div class="actions">

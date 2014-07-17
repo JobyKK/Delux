@@ -1,28 +1,69 @@
-<div class="container-fluid">
-	<div class="col-md-4">
+    <style type="text/css">
+     
+
+
+      /* Customize the navbar links to be fill the entire space of the .navbar */
+      .navbar .navbar-inner {
+        padding: 0;
+      }
+      .navbar .nav {
+        margin: 0;
+        display: table;
+        width: 100%;
+      }
+      .navbar .nav li {
+        display: table-cell;
+        width: 1%;
+        float: none;
+      }
+      .navbar .nav li a {
+        font-weight: bold;
+        text-align: center;
+        border-left: 1px solid rgba(255,255,255,.75);
+        border-right: 1px solid rgba(0,0,0,.1);
+      }
+      .navbar .nav li:first-child a {
+        border-left: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      .navbar .nav li:last-child a {
+        border-right: 0;
+        border-radius: 0 3px 3px 0;
+      }
+    </style>
+<div class="row">
+<div class="span12">
+<div class="masthead">
+<div class="row">
+	<div class="span4">
 		<img src="<%= asset_path("logo.png") %>" height="140px"/>
 	</div>
-	<div class="col-md-8">
-		<div class="col-md-4">
-			<h1></h1>
-		</div>
-		<div class="col-md-4">
+	<div class="span8">
+		<div class="row">
+		<div class="span4">
 			<h1>Lololol<h1>
 		</div>
-		<div class="col-md-4">
+		<div class="span4">
 			<h1>LPPPPL</h1>
 		</div>
+		</div>
 	</div>
-	<div class="col-md-8">
-     	 	<div class="masthead">
-   	 	    <ul class="nav nav-justified">
+	<div class="span8">
+	<div class="navbar">
+	<div class="navbar-inner">
+     	 	<div class="container">
+   	 	    <ul class="nav">
  	 	      <li class="<%= 'active' if current_page?(root_path) %>"><a href="/">О компани</a></li>
    	  	      <li class="<%= 'active' if current_page?(offers_path) %>"><a href="/offers">Новости</a></li>
-  	 	      <li class="<%= 'active' if current_page?(goods_path) %>"><a href="/goods">Интернет-Магазин</a></li>
-   	   	      <li class="<%= 'active' if current_page?(partners_path) %>"><a href="/partners">Партнеры</a></li>
+  	 	      <li class="<%= 'active' if current_page?(goods_path) %>"><a href="/goods">Магазин</a></li>
+   	   	      <li class="<%= 'active' if current_page?(categories_path) %>"><a href="/categories">Партнеры</a></li>
   	  	      <li class="<%= 'active' if current_page?(contact_index_path) %>"><a href="/contact/index">Контакты</a></li>
 	  	    </ul>
   	    
     		</div>
+	</div>
+	</div>
  	</div>
 </div>
+</div>
+</div></div>

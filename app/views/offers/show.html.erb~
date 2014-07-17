@@ -4,15 +4,17 @@
   <strong>Title:</strong>
   <%= @offer.title %>
 </p>
-
 <p>
   <strong>Description:</strong>
-  <%= @offer.description %>
+  <%= @offer.short_description.html_safe if @offer.short_description %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @offer.description.html_safe if @offer.description %>
 </p>
 
 <%= image_tag @offer.avatar.url(:medium) %>
-<h1>
 <%if current_admin %>
-<%= link_to 'Изменить', edit_offer_path(@offer) %>
+<br><%= link_to 'Изменить', edit_offer_path(@offer) %>
 <%end%>
-<%= link_to 'Вернуться к списку новостей', offers_path %></h1>
+<br><%= link_to 'Вернуться к списку новостей', offers_path %>
