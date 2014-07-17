@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
 def destroy_sub 
-	if self.super_category != nil || ""
+	if self.super_category != nil && ""
 		@categor = Category.find(self.super_category)
 		temp = @categor.sub_category
 		r = temp.to_s.split(",")
@@ -16,4 +16,8 @@ def destroy_sub
 	self.destroy
 		
     end
+end
+
+def lol
+	204
 end

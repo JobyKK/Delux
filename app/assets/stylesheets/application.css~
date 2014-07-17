@@ -13,4 +13,9 @@
  *= require_tree .
  *= require_self
  *= require bootsy
+<<<<<<< HEAD
  */= require bootsy
+=======
+ *= require animate
+ */
+>>>>>>> 6e645e0c0ca8dc9c60579d16fd3f882dd282cd30
