@@ -9,7 +9,7 @@
 		<%if r.sub_category != ""%>
 			</li>     		
 			<% r.sub_category.to_s.split(',').each do |p| %>
-				<li id="<%= p%>" onclick="document.getElementById(<%= p%>).className += 'animated fadeInDown';"><a style="margin-left:20px"><%= Category.find(p.to_i).title%></a>
+				<li id="<%= p%>"><a style="margin-left:20px"><%= Category.find(p.to_i).title%></a>
 				<%= link_to 'Edit', edit_category_path(r) %>
 				<%= link_to 'Добавить', r, method: :add %>
 				<%= link_to 'Destroy', r, method: :delete, data: { confirm: 'Are you sure?' } %></li>

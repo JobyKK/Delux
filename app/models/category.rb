@@ -17,7 +17,3 @@ def destroy_sub
 		
     end
 end
-
-def lol
-	204
-end

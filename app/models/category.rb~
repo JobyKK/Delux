@@ -19,5 +19,5 @@ def destroy_sub
 end
 
 def lol
-	7
+	204
 end

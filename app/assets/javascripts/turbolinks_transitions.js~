@@ -9,7 +9,5 @@ document.addEventListener('page:fetch', function() {
         document.getElementById('primary-content').className += 'animated fadeInUp';
 
 });
-$('204').observe('click', function (event) {
-  alert('Hooray!');
-  event.stop(); // Prevent link from following through to its given href
-});
+
+function MyOnClick()

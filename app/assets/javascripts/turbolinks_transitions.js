@@ -10,3 +10,6 @@ document.addEventListener('page:fetch', function() {
 
 });
 
+function MyOnClick() {
+alert('lol')
+};
