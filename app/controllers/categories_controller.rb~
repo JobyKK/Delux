@@ -15,6 +15,9 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
+    @category.super_category = ""
+    @category.sub_category = ""  
+    @category.save
   end
 
 
