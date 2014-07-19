@@ -1,23 +1,20 @@
 <ul>
 	<% Category.all.each do |r| %>
-		<%if r.super_category == ""%>
-
-	    		<li onclick=<%='MyOnClick("'+r.sub_category.to_s+'")'%>><a style="font-size:12pt"><%=r.title%></a>
-			<%#= link_to r.title, '#', :onclick => 'MyOnClick("'+r.sub_category.to_s+'")' %>
-			<%= link_to 'Edit', edit_category_path(r) %>
-			<%= link_to 'Добавить', r, method: :add %>
-       			
+		<%if r.super_category == ""%>  		
+			<li> <a style="font-size:14pt;color:000;"><%=r.title%></a>
+			<%= link_to ' Изменить ', edit_category_path(r) %>
+			<%= link_to ' Добавить подкатегорию ', r, method: :add %>	
         	<%end%> 
 		<%if r.sub_category != ""%>
 			</li>     		
 			<% r.sub_category.to_s.split(',').each do |p| %>
-				<li id="<%= p%>"><a style="margin-left:20px"><%= Category.find(p.to_i).title%></a>
-				<%= link_to 'Edit', edit_category_path(r) %>
-				<%= link_to 'Добавить', r, method: :add %>
-				<%= link_to 'Destroy', r, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+				<li><a style="margin-left:20px;color:red;font-size:12pt;"><%= Category.find(p.to_i).title%></a>
+				<%= link_to 'Изменить ', edit_category_path(r) %>
+				<%= link_to ' Добавить подкатегорию ', r, method: :add %>
+				<%= link_to ' Удалить ', r, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 			<%end%>
 		<%else%>
-			<%= link_to 'Destroy', r, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+			<%= link_to 'Удалить', r, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 		<%end%>
 	<%end%>
 </ul>

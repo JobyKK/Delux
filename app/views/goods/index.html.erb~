@@ -1,6 +1,6 @@
 <h1>Listing goods</h1>
 
-<!--<table>
+<table>
   <thead>
     <tr>
       <th>Title</th>
@@ -25,18 +25,13 @@
         <td><%= good.kind %></td>
         <td><%= good.producer %></td>
         <td><%= link_to 'Show', good %></td>
-        <% if current_admin %>
-		<td><%= link_to 'Edit', edit_good_path(good) %></td>
-        	<td><%= link_to 'Destroy', good, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_good_path(good) %></td>
+        <td><%= link_to 'Destroy', good, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-	<%end%>
     <% end %>
   </tbody>
 </table>
--->
+
 <br>
 <%= render 'menu_goods' %>
-<%if current_admin%>
-	<h1 style="color:aaa;"><%= link_to 'BIG RED BUTTON', categories_path %></h1>
-	<%= link_to 'New Good', new_good_path %>
-<%end%>
+<%= link_to 'New Good', new_good_path %>

@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
-  before_action :is_admin, only:[:new, :edit, :destroy, :update]
+  before_action :is_admin, except: [:show,:index] 
   # GET /offers
   # GET /offers.json
   def index

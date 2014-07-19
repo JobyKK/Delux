@@ -1,21 +1,13 @@
-//document.addEventListener('page:change', function() {
-
-  //      document.getElementById('primary-content').className += 'animated fadeInDown';
-//
-//});
-
-//document.addEventListener('page:fetch', function() {
-
-  //      document.getElementById('primary-content').className += 'animated fadeInUp';
-
-//});
-
-function MyOnClick(sub) {
-if (sub != "") { 
-	arr = sub.split(",");
-	for (i=0;i<arr.length;i++) {
-		document.getElementById(arr[i]).className += 'animated fadeInDown';
-	}
-} else {
-alert('lol'); }
+function MyOnClick(ids,sub,last) {
+	if (sub != "") {
+		arr = sub.split(",");
+		var doc = document.getElementById(ids);
+		var temp = "";
+		for (i=0;i<arr.length-1;i++) {
+			temp += '<a href="#" style="margin-left:20px;" class = "animated fadeInDown">'
+			temp += arr[i]
+			temp += '</a><br>'
+		}
+	doc.innerHTML = temp;
+	} 
 };

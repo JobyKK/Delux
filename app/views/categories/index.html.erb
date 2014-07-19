@@ -1,35 +1,6 @@
 <h1>Listing categories</h1>
 <h1><%= link_to 'New Category', new_category_path %></h1>
-<table>
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>sub</th> 
-      <th>sup</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-	<td><%= category.id %></td>
-        <td><%= category.title %></td>
-        <td><%= category.descritpion %></td>
-	<td><%= category.sub_category%></td>
-	<td><%= category.super_category%></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-	<td><%= link_to 'Добавить', category, method: :add %></td>
-        <% if category.sub_category == nil || category.sub_category == ""%>
-	<td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%> 
-     </tr>
-    <% end %>
-  </tbody>
-</table>
 <%= render 'menu_category' %>
 
 
