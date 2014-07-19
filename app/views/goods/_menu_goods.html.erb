@@ -2,13 +2,12 @@
 	<% Category.all.each do |r| %>
 		<%if r.super_category == ""%>
 			<% temp = "" %>
-			<% tlast = "" %>
 			<% if r.sub_category != "" %>
 				<% r.sub_category.to_s.split(',').each do |p| %>
 					<% temp += Category.find(p.to_i).title.to_s + ","%>
 				<% end %>
 			<% end %>
-			<a onclick=<%='MyOnClick("'+r.id.to_s+'d","'+temp.to_s+'","'+tlast+'")'%> style="font-size:12pt"><% tlast=r.id.to_s%><%=r.title%><div id="<%= r.id.to_s+"d" %>"></div>
+			<a onclick=<%='MyOnClick("'+r.id.to_s+'d","'+temp.to_s+'")'%> style="font-size:12pt"><%= r.title%></a><div id='<%= r.id.to_s+"d"%>'></div>
        			
         	<%end%> 
 	<%end%>
