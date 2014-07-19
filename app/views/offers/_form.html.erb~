@@ -1,6 +1,6 @@
 <style>
 textarea{
-  width: 670px;
+  width: 650px;
   height: 200px;
 }
 </style>
@@ -32,7 +32,7 @@ textarea{
  <div class="field">
 
     <%= f.label :Short %>
-    <%= f.bootsy_area :short_description %>
+    <%= f.bootsy_area :short_description, editor_options: {link: :true, color: :true, font_styles: :true} %>
   </div> 
   <div class="field">
     <%= f.label :Full %>

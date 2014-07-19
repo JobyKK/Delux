@@ -60,20 +60,40 @@
       <!-- Example row of columns -->
       <div class="row-fluid">
         <div class="span4">
-          <h2><%= Offer.find(1).title%></h2>
-          <p><%= Offer.find(1).description%></p>
-	  <p><a class="btn btn-primary" href="/offers/<%=Offer.find(1).id.to_s%>" role="button">View details &raquo;</a></p>
-        </div>
+	<div class="row">
+		<div class="span4">
+			<%= image_tag Offer.all[-1].avatar.url(:thumb), 'width' => '100px', 'height' => '100px' %>
+		</div>
+		<div class="span6">
+          		<h2><%= Offer.all[-1].title%></h2>
+          		<p><%= Offer.all[-1].short_description.html_safe if Offer.all[-1].short_description%></p>
+	 	 	<p><a class="btn btn-primary" href="/offers/<%=Offer.all[-1].id.to_s%>" role="button">View details &raquo;</a></p>
+        	</div>
+	</div>
+	</div>
         <div class="span4">
-          <h2><%= Offer.find(3).title%></h2>
-          <p><%= Offer.find(3).description%></p>
-	  <p><a class="btn btn-primary" href="/offers/<%=Offer.find(3).id.to_s%>" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2><%= Offer.last.title %></h2>
-	  <p><%= Offer.last.description %></p>          
-	  <p><a class="btn btn-primary" href="/offers/<%=Offer.last.id.to_s%>" role="button">View details &raquo;</a></p>
-        </div>
+	<div class="row">
+		<div class="span4">
+			<%= image_tag Offer.all[-2].avatar.url(:thumb), 'width' => '100px', 'height' => '100px' %>
+		</div>
+		<div class="span6">
+          		<h2><%= Offer.all[-2].title%></h2>
+          		<p><%= Offer.all[-2].short_description.html_safe if Offer.all[-2].short_description%></p>
+	 	 	<p><a class="btn btn-primary" href="/offers/<%=Offer.all[-2].id.to_s%>" role="button">View details &raquo;</a></p>
+        	</div>
+	</div>
+	</div><div class="span4">
+	<div class="row">
+		<div class="span4">
+			<%= image_tag Offer.all[-3].avatar.url(:thumb), 'width' => '100px', 'height' => '100px' %>
+		</div>
+		<div class="span6">
+          		<h2><%= Offer.all[-3].title%></h2>
+          		<p><%= Offer.all[-3].short_description.html_safe if Offer.all[-3].short_description%></p>
+	 	 	<p><a class="btn btn-primary" href="/offers/<%=Offer.all[-3].id.to_s%>" role="button">View details &raquo;</a></p>
+        	</div>
+	</div>
+	</div>
       </div>
 
       <!-- Site footer -->

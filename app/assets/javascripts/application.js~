@@ -12,9 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-<<<<<<< HEAD
 //= require jquery.remotipart
-//= require bootstrap
+
 //= require bootsy/wysihtml5
 //= require bootsy/bootstrap-wysihtml5
 //= require bootsy/bootsy
@@ -23,9 +22,6 @@
 //= require bootsy/editor_options
 //= require bootsy/translations
 
-=======
-//= require bootsy
->>>>>>> 6e645e0c0ca8dc9c60579d16fd3f882dd282cd30
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
