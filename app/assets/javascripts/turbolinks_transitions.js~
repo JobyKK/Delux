@@ -7,9 +7,7 @@ function MyOnClick(ids,sub) {
 	if (sub != "") {
 		arr = sub.split(",");
 		var primary = document.getElementsByName("primary");
-		for(i=0;i<primary.length;i++) {
-			//alert(i.toString());
-			//alert(primary[i].innerHTML);			
+		for(i=0;i<primary.length;i++) {		
 			primary[i].innerHTML = "";
 		}
 		var doc = document.getElementById(ids);
