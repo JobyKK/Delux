@@ -5,7 +5,7 @@
   <%= @offer.title %>
 </p>
 <p>
-  <strong>Description:</strong>
+  <strong>Short Description:</strong>
   <%= @offer.short_description.html_safe if @offer.short_description %>
 </p>
 <p>

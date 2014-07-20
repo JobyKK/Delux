@@ -3,6 +3,10 @@ textarea{
   width: 650px;
   height: 200px;
 }
+field{
+  width: 650px;
+  height: 200px;
+}
 </style>
 <%= form_for(@offer, multipart: true) do |f| %>
   <% if @offer.errors.any? %>
@@ -19,7 +23,7 @@ textarea{
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title, :cols => 20, :rows => 10 %>
+    <%= f.text_field :title, :size => "30x10" %>
   </div>
   <!-- <div class="field">
     <%= f.label :description %><br>
@@ -32,7 +36,7 @@ textarea{
  <div class="field">
 
     <%= f.label :Short %>
-    <%= f.bootsy_area :short_description, editor_options: {link: :true, color: :true, font_styles: :true} %>
+    <%= f.bootsy_area :short_description %>
   </div> 
   <div class="field">
     <%= f.label :Full %>

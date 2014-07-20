@@ -5,15 +5,9 @@
   <%= @offer.title %>
 </p>
 <p>
-  <strong>Short Description:</strong>
-  <%= @offer.short_description.html_safe if @offer.short_description %>
-</p>
-<p>
   <strong>Description:</strong>
   <%= @offer.description.html_safe if @offer.description %>
 </p>
-
-<%= image_tag @offer.avatar.url(:medium) %>
 <%if current_admin %>
 <br><%= link_to 'Изменить', edit_offer_path(@offer) %>
 <%end%>
