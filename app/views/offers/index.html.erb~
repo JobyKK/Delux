@@ -1,3 +1,9 @@
+<style>
+img{
+  width: 100px;
+  height: 100px;
+}
+</style>
 <h1><%if current_admin %>
 <%= link_to "Новая новость", new_offer_path %>
 <%end%>
@@ -5,26 +11,40 @@
 <h1>Новости</h1>
 <div class="row">
 <% @list.each do |element| %>
-	<div class="span6">
-	<div class="row">
-	<div class="span2">
-		<%= image_tag element.avatar.url(:thumb), 'width' => '100px', 'height' => '100px' %>
-	</div>
-	<div class="span10">
-		<h2><%= link_to element.title, element %></h2>
-		<p><%= element.short_description.html_safe if element.short_description %><br>
-		<right><%= link_to "Подробно", element %></right></p>
-<%if current_admin %>
-	<table>
-		<tr>
-<td colspan="2">  		
-			<%= link_to "Изменить", edit_offer_path(element.id) %>
-			<%= link_to "Удалить", element, method: :delete %>
-		</td></tr>
-	</table>
-	<%end%>
-	</div>
-	</div>
+	<div class="panel span6">
+		<div>
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h2><%= link_to element.title, element %></h2>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="span2">
+							<%= image_tag element.avatar.url(:thumb), :size => '100x100' %>
+						</div>
+						<div class="span3">
+						
+							<p><%= element.short_description.html_safe if element.short_description %><br>
+
+						</div>
+					</div>
+				</div>
+					<div class="panel-footer clearfix">
+						<div class="pull-right">
+													<right><%= link_to "Подробно", element %></right></p>
+						<%if current_admin %>
+							<table>
+							<tr>
+							<td colspan="2">  		
+								<%= link_to "Изменить", edit_offer_path(element.id) %>
+								<%= link_to "Удалить", element, method: :delete %>
+							</td></tr>
+							</table>
+						<%end%>	
+						</div>
+					</div>
+			</div>
+		</div>
 	</div>
 <% end %>
 </div>
