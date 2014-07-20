@@ -1,5 +1,5 @@
 <style>
-img{
+.span2 img{
   width: 100px;
   height: 100px;
 }
@@ -20,7 +20,7 @@ img{
 				<div class="panel-body">
 					<div class="row">
 						<div class="span2">
-							<%= image_tag element.avatar.url(:thumb), :size => '100x100' %>
+							<%= image_tag(element.avatar.url(:thumb)) %>
 						</div>
 						<div class="span3">
 						
