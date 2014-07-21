@@ -13,7 +13,7 @@
 <% @list.each do |element| %>
 	<div class="panel span6">
 		<div>
-			<div class="panel panel-success">
+			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h2><%= link_to element.title, element %></h2>
 				</div>
@@ -23,7 +23,6 @@
 							<%= image_tag(element.avatar.url(:thumb)) %>
 						</div>
 						<div class="span3">
-						
 							<p><%= element.short_description.html_safe if element.short_description %><br>
 
 						</div>
@@ -31,7 +30,7 @@
 				</div>
 					<div class="panel-footer clearfix">
 						<div class="pull-right">
-													<right><%= link_to "Подробно", element %></right></p>
+						<p><a class="btn btn-default" href="/offers/<%=element.id.to_s%>" role="button">Подробно &raquo;</a></p>
 						<%if current_admin %>
 							<table>
 							<tr>

@@ -8,8 +8,14 @@
     <link rel="icon" href="../../favicon.ico">
 	<link rel="stylesheet" href="assets/coin-slider-styles.css" type="text/css" />
 <style>
-
-    </style>
+.span3 img{
+  width: 100px;
+  height: 100px;
+}
+.btn hover{
+color: red;
+}
+</style>
 <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
   </head>
       <div class="jumbotron">
@@ -58,44 +64,47 @@
 	</div>
 	
       <!-- Example row of columns -->
-      <div class="row-fluid">
-        <div class="span4">
-	<div class="row">
-		<div class="span4">
-			<%= image_tag Offer.all[-1].avatar.url(:thumb), 'width' => '100px', 'height' => '100px' %>
-		</div>
-		<div class="span6">
-          		<h2><%= Offer.all[-1].title%></h2>
-          		<p><%= Offer.all[-1].short_description.html_safe if Offer.all[-1].short_description%></p>
-	 	 	<p><a class="btn btn-primary" href="/offers/<%=Offer.all[-1].id.to_s%>" role="button">View details &raquo;</a></p>
-        	</div>
-	</div>
-	</div>
-        <div class="span4">
-	<div class="row">
-		<div class="span4">
-			<%= image_tag Offer.all[-2].avatar.url(:thumb), 'width' => '100px', 'height' => '100px' %>
-		</div>
-		<div class="span6">
-          		<h2><%= Offer.all[-2].title%></h2>
-          		<p><%= Offer.all[-2].short_description.html_safe if Offer.all[-2].short_description%></p>
-	 	 	<p><a class="btn btn-primary" href="/offers/<%=Offer.all[-2].id.to_s%>" role="button">View details &raquo;</a></p>
-        	</div>
-	</div>
-	</div><div class="span4">
-	<div class="row">
-		<div class="span4">
-			<%= image_tag Offer.all[-2].avatar.url(:thumb), 'width' => '100px', 'height' => '100px' %>
-		</div>
-		<div class="span6">
-          		<h2><%= Offer.all[-2].title%></h2>
-          		<p><%= Offer.all[-2].short_description.html_safe if Offer.all[-2].short_description%></p>
-	 	 	<p><a class="btn btn-primary" href="/offers/<%=Offer.all[-2].id.to_s%>" role="button">View details &raquo;</a></p>
-        	</div>
-	</div>
-	</div>
-      </div>
+	<%if Offer.all.size > 2 %>
+      <div class="row">
+	<% for i in 1..3 do %>
+	<div class="panel span4">
+		<div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2><%= link_to Offer.all[-i].title, Offer.all[-i] %></h2>
+				</div>
+				<div class="panel-body">
+					<div class="row-fluid">
+						<div class="span3">
+							<%= image_tag(Offer.all[-i].avatar.url(:thumb)) %>
+						</div>
 
+						<div class="span9">
+						<p><%= Offer.all[-i].short_description.html_safe if Offer.all[-i].short_description %><br>
+						</div>
+					</div>
+				</div>
+					<div class="panel-footer clearfix">
+						<div class="pull-right">
+	<p><a class="btn btn-default" href="/offers/<%=Offer.all[-i].id.to_s%>" role="button">Подробно &raquo;</a></p>
+													
+						<%if current_admin %>
+							<table>
+							<tr>
+							<td colspan="2">  		
+								<%= link_to "Изменить", edit_offer_path(Offer.all[-i].id) %>
+								<%= link_to "Удалить", Offer.all[-i], method: :delete %>
+							</td></tr>
+							</table>
+						<%end%>	
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>    
+	<%end%>
+      </div>
+	<%end%>
       <!-- Site footer -->
       <div class="footer">
         <p>&copy; Company 2014</p>
