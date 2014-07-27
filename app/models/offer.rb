@@ -5,6 +5,6 @@ class Offer < ActiveRecord::Base
 	validates :avatar,
 	attachment_content_type: { content_type: /\Aimage\/.*\Z/ },
 	attachment_size: { less_than: 5.megabytes }
-
-    has_attached_file :avatar, :styles => { :medium => '400x400', :thumb => ["100x100", :png] }
+	has_attached_file :avatar
+    #has_attached_file :avatar, :styles => { :medium => '400x400', :thumb => ["100x100", :png] }
 end

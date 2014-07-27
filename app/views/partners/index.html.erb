@@ -1,3 +1,9 @@
+<style>
+.span3 img{
+	width: 200px;
+	height: 200px;
+}
+</style>
 <h1><%if current_admin %>
 <%= link_to "Новый партнер", new_partner_path %>
 <%end%>
@@ -5,15 +11,8 @@
 <h1>Партнеры</h1>
 <div class="row">
 <% @list.each do |element| %>
-	<div class="span6">
-		<div class="row">
-			<div class="span2">
-				<%= image_tag element.avatar.url(:thumb), 'width' => '100px', 'height' => '100px' %>
-			</div>
-			<div class="span4">
-				<h2><%= link_to element.title, element %></h2>
-				<p><%= element.description.html_safe if element.description %><br>
-				<right><%= link_to "Подробно", element %></right></p>
+	<div class="span3">
+				<%= link_to image_tag(element.avatar.url), element %>
 			<%if current_admin %>
 				<table>
 				<tr>
@@ -23,8 +22,6 @@
 				</td></tr>
 				</table>
 			<%end%>
-			</div>
-		</div>
 	</div>
 <% end %>
 </div>

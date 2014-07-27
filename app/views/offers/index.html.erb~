@@ -13,7 +13,7 @@
 <% @list.each do |element| %>
 	<div class="panel span6">
 		<div>
-			<div class="panel panel-primary">
+			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h2><%= link_to element.title, element %></h2>
 				</div>
@@ -30,7 +30,7 @@
 				</div>
 					<div class="panel-footer clearfix">
 						<div class="pull-right">
-						<p><a class="btn btn-primary" href="/offers/<%=element.id.to_s%>" role="button">Подробно &raquo;</a></p>
+						<p><a class="btn btn-default" href="/offers/<%=element.id.to_s%>" role="button">Подробно &raquo;</a></p>
 						<%if current_admin %>
 							<table>
 							<tr>
