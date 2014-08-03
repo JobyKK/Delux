@@ -1,0 +1,41 @@
+function sMyOnClick(ids) {
+	$.ajax({
+                url: "categories.json",
+                dataType : "json",             
+		success: function (data) {
+			
+			for(i = 0; i < data.length - 1;i++){
+				if (data[i].id + "d" == ids) {
+					var datas = data[i];
+					break;
+				}
+			}		
+			if (datas.sub_category != null) {
+				
+				var primary = document.getElementsByName("primary");
+				for(i=0;i<primary.length;i++) {		
+					primary[i].innerHTML = "";
+				}
+
+				var doc = document.getElementById(ids);
+				var temp = '<div name="primary">';
+
+				var arr = datas.sub_category.split(",");
+				for(i = 0;i < arr.length - 1; i++) {
+					temp += '<a href="goods/';
+					temp += arr[i];
+					temp += '" style="margin-left:20px;" class = "animated fadeInDown" onclick=MyOnClick("'
+					temp += arr[i];
+					temp += 'd")></a><div id="';
+					temp += arr[i];
+					temp += 'd"></div><br>'
+									
+				}
+				temp += '</div>'
+				doc.innerHTML += temp;
+			}
+		
+		
+	
+		});
+};

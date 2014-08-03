@@ -1,37 +1,13 @@
-<h1>Listing goods</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Price</th>
-      <th>Img</th>
-      <th>Description</th>
-      <th>Available</th>
-      <th>Kind</th>
-      <th>Producer</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @goods.each do |good| %>
-      <tr>
-        <td><%= good.title %></td>
-        <td><%= good.price %></td>
-        <td><%= good.img %></td>
-        <td><%= good.description %></td>
-        <td><%= good.available %></td>
-        <td><%= good.kind %></td>
-        <td><%= good.producer %></td>
-        <td><%= link_to 'Show', good %></td>
-        <td><%= link_to 'Edit', edit_good_path(good) %></td>
-        <td><%= link_to 'Destroy', good, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
 <br>
+<div class="row" >
+<div class="span6" >
 <%= render 'menu_goods' %>
-<%= link_to 'New Good', new_good_path %>
+<%if current_admin%>
+	<h1 style="color:aaa;"><%= link_to 'BIG RED BUTTON', categories_path %></h1>
+	<%= link_to 'New Good', new_good_path %>
+<%end%>
+</div>
+<div class="span6" name="goods">
+<h1>lol</h1>
+</div>
+</div>
