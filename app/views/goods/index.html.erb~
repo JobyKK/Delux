@@ -1,4 +1,3 @@
-
 <br>
 <div class="row" >
 <div class="span3" >
@@ -8,7 +7,14 @@
 <%= link_to 'New Good', new_good_path %>
 <%end%>
 </div>
-<div class="span9" name="goods">
+<div class="span9" >
+<div>
+<p><b>Введите название товара:</b><br>
+	<input type="text" size="40" id="search">
+	<button onclick="searchs()">Найти</button>
+</p>
+</div>
+<div name="goods">
 <%i = 0%>
 <table align="center">
 <% Category.all.each do |r| %>
@@ -27,5 +33,6 @@
 	<%end%>
 <%end%>
 </table>
+</div>
 </div>
 </div>
