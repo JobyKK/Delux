@@ -1,14 +1,14 @@
-function searchs(sub) {
+function searchs() {
 	$.ajax({
 		url: "goods.json",
 		dataType : "json",             
 		success: function (data_goods) {
 			var goods = document.getElementsByName("goods");
+			var sub = document.getElementById("search").value;			
 			var mas_goods = "";
 			var k = 0;
 			for(i = 0; (i < data_goods.length) && (k < 9);i++){
-				
-				if (data_goods[i].test) {
+				if (data_goods[i].title.indexOf(sub) != -1) {
 					mas_goods += data_goods[i].title;
 					mas_goods += ",";
 					mas_goods += data_goods[i].price;
