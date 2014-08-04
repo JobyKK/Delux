@@ -7,7 +7,7 @@
 <%= link_to 'New Good', new_good_path %>
 <%end%>
 </div>
-<div class="span6" name="goods">
+<div class="span4" name="goods">
 <%i = 0%>
 <table align="center">
 <% Category.all.each do |r| %>
