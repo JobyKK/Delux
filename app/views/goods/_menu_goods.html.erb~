@@ -1,24 +1,30 @@
-<ul>
 <style>
-a{
-}
 a:hover {
-background:#fff;
-}
-a:active {
-background:red;
-}
+background:#F5F5F5;
+};
+.nav {
+margin-bottom:0;
+};
+.nav-pills {
+margin-bottom:0;
+};
+.nav-stacked {
+margin-bottom:0;
+};
 </style>
-<% Category.all.each do |r| %>
+
+<div class="well sidebar-nav">
+<ul class="nav nav-pills nav-stacked">
+
+<% Category.all.each do |r| %><div>		  
+
 	<%if r.super_category == ""%>
-		<% temp = "" %>
-		<% if r.sub_category != "" %>
-			<% r.sub_category.to_s.split(',').each do |p| %>
-				<% temp += Category.find(p.to_i).title.to_s + ","%>
-			<% end %>
-		<% end %>
-		<a onclick=<%='MyOnClick("'+r.id.to_s+'",'+'1)'%> style="font-size:12pt"><%= r.title%></a><div id='<%= r.id.to_s%>'>
-</div>		  
+		<li>
+			<a onclick=<%='MyOnClick("'+r.id.to_s+'",'+'1)'%> style="font-size:12pt;"><%= r.title%></a>
+		</li>
+		<div id='<%= r.id.to_s%>'></div>
+		  
 	<%end%>
 <%end%>
 </ul>
+</div>

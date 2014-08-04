@@ -1,13 +1,14 @@
+
 <br>
 <div class="row" >
-<div class="span6" >
+<div class="span3" >
 <%= render 'menu_goods' %>
 <%if current_admin%>
 <h1 style="color:aaa;"><%= link_to 'BIG RED BUTTON', categories_path %></h1>
 <%= link_to 'New Good', new_good_path %>
 <%end%>
 </div>
-<div class="span4" name="goods">
+<div class="span9" name="goods">
 <%i = 0%>
 <table align="center">
 <% Category.all.each do |r| %>

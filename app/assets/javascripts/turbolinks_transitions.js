@@ -29,8 +29,9 @@ function MyOnClick(ids,lvl) {
 					} 
 					var split_goods = mas_goods.split(",");
 					
-					var temp_goods = '<table border="1">';//ето создаеться хтмл код который пишеться в правой части 
+					var temp_goods = '<table border="1">';//это создаеться хтмл код который пишеться в правой части 
 					for(i = 0;i < split_goods.length - 1; i++) {
+						temp_goods += '<div class="span6">'
 						temp_goods += '<tr><td>';						
 						temp_goods += split_goods[i];
 						temp_goods += '</td>';
@@ -38,6 +39,7 @@ function MyOnClick(ids,lvl) {
 						temp_goods += '<td>';				
 						temp_goods += split_goods[i];
 						temp_goods += '</td></tr>';
+						temp_goods += '</div>'
 					}
 					temp_goods += '</table>';
 					goods[0].innerHTML = temp_goods;//в етом месте он перезаписываеться
@@ -55,10 +57,12 @@ function MyOnClick(ids,lvl) {
 
 				var doc = document.getElementById(ids);
 				var temp1 = '<div name="primary">';
-				var temp = '';
+				var temp = '<ul class="nav nav-pills nav-stacked">';
 				var arr = datas.sub_category.split(",");
-				for(i = 0;i < arr.length - 1 ; i++) {
-					temp += '<a style="margin-left:20px;color:red;" class="animated fadeInDown" onclick="MyOnClick(&quot;'
+				
+				for(i = 0; i < arr.length - 1; i++) {
+					temp += '<li>'
+					temp += '<a style="margin-left:20px;" class="animated fadeInDown" onclick="MyOnClick(&quot;'
 					temp += arr[i];
 					temp += '&quot;,'
 					temp += '2)">'
@@ -68,12 +72,12 @@ function MyOnClick(ids,lvl) {
 							break;
 						}
 					}
-					temp +='</a><div id="';
+					temp +='</a></li><div id="';
 					temp += arr[i];
 					temp += '"></div>'
 									
 				}
-				
+				temp += '</ul>'
 
 				var bool = true;
 				var primary = document.getElementsByName("primary");
@@ -83,7 +87,7 @@ function MyOnClick(ids,lvl) {
 					}
 				}
 				temp = temp1 + temp;
-				temp += '</div>';
+				temp += '</ul></div>';
 				if (bool) {
 					doc.innerHTML += temp;
 				}
