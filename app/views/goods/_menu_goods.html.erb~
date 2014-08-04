@@ -1,4 +1,12 @@
 <ul>
+<style>
+a:hover {
+background:#fff;
+}
+a:active {
+background:red;
+}
+</style>
 	<% Category.all.each do |r| %>
 		<%if r.super_category == ""%>
 			<% temp = "" %>

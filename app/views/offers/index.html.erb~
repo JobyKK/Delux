@@ -20,7 +20,7 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="span2">
-							<%= image_tag(element.avatar.url(:thumb)) %>
+							<%= image_tag(element.avatar) %>
 						</div>
 						<div class="span3">
 							<p><%= element.short_description.html_safe if element.short_description %><br>

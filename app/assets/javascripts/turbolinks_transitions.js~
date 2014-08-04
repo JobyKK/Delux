@@ -11,14 +11,14 @@ function MyOnClick(ids,lvl) {
 				}
 			}
 			
-
+//тут запрос в бд товаров и их вывод в правую часть
 			$.ajax({
 				url: "goods.json",
 				dataType : "json",             
 				success: function (data_goods) {
 					var goods = document.getElementsByName("goods");
-					var mas_goods = "";
-					for(i = 0; (i < data_goods.length) && (i < 10);i++){
+					var mas_goods = "";//создаеться CMS mas_goods из json, тут только то что нужно для вывода
+					for(i = 0; (i < data_goods.length) && (i < 10);i++){//берем всего 10 товаров
 						
 						if (data_goods[i].kind == ids) {
 							mas_goods += data_goods[i].title;
@@ -29,7 +29,7 @@ function MyOnClick(ids,lvl) {
 					} 
 					var split_goods = mas_goods.split(",");
 					
-					var temp_goods = '<ul>';
+					var temp_goods = '<ul>';//ето создаеться хтмл код который пишеться в правой части 
 					for(i = 0;i < split_goods.length - 1; i++) {
 						temp_goods += '<li>';						
 						temp_goods += split_goods[i];
@@ -40,7 +40,7 @@ function MyOnClick(ids,lvl) {
 						temp_goods += '</li>';
 					}
 					temp_goods += '</ul>';
-					goods[0].innerHTML = temp_goods;
+					goods[0].innerHTML = temp_goods;//в етом месте он перезаписываеться
 				}
 			});
 		
@@ -58,9 +58,6 @@ function MyOnClick(ids,lvl) {
 				var temp = '';
 				var arr = datas.sub_category.split(",");
 				for(i = 0;i < arr.length - 1 ; i++) {
-					//temp += '<a href="goods/';
-					//temp += arr[i];
-
 					temp += '<a style="margin-left:20px;" class="animated fadeInDown" onclick="MyOnClick(&quot;'
 					temp += arr[i];
 					temp += '&quot;,'
@@ -96,3 +93,36 @@ function MyOnClick(ids,lvl) {
 		}	
 	});
 };
+/*function goodsClick(ids) {
+	$.ajax({
+		url: "goods.json",
+		dataType : "json",             
+		success: function (data_goods) {
+			var goods = document.getElementsByName("goods");
+			var mas_goods = "";
+			for(i = 0; (i < data_goods.length) && (i < 10);i++){
+				
+				if (data_goods[i].kind == ids) {
+					mas_goods += data_goods[i].title;
+					mas_goods += ",";
+					mas_goods += data_goods[i].price;
+					mas_goods += ",";							
+				}
+			} 
+			var split_goods = mas_goods.split(",");
+			
+			var temp_goods = '<ul>';
+			for(i = 0;i < split_goods.length - 1; i++) {
+				temp_goods += '<li>';						
+				temp_goods += split_goods[i];
+				temp_goods += '</li>';
+				i++;
+				temp_goods += '<li>';				
+				temp_goods += split_goods[i];
+				temp_goods += '</li>';
+			}
+			temp_goods += '</ul>';
+			goods[0].innerHTML = temp_goods;
+		}
+	});
+};*/
