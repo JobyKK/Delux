@@ -1,9 +1,11 @@
 <ul>
 <style>
+a{
+}
 a:hover {
 background:#fff;
 }
-a:active {
+a:link {
 background:red;
 }
 </style>

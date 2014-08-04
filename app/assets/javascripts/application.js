@@ -24,4 +24,5 @@
 
 //= require twitter/bootstrap
 //= require turbolinks
+//= require scriptSearch
 //= require_tree .

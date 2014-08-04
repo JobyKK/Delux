@@ -29,17 +29,17 @@ function MyOnClick(ids,lvl) {
 					} 
 					var split_goods = mas_goods.split(",");
 					
-					var temp_goods = '<ul>';//ето создаеться хтмл код который пишеться в правой части 
+					var temp_goods = '<table border="1">';//ето создаеться хтмл код который пишеться в правой части 
 					for(i = 0;i < split_goods.length - 1; i++) {
-						temp_goods += '<li>';						
+						temp_goods += '<tr><td>';						
 						temp_goods += split_goods[i];
-						temp_goods += '</li>';
+						temp_goods += '</td>';
 						i++;
-						temp_goods += '<li>';				
+						temp_goods += '<td>';				
 						temp_goods += split_goods[i];
-						temp_goods += '</li>';
+						temp_goods += '</td></tr>';
 					}
-					temp_goods += '</ul>';
+					temp_goods += '</table>';
 					goods[0].innerHTML = temp_goods;//в етом месте он перезаписываеться
 				}
 			});
@@ -58,7 +58,7 @@ function MyOnClick(ids,lvl) {
 				var temp = '';
 				var arr = datas.sub_category.split(",");
 				for(i = 0;i < arr.length - 1 ; i++) {
-					temp += '<a style="margin-left:20px;" class="animated fadeInDown" onclick="MyOnClick(&quot;'
+					temp += '<a style="margin-left:20px;color:red;" class="animated fadeInDown" onclick="MyOnClick(&quot;'
 					temp += arr[i];
 					temp += '&quot;,'
 					temp += '2)">'
@@ -93,36 +93,3 @@ function MyOnClick(ids,lvl) {
 		}	
 	});
 };
-/*function goodsClick(ids) {
-	$.ajax({
-		url: "goods.json",
-		dataType : "json",             
-		success: function (data_goods) {
-			var goods = document.getElementsByName("goods");
-			var mas_goods = "";
-			for(i = 0; (i < data_goods.length) && (i < 10);i++){
-				
-				if (data_goods[i].kind == ids) {
-					mas_goods += data_goods[i].title;
-					mas_goods += ",";
-					mas_goods += data_goods[i].price;
-					mas_goods += ",";							
-				}
-			} 
-			var split_goods = mas_goods.split(",");
-			
-			var temp_goods = '<ul>';
-			for(i = 0;i < split_goods.length - 1; i++) {
-				temp_goods += '<li>';						
-				temp_goods += split_goods[i];
-				temp_goods += '</li>';
-				i++;
-				temp_goods += '<li>';				
-				temp_goods += split_goods[i];
-				temp_goods += '</li>';
-			}
-			temp_goods += '</ul>';
-			goods[0].innerHTML = temp_goods;
-		}
-	});
-};*/
