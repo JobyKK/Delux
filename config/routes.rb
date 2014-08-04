@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
+  resources :goods
+
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   resources :partners
 
   resources :categories
   post 'categories/:id' => 'categories#add'
-
-  resources :goods
 
   devise_for :admins
   get 'contact/index'

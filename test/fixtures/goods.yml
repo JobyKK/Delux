@@ -3,17 +3,17 @@
 one:
   title: MyString
   price: 1.5
-  img: MyText
+  short_description: MyText
   description: MyText
   available: false
-  kind: MyString
-  producer: MyString
+  category: MyString
+  produser: MyString
 
 two:
   title: MyString
   price: 1.5
-  img: MyText
+  short_description: MyText
   description: MyText
   available: false
-  kind: MyString
-  producer: MyString
+  category: MyString
+  produser: MyString

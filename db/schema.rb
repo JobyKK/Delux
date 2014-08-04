@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717101701) do
+ActiveRecord::Schema.define(version: 20140804110723) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -54,16 +54,25 @@ ActiveRecord::Schema.define(version: 20140717101701) do
     t.datetime "updated_at"
   end
 
+  create_table "contacts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "goods", force: true do |t|
     t.string   "title"
     t.float    "price"
-    t.text     "img"
+    t.text     "short_description"
     t.text     "description"
     t.boolean  "available"
-    t.string   "kind"
-    t.string   "producer"
+    t.string   "category"
+    t.string   "produser"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "offers", force: true do |t|

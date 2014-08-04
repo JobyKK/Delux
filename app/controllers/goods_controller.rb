@@ -69,6 +69,6 @@ class GoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def good_params
-      params.require(:good).permit(:title, :price, :img, :description, :available, :kind, :producer)
+      params.require(:good).permit(:title, :price, :short_description, :description, :available, :category, :produser)
     end
 end
