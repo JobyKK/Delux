@@ -17,7 +17,7 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @good.description.html_safe if @good.description %>
+  <%= @good.description %>
 </p>
 
 <p>

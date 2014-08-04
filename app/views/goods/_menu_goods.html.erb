@@ -9,16 +9,16 @@ a:active {
 background:red;
 }
 </style>
-	<% Category.all.each do |r| %>
-		<%if r.super_category == ""%>
-			<% temp = "" %>
-			<% if r.sub_category != "" %>
-				<% r.sub_category.to_s.split(',').each do |p| %>
-					<% temp += Category.find(p.to_i).title.to_s + ","%>
-				<% end %>
+<% Category.all.each do |r| %>
+	<%if r.super_category == ""%>
+		<% temp = "" %>
+		<% if r.sub_category != "" %>
+			<% r.sub_category.to_s.split(',').each do |p| %>
+				<% temp += Category.find(p.to_i).title.to_s + ","%>
 			<% end %>
-			<a onclick=<%='MyOnClick("'+r.id.to_s+'",'+'1)'%> style="font-size:12pt"><%= r.title%></a><div id='<%= r.id.to_s%>'></div>
-       			
-        	<%end%> 
+		<% end %>
+		<a onclick=<%='MyOnClick("'+r.id.to_s+'",'+'1)'%> style="font-size:12pt"><%= r.title%></a><div id='<%= r.id.to_s%>'>
+<div>		  
 	<%end%>
+<%end%>
 </ul>

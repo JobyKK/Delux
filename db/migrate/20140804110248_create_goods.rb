@@ -3,11 +3,11 @@ class CreateGoods < ActiveRecord::Migration
     create_table :goods do |t|
       t.string :title
       t.float :price
-      t.text :img
+      t.text :short_description
       t.text :description
       t.boolean :available
-      t.string :kind
-      t.string :producer
+      t.string :category
+      t.string :produser
 
       t.timestamps
     end

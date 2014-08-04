@@ -3,8 +3,8 @@
 <div class="span6" >
 <%= render 'menu_goods' %>
 <%if current_admin%>
-	<h1 style="color:aaa;"><%= link_to 'BIG RED BUTTON', categories_path %></h1>
-	<%= link_to 'New Good', new_good_path %>
+<h1 style="color:aaa;"><%= link_to 'BIG RED BUTTON', categories_path %></h1>
+<%= link_to 'New Good', new_good_path %>
 <%end%>
 </div>
 <div class="span6" name="goods">
@@ -12,18 +12,18 @@
 <table align="center">
 <% Category.all.each do |r| %>
 	<%if r.super_category == ""%>
-		
+
 		<%if i % 2 == 0 %>
 			<tr>
 		<%end%>
 		<td>
 		<a onclick=<%='MyOnClick("'+r.id.to_s+'",'+'1)'%> style="font-size:12pt" width="300"><%= r.title%></a></div>
 		</td>
-      		<%if i % 2 != 0 %>
+		<%if i % 2 != 0 %>
 			<tr/>
 		<%end%>	
 		<%i += 1%>
-       	<%end%> 
+	<%end%>
 <%end%>
 </table>
 </div>
