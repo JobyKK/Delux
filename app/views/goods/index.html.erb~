@@ -7,9 +7,10 @@
 <%= link_to 'New Good', new_good_path %>
 <%end%>
 </div>
+
 <div class="span6">
 <div>
-<p><b>Ваше имя:</b><br>
+<p><b>Введите название товара:</b><br>
 	<input type="text" size="40" id="search">
 	<button onclick="searchs()">Найти</button>
 </p>
