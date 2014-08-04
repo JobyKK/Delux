@@ -17,7 +17,8 @@ background:red;
 				<% temp += Category.find(p.to_i).title.to_s + ","%>
 			<% end %>
 		<% end %>
-		<a onclick=<%='MyOnClick("'+r.id.to_s+'",'+'1)'%> style="font-size:12pt"><%= r.title%></a><div id='<%= r.id.to_s%>'><div>		  
+		<a onclick=<%='MyOnClick("'+r.id.to_s+'",'+'1)'%> style="font-size:12pt"><%= r.title%></a><div id='<%= r.id.to_s%>'>
+<div>		  
 	<%end%>
 <%end%>
 </ul>
