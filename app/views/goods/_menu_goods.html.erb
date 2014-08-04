@@ -9,7 +9,8 @@ a:active {
 background:red;
 }
 </style>
-<% Category.all.each do |r| %>
+<% Category.all.each do |r| %><div>		  
+
 	<%if r.super_category == ""%>
 		<% temp = "" %>
 		<% if r.sub_category != "" %>

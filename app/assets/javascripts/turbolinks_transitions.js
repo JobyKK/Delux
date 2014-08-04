@@ -20,7 +20,7 @@ function MyOnClick(ids,lvl) {
 					var mas_goods = "";//создаеться CMS mas_goods из json, тут только то что нужно для вывода
 					for(i = 0; (i < data_goods.length) && (i < 10);i++){//берем всего 10 товаров
 						
-						if (data_goods[i].kind == ids) {
+						if (data_goods[i].category == ids) {
 							mas_goods += data_goods[i].title;
 							mas_goods += ",";
 							mas_goods += data_goods[i].price;
