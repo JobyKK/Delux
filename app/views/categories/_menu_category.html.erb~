@@ -10,7 +10,7 @@
 			<% r.sub_category.to_s.split(',').each do |p| %>
 				<li><a style="margin-left:20px;color:red;font-size:12pt;"><%= Category.find(p.to_i).title%></a>
 				<%= link_to 'Изменить ', edit_category_path(Category.find(p.to_i)) %>
-				<%= link_to ' Добавить подкатегорию ', Category.find(p.to_i), method: :add %>
+				<!-- Тут надо зделать вставку добавления продусеров --> 
 				<%= link_to ' Удалить ', Category.find(p.to_i), method: :delete, data: { confirm: 'Are you sure?' } %></li>
 			<%end%>
 		<%else%>
