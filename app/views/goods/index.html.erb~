@@ -8,12 +8,10 @@
 <%end%>
 </div>
 <div class="span9" >
-<div>
 <p><b>Введите название товара:</b><br>
 	<input type="text" size="40" id="search">
 	<button onclick="searchs()">Найти</button>
 </p>
-</div>
 <div name="goods">
 <%i = 0%>
 <table align="center">
@@ -24,7 +22,7 @@
 			<tr>
 		<%end%>
 		<td>
-		<a onclick=<%='MyOnClick("'+r.id.to_s+'",'+'1)'%> style="font-size:12pt" width="300"><%= r.title%></a></div>
+		<a onclick=<%='MyOnClick("'+r.id.to_s+'")'%> style="font-size:12pt"><%= r.title%></a></div>
 		</td>
 		<%if i % 2 != 0 %>
 			<tr/>

@@ -16,11 +16,11 @@ margin-bottom:0;
 <div class="well sidebar-nav">
 <ul class="nav nav-pills nav-stacked">
 
-<% Category.all.each do |r| %><div>		  
+<% Category.all.each do |r| %>		  
 
 	<%if r.super_category == ""%>
 		<li>
-			<a onclick=<%='MyOnClick("'+r.id.to_s+'",'+'1)'%> style="font-size:12pt;"><%= r.title%></a>
+			<a onclick=<%='MyOnClick("'+r.id.to_s+'")'%> style="font-size:12pt;"><%= r.title%></a>
 		</li>
 		<div id='<%= r.id.to_s%>'></div>
 		  

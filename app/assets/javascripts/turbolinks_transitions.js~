@@ -1,4 +1,4 @@
-function MyOnClick(ids,lvl) {
+function MyOnClick(ids) {
 	
 	$.ajax({
                 url: "categories.json",
@@ -18,14 +18,21 @@ function MyOnClick(ids,lvl) {
 				success: function (data_goods) {
 					var goods = document.getElementsByName("goods");
 					var mas_goods = "";//создаеться CMS mas_goods из json, тут только то что нужно для вывода
-					for(i = 0; (i < data_goods.length) && (i < 10);i++){//берем всего 10 товаров
+					var b_next = false;//if goods length > 10 b_next=true
+					var k = 0;
+					for(i = 0; (i < data_goods.length) && (k < 10);i++){//берем всего 10 тemоваров
 						
 						if (data_goods[i].category == ids) {
 							mas_goods += data_goods[i].title;
 							mas_goods += ",";
 							mas_goods += data_goods[i].price;
-							mas_goods += ",";							
+							mas_goods += ",";
+							k++;
+							if (k==9) {
+								b_next=true;						
+							}
 						}
+						
 					} 
 					var split_goods = mas_goods.split(",");
 					
@@ -42,59 +49,39 @@ function MyOnClick(ids,lvl) {
 						temp_goods += '</div>'
 					}
 					temp_goods += '</table>';
+					if (b_next) {
+						temp_goods +='<a>'
+					}
 					goods[0].innerHTML = temp_goods;//в етом месте он перезаписываеться
 				}
 			});
 		
 			if (datas.sub_category != null) {
 
-				if (lvl == 1) {
-					var primary = document.getElementsByName("primary");
-					for(i=0;i<primary.length;i++) {		
-						primary[i].innerHTML = "";
-					}
+				var primary = document.getElementsByName("primary");
+				for(i=0;i<primary.length;i++) {		
+					primary[i].innerHTML = "";
 				}
-
+			
 				var doc = document.getElementById(ids);
-				var temp1 = '<div name="primary">';
-				//var temp = '<ul class="nav nav-pills nav-stacked">';
-				temp = '';
+				var temp = '<div name="primary"><ul class="nav nav-pills nav-stacked">';
 				var arr = datas.sub_category.split(",");
 				
 				for(i = 0; i < arr.length - 1; i++) {
 					temp += '<li>'
-					temp += '<a style="margin-left:20px;" class="animated fadeInDown" onclick="MyOnClick(&quot;'
-					temp += arr[i];
-					temp += '&quot;,'
-					temp += '2)">'
+					temp += '<a style="margin-left:20px;" class="animated fadeInDown">'
 					for(p = 0; p < data.length;p++){
 						if (data[p].id == arr[i]) {
 							temp += data[p].title;
 							break;
 						}
 					}
-					temp +='</a></li><div id="';
-					temp += arr[i];
-					temp += '"></div>'
-									
-				}
-				//temp += '</ul>'
-
-				var bool = true;
-				var primary = document.getElementsByName("primary");
-				for(i=0;i<primary.length;i++) {	
-					if (primary[i].innerHTML == temp) {
-						bool = false;
-					}
-				}
-				temp = temp1 + temp;
+					temp +='</a></li>';					
+				}			
+	
 				temp += '</ul></div>';
-				if (bool) {
-					doc.innerHTML += temp;
-				}
+				doc.innerHTML += temp;
 			}
-		
-		
 		}	
 	});
 };
