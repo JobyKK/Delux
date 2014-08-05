@@ -1,3 +1,9 @@
+<style>
+textarea{
+  width: 650px;
+  height: 200px;
+}
+</style>
 <%= form_for(@good) do |f| %>
   <% if @good.errors.any? %>
     <div id="error_explanation">
