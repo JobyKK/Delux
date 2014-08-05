@@ -10,6 +10,7 @@ function MyOnClick(ids) {
 					break;
 				}
 			}
+			filters(ids,data);
 			
 			//тут запрос в бд товаров и их вывод в правую часть
 			$.ajax({
@@ -81,6 +82,7 @@ function MyOnClick(ids) {
 	
 				temp += '</ul></div>';
 				doc.innerHTML += temp;
+				
 			}
 		}	
 	});
