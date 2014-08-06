@@ -8,6 +8,12 @@ function filters(ids,data) {
 			break;
 		}
 	}
+	temp_partners ='';
+	var checkBox = document.getElemntByID("checkBox");
+	var partner = datas.partners.split(",");
+	for(i = 0; i < partner.length; i++ ) {
+		temp_partners += '<input type="text" size="40" name="checkBoxFilter"><br>'	
+	}
 			
 			//тут запрос в бд товаров и их вывод в правую часть
 			$.ajax({

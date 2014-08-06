@@ -1,8 +1,7 @@
 function MyOnClick(ids) {
-	
 	$.ajax({
-                url: "categories.json",
-                dataType : "json",             
+		url: "categories.json",
+		dataType : "json",             
 		success: function (data) {
 			for(i = 0; i < data.length;i++){
 				if (data[i].id == ids) {
@@ -10,8 +9,41 @@ function MyOnClick(ids) {
 					break;
 				}
 			}
-			filters(ids);
+			//тут блок создния чекБоксов
+			var data_partners;
+			$.ajax({
+				url: "partners.json",
+				dataType : "json",             
+				success: function (data_partners) {
+					data_partners = data_partners;
+				}
+			});
+			temp_partners ='';
+			var checkBox = document.getElementById("checkBox");
+			checkBox.innerHTML = '';
+			var partners_id = datas.partners.split(",");
+			if (data_partners) {//destroy this code last, if config json builder
+				for(i = 0; i < partners_id.length; i++ ) {
+					temp_partners +='<input type="checkbox" name="checkBoxFilter">';
+				
+					for(j = 0; j < data_partners.length;j++){
+						if (data_partners[j].id == partners_id[i]) {
+							temp_partners += data_partners[j].title;
+							break;
+						}
+					}
+					temp_partners +='<br>';
+				}	
+			}
+			checkBox.innerHTML += temp_partners;
+			//конец блока
+			//начало блока субМеню
+			var subMenu = document.getElementById("subMenu");
+			checkBox.innerHTML = '';
 			
+			//тут сделай ф-ю почти как для вызова меню
+
+			//конец блока субМеню		
 			//тут запрос в бд товаров и их вывод в правую часть
 			$.ajax({
 				url: "goods.json",

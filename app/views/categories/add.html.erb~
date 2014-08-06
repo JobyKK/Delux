@@ -19,11 +19,11 @@
     <%= f.label :descritpion %><br>
     <%= f.text_area :descritpion %>
   </div>
+ <div class="field"> 
+    <%= f.label :partners %><br>
+    <%= f.text_area :descritpion %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 2de52b6ca00b651fcbd256c32794b95652cf00b4
 <% end %>

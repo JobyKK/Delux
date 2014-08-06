@@ -8,7 +8,7 @@ function filters(ids,data) {
 			break;
 		}
 	}
-	produser
+	
 			
 			//тут запрос в бд товаров и их вывод в правую часть
 			$.ajax({
