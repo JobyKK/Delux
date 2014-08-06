@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @support_good.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @support_good.description.html_safe if @support_good.description %>
+</p>
+
+
+<p>
+  <strong>Available:</strong>
+  <%= @support_good.available %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @support_good.price %>
+</p>
+
+<%= link_to 'Edit', edit_support_good_path(@support_good) %> |
+<%= link_to 'Back', support_goods_path %>

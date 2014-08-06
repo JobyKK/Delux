@@ -1,0 +1,71 @@
+<style>
+textarea{
+  width: 550px;
+  height: 200px;
+}
+field{
+  width: 650px;
+  height: 200px;
+}
+</style>
+<%= form_for(@support_good) do |f| %>
+  <% if @support_good.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@support_good.errors.count, "error") %> prohibited this support_good from being saved:</h2>
+
+      <ul>
+      <% @support_good.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+	<div class="span6">
+		<div class="field">
+		    <%= f.label :title %><br>
+		    <%= f.text_field :title %>
+		</div>
+		<div class="field">
+		    <%= f.label :avatar %>
+		    <%= f.file_field :avatar %>
+		</div>
+		<div class="field">
+		    <%= f.label :short_description %><br>
+		    <%= f.bootsy_area :short_description %>
+		</div>
+		<div class="field">
+		    <%= f.label :description %><br>
+		    <%= f.bootsy_area :description %>
+		</div>
+		<div class="field">
+		    <%= f.label :available %><br>
+		    <%= f.check_box :available %>
+		</div>
+		<div class="field">
+		    <%= f.label :price %><br>
+		    <%= f.text_field :price %>
+		</div>
+		<div class="actions">
+		    <%= f.submit %>
+		</div>
+	</div>
+	<div class="span6">
+		<h1>Choose category to add support good</h1>
+		<% Category.all.each do |r| %>
+			<% if r.super_category == "" %>
+				<% if r.sub_category != ""%>
+					<% r.sub_category.to_s.split(',').each do |p| %>
+<br><%= check_box("support_good", "categories", {:multiple => true}, Category.find(p.to_i).id, nil) %><%= Category.find(p.to_i).title%>
+						<!--div class="checkbox">
+						    <label>
+						      <input type="checkbox"> <%= Category.find(p.to_i).title%>
+						    </label>
+						</div-->
+					<% end %>
+				<% end %>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+<% end %>

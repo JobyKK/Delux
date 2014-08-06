@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :support_goods
+
   resources :goods
 
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'

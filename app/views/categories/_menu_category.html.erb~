@@ -4,7 +4,7 @@
 			<li> <a style="font-size:14pt;color:#000;"><%=r.title%></a>
 			<%= link_to ' Изменить ', edit_category_path(r) %>
 			<%= link_to ' Добавить подкатегорию ', r, method: :add %>	
-        	<%end%> 
+        	 
 		<%if r.sub_category != ""%>
 			</li>     		
 			<% r.sub_category.to_s.split(',').each do |p| %>
@@ -25,5 +25,7 @@
 		<%else%>
 			<%= link_to 'Удалить', r, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 		<%end%>
+
+		<% end %>
 	<%end%>
 </ul>
