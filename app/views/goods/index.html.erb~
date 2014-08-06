@@ -1,36 +1,46 @@
 <br>
 <div class="row" >
-<div class="span3" >
-<%= render 'menu_goods' %>
-<%if current_admin%>
-<h1 style="color:aaa;"><%= link_to 'BIG RED BUTTON', categories_path %></h1>
-<%= link_to 'New Good', new_good_path %>
-<%end%>
-</div>
-<div class="span9" >
-<p><b>Введите название товара:</b><br>
-	<input type="text" size="40" id="search">
-	<button onclick="searchs()">Найти</button>
-</p>
-<div name="goods">
-<%i = 0%>
-<table align="center">
-<% Category.all.each do |r| %>
-	<%if r.super_category == ""%>
-
-		<%if i % 2 == 0 %>
-			<tr>
+	<div class="span3" >
+		<%= render 'menu_goods' %>
+		<%if current_admin%>
+			<h1 style="color:aaa;"><%= link_to 'BIG RED BUTTON', categories_path %></h1>
+			<%= link_to 'New Good', new_good_path %>
 		<%end%>
-		<td>
-		<a onclick=<%='MyOnClick("'+r.id.to_s+'")'%> style="font-size:12pt"><%= r.title%></a></div>
-		</td>
-		<%if i % 2 != 0 %>
-			<tr/>
-		<%end%>	
-		<%i += 1%>
-	<%end%>
-<%end%>
-</table>
-</div>
-</div>
+	</div>
+	<div class="span9" >
+		<p><b>Введите название товара:</b><br>
+			<input type="text" size="40" id="search">
+			<button onclick="searchs()">Найти</button>
+		</p>
+		<div class="row">
+			<div class="span4" id="checkBox">
+			<!-- Тут хватаем js инфу из чекбоксов производителей и перезаписываем сюда новые js-->
+			<h1>lo2l1</h1>
+			</div>
+			<div class="span5" id="subMenu">
+			<!-- Тут хватаем запускаем js подменю-->
+				<h1>lo2l</h1>
+			
+			</div>
+			<button onclick="searchs()">Найти</button>
+		</div>
+		<div name="goods">
+			<%i = 0%>
+			<table align="center">
+			<% Category.all.each do |r| %>
+				<%if r.super_category == ""%>
+						<%if i % 2 == 0 %>
+						<tr>
+					<%end%>
+					<td>
+						<a onclick=<%='MyOnClick("'+r.id.to_s+'")'%> style="font-size:12pt"><%= r.title%></a></div>					</td>
+					<%if i % 2 != 0 %>
+						<tr/>
+					<%end%>	
+					<%i += 1%>
+				<%end%>
+			<%end%>
+			</table>
+		</div>
+	</div>
 </div>
