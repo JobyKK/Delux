@@ -28,7 +28,9 @@ class SupportGoodsController < ApplicationController
   # POST /support_goods.json
   def create
     @support_good = SupportGood.new(support_good_params)
-    
+    @must_have = params[:support_goods][:categories]
+    @support_good.categories = @must_have.join(",") if @must_have
+
     respond_to do |format|
       if @support_good.save
         format.html { redirect_to @support_good, notice: 'Support good was successfully created.' }
@@ -72,6 +74,6 @@ class SupportGoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def support_good_params
-      params.require(:support_good).permit(:title, :short_description, :description, :avatar, :available, :price, :categories, :lol)
+      params.require(:support_good).permit(:title, :short_description, :description, :avatar, :available, :price, :categories)
     end
 end

@@ -56,7 +56,8 @@ field{
 			<% if r.super_category == "" %>
 				<% if r.sub_category != ""%>
 					<% r.sub_category.to_s.split(',').each do |p| %>
-<br><%= check_box("support_good", "categories", {:multiple => true}, Category.find(p.to_i).id, nil) %><%= Category.find(p.to_i).title%>
+<br><%= check_box("support_good", "categories", {:multiple => true}, Category.find(p.to_i).id, nil) %>
+	<%= Category.find(p.to_i).title%>
 						<!--div class="checkbox">
 						    <label>
 						      <input type="checkbox"> <%= Category.find(p.to_i).title%>

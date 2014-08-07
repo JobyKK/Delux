@@ -28,7 +28,9 @@ class SupportGoodsController < ApplicationController
   # POST /support_goods.json
   def create
     @support_good = SupportGood.new(support_good_params)
-    
+    @must_have = params[:support_good][:categories]
+    @support_good.categories = @must_have.join(",") if @must_have
+
     respond_to do |format|
       if @support_good.save
         format.html { redirect_to @support_good, notice: 'Support good was successfully created.' }

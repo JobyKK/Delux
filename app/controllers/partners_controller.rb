@@ -7,6 +7,7 @@ class PartnersController < ApplicationController
     	offset = 0
 	offset = params[:page] if params[:page]
 	@list = Partner.limit(10).offset(offset)
+
   end
 
   # GET /partners/1
