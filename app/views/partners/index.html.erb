@@ -12,7 +12,32 @@
 <div class="row">
 <% @list.each do |element| %>
 	<div class="span3">
-				<%= link_to image_tag(element.avatar.url), element %>
+				<a data-toggle="modal" data-target="#partnersDetales">
+				<%=image_tag(element.avatar.url) %>
+				</a>
+<div class="modal fade" id="partnersDetales" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!--button type="button" class="close" data-dismiss="modal">
+		<span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button-->
+        <h2 class="modal-title" id="myModalLabel"><%= element.title %></h2>
+      </div>
+      <div class="modal-body">
+		<div class="row">
+			<div class="span4 offset1">
+				lol asd asd sad adas dasf asf asf af asf asfasfas asfasfa sfasfasf asf asf asf asfa sf asf as fasf
+			</div>
+		</div>
+
+      	<%= element.description%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 			<%if current_admin %>
 				<table>
 				<tr>
