@@ -13,6 +13,18 @@ def destroy_sub
 		@categor.sub_category = temp
     	        @categor.save
 	end
+	if self.support_goods != nil
+		supp_array = self.support_goods.split(",")
+		
+		supp_array.each do |s|
+			@support_good = SupportGood.find(s.to_i)
+			temp = @support_good.categories
+			r = temp.to_s.split(",")
+			r.delete(self.id.to_s)
+			@support_good.categories = r.join(",")
+			@support_good.save
+		end
+	end
 	self.destroy
 		
     end

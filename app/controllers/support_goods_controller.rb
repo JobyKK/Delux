@@ -33,6 +33,7 @@ class SupportGoodsController < ApplicationController
 
     respond_to do |format|
       if @support_good.save
+	    @support_good.add_to_categories
         format.html { redirect_to @support_good, notice: 'Support good was successfully created.' }
         format.json { render :show, status: :created, location: @support_good }
       else
@@ -59,7 +60,7 @@ class SupportGoodsController < ApplicationController
   # DELETE /support_goods/1
   # DELETE /support_goods/1.json
   def destroy
-    @support_good.destroy
+    @support_good.delete_from_categories
     respond_to do |format|
       format.html { redirect_to support_goods_url, notice: 'Support good was successfully destroyed.' }
       format.json { head :no_content }
