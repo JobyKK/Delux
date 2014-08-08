@@ -12,10 +12,10 @@
 <div class="row">
 <% @list.each do |element| %>
 	<div class="span3">
-				<a data-toggle="modal" data-target="#partnersDetales">
+				<a data-toggle="modal" data-target="#partnersDetales<%=element.id.to_s%>">
 				<%=image_tag(element.avatar.url) %>
 				</a>
-<div class="modal fade" id="partnersDetales" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="partnersDetales<%=element.id.to_s%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -25,7 +25,7 @@
       </div>
       <div class="modal-body">
 		<div class="row">
-			<div class="span3 offset1">
+			<div class="span4 offset1">
 				lol asd asd sad adas dasf asf asf af asf asfasfas asfasfa sfasfasf asf asf asf asfa sf asf as fasf
 			</div>
 		</div>
