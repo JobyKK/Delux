@@ -14,20 +14,19 @@
 			<button onclick="searchs()">Найти</button>
 		</p>
 		<div class="row">
+
 			<div class="span4" id="checkBox">
 			<!-- Тут хватаем js инфу из чекбоксов производителей и перезаписываем сюда новые js-->
-			<h1>lo2l1</h1>
 			</div>
+
 			<div class="span5" id="subMenu">
-			<!-- Тут хватаем запускаем js подменю-->
-				<h1>lo2l</h1>
-			
+			<!-- Тут хватаем запускаем js подменю-->			
 			</div>
-			<button onclick="searchs()">Найти</button>
+			<!--<button onclick="searchs()">Найти</button>-->
 		</div>
-		<div name="goods">
+		<div id="goods">
 			<%i = 0%>
-			<table align="center">
+			<table align="center" class="animated fadeIn">
 			<% Category.all.each do |r| %>
 				<%if r.super_category == ""%>
 						<%if i % 2 == 0 %>
