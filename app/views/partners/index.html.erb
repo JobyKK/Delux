@@ -15,7 +15,7 @@
 				<a data-toggle="modal" data-target="#partnersDetales<%=element.id.to_s%>">
 				<%=image_tag(element.avatar.url) %>
 				</a>
-<div class="modal fade" id="partnersDetales<%=element.id.to_s%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="partnersDetales<%=element.id.to_s%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -24,15 +24,8 @@
         <h2 class="modal-title" id="myModalLabel"><%= element.title %></h2>
       </div>
       <div class="modal-body">
-		<div class="row">
-			<div class="span4 offset1">
-				<div class="img-responsive">
-					<%=image_tag(element.avatar.url) %>
-				</div>
-			</div>
-		</div>
-
-      	<%= element.description%>
+		
+      	<%= element.description.html_safe if element.description %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

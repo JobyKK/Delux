@@ -3,7 +3,7 @@ function checkBox(ids) {
 		url: "categories.json",
 		dataType : "json",             
 		success: function (data) {
-			for(i = 0; i < data.length;i++){
+			for(i = 0; i < data.length; i++){
 				if (data[i].id == ids) {
 					var datas = data[i];
 					break;

@@ -71,7 +71,7 @@ color: red;
 		<div>
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h2><%= link_to Offer.all[-i].title, Offer.all[-i] %></h2>
+					<h2><%= Offer.all[-i].title %></h2>
 				</div>
 				<div class="panel-body">
 					<div class="row-fluid">
@@ -82,12 +82,15 @@ color: red;
 						<div class="span9">
 						<p><%= Offer.all[-i].short_description.html_safe if Offer.all[-i].short_description %><br>
 						</div>
+
 					</div>
 				</div>
 					<div class="panel-footer clearfix">
 						<div class="pull-right">
-	<p><a class="btn btn-default" href="/offers/<%=Offer.all[-i].id.to_s%>" role="button">Подробно &raquo;</a></p>
-													
+							<p><button class="btn btn-default btn-lg" data-toggle="modal" 
+							data-target="#offerDetales<%=Offer.all[-i].id.to_s%>" >
+								Подробно &raquo;</button></p>
+
 						<%if current_admin %>
 							<table>
 							<tr>
@@ -100,6 +103,23 @@ color: red;
 						</div>
 					</div>
 			</div>
+<div class="modal fade" id="offerDetales<%=Offer.all[-i].id.to_s%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!--button type="button" class="close" data-dismiss="modal">
+		<span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button-->
+        <h2 class="modal-title" id="myModalLabel"><%= Offer.all[-i].title %></h2>
+      </div>
+      <div class="modal-body">
+      	<%= Offer.all[-i].description.html_safe if Offer.all[-i].description%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 		</div>
 	</div>    
 	<%end%>

@@ -3,7 +3,7 @@ function checkBox(ids) {
 		url: "categories.json",
 		dataType : "json",             
 		success: function (data) {
-			for(i = 0; i < data.length;i++){
+			for(i = 0; i < data.length; i++){
 				if (data[i].id == ids) {
 					var datas = data[i];
 					break;
@@ -19,7 +19,7 @@ function checkBox(ids) {
 					checkBox.innerHTML = '';
 					var partners_id = datas.partners.split(",");
 					for(i = 0; i < partners_id.length; i++ ) {
-						for(j = 0; j < data_partners.length;j++){
+						for(j = 0; j < data_partners.length; j++){
 							if (data_partners[j].id == partners_id[i]) {
 								temp_partners +='<input type="checkbox" name="checkBoxFilter">';
 								temp_partners += data_partners[j].title;

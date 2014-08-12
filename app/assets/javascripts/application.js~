@@ -25,4 +25,5 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require scriptSearch
+//= require officeMap
 //= require_tree .

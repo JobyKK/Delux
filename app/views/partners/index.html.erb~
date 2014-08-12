@@ -24,13 +24,8 @@
         <h2 class="modal-title" id="myModalLabel"><%= element.title %></h2>
       </div>
       <div class="modal-body">
-		<div class="row">
-			<div class="span4 offset1">
-				lol asd asd sad adas dasf asf asf af asf asfasfas asfasfa sfasfasf asf asf asf asfa sf asf as fasf
-			</div>
-		</div>
-
-      	<%= element.description%>
+		
+      	<%= element.description.html_safe if element.description %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
