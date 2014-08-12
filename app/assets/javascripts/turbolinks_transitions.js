@@ -49,6 +49,7 @@ function subMenu(ids) {
 			//начало блока субМеню	
 			var subMenu = document.getElementById("subMenu");
 			var temp = '';
+			subMenu.setAttribute('name', ids);
 			if (datas.sub_category) {
 				split_category_id = datas.sub_category.split(',');
 				for(i = 0; i < split_category_id.length; i++) {
@@ -108,7 +109,9 @@ function goodsV(ids) {
 			
 			var temp_goods = '<table border="1">';//это создаеться хтмл код который пишеться в правой части 
 			for(i = 0;i < split_goods.length - 1; i++) {
+				
 				temp_goods += '<div class="span6">'
+				//for(j=0;j<40;j++){
 				temp_goods += '<tr><td>';						
 				temp_goods += split_goods[i];
 				temp_goods += '</td>';
@@ -116,6 +119,7 @@ function goodsV(ids) {
 				temp_goods += '<td>';				
 				temp_goods += split_goods[i];
 				temp_goods += '</td></tr>';
+				//}
 				temp_goods += '</div>'
 			}
 			temp_goods += '</table>';
@@ -147,6 +151,7 @@ function MyOnClick(ids) {
 			//начало блока субМеню
 			var subMenu = document.getElementById("subMenu");
 			subMenu.innerHTML = '';
+			subMenu.setAttribute('name', 'none');
 			//конец блока субМеню	
 	
 			//goods

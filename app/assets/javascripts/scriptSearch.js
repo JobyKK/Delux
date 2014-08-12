@@ -3,7 +3,7 @@ function searchs() {
 		url: "goods.json",
 		dataType : "json",             
 		success: function (data_goods) {
-			var goods = document.getElementsByName("goods");
+			var goods = document.getElementById("goods");
 			var sub = document.getElementById("search").value;			
 			var mas_goods = "";
 			var k = 0;
@@ -29,7 +29,7 @@ function searchs() {
 				temp_goods += '</li>';
 			}
 			temp_goods += '</ul>';
-			goods[0].innerHTML = temp_goods;
+			goods.innerHTML = temp_goods;
 		}
 	});
 }

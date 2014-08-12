@@ -15,11 +15,11 @@
 		</p>
 		<div class="row">
 
-			<div class="span4" id="checkBox">
+			<div class="span4" id="checkBox" class="animated fadeIn">
 			<!-- Тут хватаем js инфу из чекбоксов производителей и перезаписываем сюда новые js-->
 			</div>
 
-			<div class="span5" id="subMenu">
+			<div class="span5" id="subMenu" class="animated fadeIn">
 			<!-- Тут хватаем запускаем js подменю-->			
 			</div>
 			<!--<button onclick="searchs()">Найти</button>-->
