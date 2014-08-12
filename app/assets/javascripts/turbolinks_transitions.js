@@ -49,6 +49,7 @@ function subMenu(ids) {
 			//начало блока субМеню	
 			var subMenu = document.getElementById("subMenu");
 			var temp = '';
+			subMenu.setAttribute('name', ids);
 			if (datas.sub_category) {
 				split_category_id = datas.sub_category.split(',');
 				for(i = 0; i < split_category_id.length; i++) {
@@ -89,26 +90,22 @@ function goodsV(ids) {
 		success: function (data_goods) {
 			var goods = document.getElementById("goods");
 			var mas_goods = "";//создаеться CSV mas_goods из json, тут только то что нужно для вывода
-			var b_next = false;//if goods length > 10 b_next=true
-			var k = 0;
-			for(i = 0; (i < data_goods.length) && (k < 10);i++){//берем всего 10 тemоваров
+			for(i = 0; (i < data_goods.length) && (i < 20);i++){//берем всего 10 mоваров
 				
 				if (data_goods[i].category == ids) {
 					mas_goods += data_goods[i].title;
 					mas_goods += ",";
 					mas_goods += data_goods[i].price;
 					mas_goods += ",";
-					k++;
-					if (k == 9) {
-						b_next=true;						
-					}
 				}
 			} 
 			var split_goods = mas_goods.split(",");
 			
 			var temp_goods = '<table border="1">';//это создаеться хтмл код который пишеться в правой части 
 			for(i = 0;i < split_goods.length - 1; i++) {
+				
 				temp_goods += '<div class="span6">'
+				for(j=0;j<40;j++){
 				temp_goods += '<tr><td>';						
 				temp_goods += split_goods[i];
 				temp_goods += '</td>';
@@ -116,12 +113,11 @@ function goodsV(ids) {
 				temp_goods += '<td>';				
 				temp_goods += split_goods[i];
 				temp_goods += '</td></tr>';
-				temp_goods += '</div>'
+				i--;}
+				temp_goods += '</div>';
+				i++;
 			}
 			temp_goods += '</table>';
-			if (b_next) {
-				temp_goods +='<a onclick="goods('+ids+')">'
-			}
 			goods.innerHTML = temp_goods;//в етом месте он перезаписываеться
 		}
 	});
@@ -147,6 +143,7 @@ function MyOnClick(ids) {
 			//начало блока субМеню
 			var subMenu = document.getElementById("subMenu");
 			subMenu.innerHTML = '';
+			subMenu.setAttribute('name', 'none');
 			//конец блока субМеню	
 	
 			//goods
