@@ -90,19 +90,13 @@ function goodsV(ids) {
 		success: function (data_goods) {
 			var goods = document.getElementById("goods");
 			var mas_goods = "";//создаеться CSV mas_goods из json, тут только то что нужно для вывода
-			var b_next = false;//if goods length > 10 b_next=true
-			var k = 0;
-			for(i = 0; (i < data_goods.length) && (k < 10);i++){//берем всего 10 тemоваров
+			for(i = 0; (i < data_goods.length) && (i < 20);i++){//берем всего 10 mоваров
 				
 				if (data_goods[i].category == ids) {
 					mas_goods += data_goods[i].title;
 					mas_goods += ",";
 					mas_goods += data_goods[i].price;
 					mas_goods += ",";
-					k++;
-					if (k == 9) {
-						b_next=true;						
-					}
 				}
 			} 
 			var split_goods = mas_goods.split(",");
@@ -111,7 +105,7 @@ function goodsV(ids) {
 			for(i = 0;i < split_goods.length - 1; i++) {
 				
 				temp_goods += '<div class="span6">'
-				//for(j=0;j<40;j++){
+				for(j=0;j<40;j++){
 				temp_goods += '<tr><td>';						
 				temp_goods += split_goods[i];
 				temp_goods += '</td>';
@@ -119,13 +113,11 @@ function goodsV(ids) {
 				temp_goods += '<td>';				
 				temp_goods += split_goods[i];
 				temp_goods += '</td></tr>';
-				//}
-				temp_goods += '</div>'
+				i--;}
+				temp_goods += '</div>';
+				i++;
 			}
 			temp_goods += '</table>';
-			if (b_next) {
-				temp_goods +='<a onclick="goods('+ids+')">'
-			}
 			goods.innerHTML = temp_goods;//в етом месте он перезаписываеться
 		}
 	});
