@@ -10,7 +10,7 @@
 			<% r.sub_category.to_s.split(',').each do |p| %>
 				<li><a style="margin-left:20px;color:red;font-size:12pt;"><%= Category.find(p.to_i).title%></a>
 				<%= link_to 'Изменить ', edit_category_path(Category.find(p.to_i)) %>
-				<!-- Тут надо зделать вставку добавления продусеров я ее п$.ajax({
+		<!-- Тут надо зделать вставку добавления продусеров я ее п$.ajax({
                 url: "categories.json",
                 dataType : "json",             
 		success: function (data) {
