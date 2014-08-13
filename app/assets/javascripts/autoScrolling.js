@@ -41,18 +41,12 @@ $(document).ready(function(){
 				var temp_goods = '<table border="1">';//это создаеться хтмл код который пишеться в правой части 
 
 				for(i = startFrom*2;i < (split_goods.length - 1) && (i < startFrom*2+6); i++) {
-					temp_goods += '<div class="span6">'
-					for(j=0;j<40;j++){//lol
-					temp_goods += '<tr><td>';						
-					temp_goods += split_goods[i];
-					temp_goods += '</td>';
+					temp_goods += '<div class="span6"><tr>';
+					temp_goods += '<td>'+split_goods[i]+'</td>';
 					i++;
-					temp_goods += '<td>';				
-					temp_goods += split_goods[i];
-					temp_goods += '</td></tr>';
-					i--;}//lol0
-					temp_goods += '</div>'
-					i++;//lol
+					temp_goods += '<td>'+split_goods[i]+'</td>';
+					temp_goods += '</tr></div>';
+
 				}
 				temp_goods += '</table>';
 			

@@ -1,19 +1,15 @@
 //create 2 column
 //1 column for redirect diferent check-box
 //2 column for create 2 layer type-menu
-function filters(ids,data) {
+function filters() {
+	ids = document.getElementById('subMenu').getAttribute('name')
 	for(i = 0; i < data.length;i++){
 		if (data[i].id == ids) {
 			var datas = data[i];
 			break;
 		}
 	}
-	temp_partners ='';
-	var checkBox = document.getElemntByID("checkBox");
-	var partner = datas.partners.split(",");
-	for(i = 0; i < partner.length; i++ ) {
-		temp_partners += '<input type="text" size="40" name="checkBoxFilter"><br>'	
-	}
+	
 			
 			//тут запрос в бд товаров и их вывод в правую часть
 			$.ajax({

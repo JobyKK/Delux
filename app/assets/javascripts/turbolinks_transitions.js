@@ -46,28 +46,27 @@ function subMenu(ids) {
 					break;
 				}
 			}		
-			//начало блока субМеню	
 			var subMenu = document.getElementById("subMenu");
 			var temp = '';
-			subMenu.setAttribute('name', ids);
+			subMenu.setAttribute('name', ids);//this for autoScrolling 
 			if (datas.sub_category) {
 				split_category_id = datas.sub_category.split(',');
-				for(i = 0; i < split_category_id.length; i++) {
+				for(i = 0; i < split_category_id.length-1; i++) {
 				
 					for(j = 0; j < data.length; j++){
-						if (data[j].id == split_category_id) {
-							var data_down = data[i];
+						if (data[j].id == split_category_id[i]) {
+							var data_3 = data[j];
 							break;
 						}
 					}
-					temp += '<h5>'+data_down.title+':</h5><select>';
-					if (data_down.sub_category) {
-						var split_category_down_id = data_down.sub_category.split(",");
+					temp += '<h5>'+data_3.title+':</h5><select name="selectFilters">';
+					if (data_3.sub_category) {
+						var split_category_3_id = data_3.sub_category.split(",");
 				
-						for(j = 0; j < split_category_down_id.length; j++) {
+						for(j = 0; j < split_category_3_id.length; j++) {
 							for(k = 0; k < data.length; k++){
-								if (data[k].id == split_category_down_id[j]) {
-									temp += '<option>'+data[k].title+'</option>';
+								if (data[k].id == split_category_3_id[j]) {
+									temp += '<option value="'+data[k].id+'">'+data[k].title+'</option>';
 									break;
 								}
 							}
@@ -76,7 +75,7 @@ function subMenu(ids) {
 					temp += '</select>';
 				} 
 			}
-			subMenu.innerHTML = temp + '<h1>'+ids+'</h1>';
+			subMenu.innerHTML = temp;
 		}
 	
 	});	
@@ -104,18 +103,11 @@ function goodsV(ids) {
 			var temp_goods = '<table border="1">';//это создаеться хтмл код который пишеться в правой части 
 			for(i = 0;i < split_goods.length - 1; i++) {
 				
-				temp_goods += '<div class="span6">'
-				for(j=0;j<40;j++){
-				temp_goods += '<tr><td>';						
-				temp_goods += split_goods[i];
-				temp_goods += '</td>';
+				temp_goods += '<div class="span6"><tr>';
+				temp_goods += '<td>'+split_goods[i]+'</td>';
 				i++;
-				temp_goods += '<td>';				
-				temp_goods += split_goods[i];
-				temp_goods += '</td></tr>';
-				i--;}
-				temp_goods += '</div>';
-				i++;
+				temp_goods += '<td>'+split_goods[i]+'</td>';
+				temp_goods += '</tr></div>';
 			}
 			temp_goods += '</table>';
 			goods.innerHTML = temp_goods;//в етом месте он перезаписываеться
