@@ -19,7 +19,7 @@ function checkBox(ids) {
 					checkBox.innerHTML = '';
 					var partners_id = datas.partners.split(",");
 					for(i = 0; i < partners_id.length; i++ ) {
-						for(j = 0; j < data_partners.length;j++){
+						for(j = 0; j < data_partners.length; j++){
 							if (data_partners[j].id == partners_id[i]) {
 								temp_partners +='<input type="checkbox" name="checkBoxFilter">';
 								temp_partners += data_partners[j].title;
@@ -114,7 +114,8 @@ function goodsV(ids) {
 				temp_goods += split_goods[i];
 				temp_goods += '</td></tr>';
 				i--;}
-				temp_goods += '</div>'
+				temp_goods += '</div>';
+				i++;
 			}
 			temp_goods += '</table>';
 			goods.innerHTML = temp_goods;//в етом месте он перезаписываеться
