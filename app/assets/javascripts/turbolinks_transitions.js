@@ -21,13 +21,15 @@ function checkBox(ids) {
 					for(i = 0; i < partners_id.length; i++ ) {
 						for(j = 0; j < data_partners.length; j++){
 							if (data_partners[j].id == partners_id[i]) {
-								temp_partners +='<input type="checkbox" name="checkBoxFilter">';
+								temp_partners +='<input type="checkbox" name="checkBoxFilter" value="';
+								temp_partners += data_partners[j].id+'">';
 								temp_partners += data_partners[j].title;
 								temp_partners +='<br>';
 								break;
 							}
 						}
-					}	
+					}		
+					temp_partners += '<br><button onclick="filters()">Найти</button>'
 					checkBox.innerHTML += temp_partners;
 				}
 			});
@@ -88,20 +90,16 @@ function goodsV(ids) {
 		dataType : "json",             
 		success: function (data_goods) {
 			var goods = document.getElementById("goods");
-			var mas_goods = "";//создаеться CSV mas_goods из json, тут только то что нужно для вывода
-			for(i = 0; (i < data_goods.length) && (i < 20);i++){//берем всего 10 mоваров
+			for(i = 0; i < data_goods.length; i++){//берем всего 10 mоваров
 				
 				if (data_goods[i].category == ids) {
-					mas_goods += data_goods[i].title;
-					mas_goods += ",";
-					mas_goods += data_goods[i].price;
-					mas_goods += ",";
+					split_goods.push(data_goods[i].title);
+					split_goods.push(data_goods[i].price);
 				}
 			} 
-			var split_goods = mas_goods.split(",");
 			
 			var temp_goods = '<table border="1">';//это создаеться хтмл код который пишеться в правой части 
-			for(i = 0;i < split_goods.length - 1; i++) {
+			for(i = 0;(i < split_goods.length - 1) && (i < 20); i++) {
 				
 				temp_goods += '<div class="span6"><tr>';
 				temp_goods += '<td>'+split_goods[i]+'</td>';
@@ -136,6 +134,7 @@ function MyOnClick(ids) {
 			var subMenu = document.getElementById("subMenu");
 			subMenu.innerHTML = '';
 			subMenu.setAttribute('name', 'none');
+			split_goods = [];
 			//конец блока субМеню	
 	
 			//goods
