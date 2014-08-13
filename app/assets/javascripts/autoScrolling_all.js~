@@ -6,11 +6,13 @@ $(document).ready(function(){
 	var goods = document.getElementById("goods");
 	var ids = '';
 
+	
+
 	$(window).scroll(function() {
 
 
         /* Если высота окна + высота прокрутки больше или равны высоте всего документа, то запускаем ajax-запрос */
-		if(($(window).scrollTop() + $(window).height() >= $(document).height() - 200) &&(startFrom*2 <= mas_goods.split(",").length)) {
+		if(($(window).scrollTop() + $(window).height() >= $(document).height() - 200) && (startFrom*2 <= mas_goods.split(",").length)) {
 
 			if (document.getElementById('subMenu').getAttribute('name') != 'none') {
 				if (ids != document.getElementById('subMenu').getAttribute('name')) {

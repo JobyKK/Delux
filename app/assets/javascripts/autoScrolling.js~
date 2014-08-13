@@ -6,8 +6,6 @@ $(document).ready(function(){
 	var goods = document.getElementById("goods");
 	var ids = '';
 
-	
-
 	$(window).scroll(function() {
 
 
@@ -44,6 +42,7 @@ $(document).ready(function(){
 
 				for(i = startFrom*2;i < (split_goods.length - 1) && (i < startFrom*2+6); i++) {
 					temp_goods += '<div class="span6">'
+					for(j=0;j<40;j++){//lol
 					temp_goods += '<tr><td>';						
 					temp_goods += split_goods[i];
 					temp_goods += '</td>';
@@ -51,12 +50,14 @@ $(document).ready(function(){
 					temp_goods += '<td>';				
 					temp_goods += split_goods[i];
 					temp_goods += '</td></tr>';
+					i--;}//lol0
 					temp_goods += '</div>'
+					i++;//lol
 				}
 				temp_goods += '</table>';
 			
 				goods.innerHTML += temp_goods;//в етом месте он перезаписываеться
-				startFrom += 3;
+				//startFrom += 3;
 			}
 		}
         });
