@@ -19,10 +19,9 @@
 			<!-- Тут хватаем js инфу из чекбоксов производителей и перезаписываем сюда новые js-->
 			</div>
 
-			<div class="span5" id="subMenu" class="animated fadeIn">
+			<div class="span5" id="subMenu" class="animated fadeIn" name="none">
 			<!-- Тут хватаем запускаем js подменю-->			
 			</div>
-			<!--<button onclick="searchs()">Найти</button>-->
 		</div>
 		<div id="goods">
 			<%i = 0%>
