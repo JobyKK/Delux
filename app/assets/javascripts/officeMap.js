@@ -42,7 +42,7 @@ function findOffice(address){
 				title: results[0].formatted_address,
             			position: results[0].geometry.location
         			});
- google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
           infowindow.setContent(results[0].formatted_address);
           infowindow.open(map, marker);
