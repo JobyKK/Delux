@@ -11,8 +11,12 @@
 	</div>
 	<div class="span9" >
 		<p><b>Введите название товара:</b><br>
+			<!-- Тут заменил форму, если не будет работать поиск, - замени братно -->
+			<form class="form-search">
 			<input type="text" size="40" id="search">
-			<button onclick="searchs()">Найти</button>
+			<!-- button onclick="searchs()">Найти</button-->
+			<button onclick="searchs()" type="submit" class="btn">Найти</button>
+			</form>
 		</p>
 		<div class="row">
 

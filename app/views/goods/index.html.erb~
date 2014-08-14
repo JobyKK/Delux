@@ -1,4 +1,5 @@
 <br>
+<script type="application/javascript;version=1.7"></script>
 <div class="row" >
 	<div class="span3" >
 		<%= render 'menu_goods' %>
@@ -10,8 +11,11 @@
 	</div>
 	<div class="span9" >
 		<p><b>Введите название товара:</b><br>
+			<form class="form-search">
 			<input type="text" size="40" id="search">
-			<button onclick="searchs()">Найти</button>
+	
+			<button onclick="searchs()" type="submit" class="btn">Найти</button>
+			</form>
 		</p>
 		<div class="row">
 
