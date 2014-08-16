@@ -1,3 +1,29 @@
+function lvl2click(ids) {
+	var last_check = document.getElementById("last_check");
+	if (last_check.innerHTML.split(",")[1] != ids) {
+		last_check.innerHTML = last_check.innerHTML.split(",")[0]+','+ids;
+	}
+	checkBox(ids);
+	subMenu(ids);
+	goodsV(ids);
+};
+
+function goodsView(k) {
+	startFrom = 0;
+	var temp_goods = '<table border="1">';//это создаеться хтмл код который пишеться в правой части 
+	for(i = 0;(i < split_goods.length - 1) && (i < k*2); i++) {
+			
+		temp_goods += '<div class="span6"><tr>';
+		temp_goods += '<td>'+split_goods[i]+'</td>';
+		i++;
+		temp_goods += '<td>'+split_goods[i]+'</td>';
+		temp_goods += '</tr></div>';
+		startFrom++;
+	}
+	temp_goods += '</table>';
+	goods.innerHTML = temp_goods;//в етом месте он перезаписываеться
+};
+
 function checkBox(ids) {
 	$.ajax({
 		url: "categories.json",
@@ -17,11 +43,16 @@ function checkBox(ids) {
 					temp_partners ='';
 					var checkBox = document.getElementById("checkBox");
 					checkBox.innerHTML = '';
+					var is_admin = document.getElementById("Add");
 					var partners_id = datas.partners.split(",");
 					for(i = 0; i < partners_id.length; i++ ) {
 						for(j = 0; j < data_partners.length; j++){
 							if (data_partners[j].id == partners_id[i]) {
-								temp_partners +='<input type="checkbox" name="checkBoxFilter" value="';
+								if (!is_admin) {
+									temp_partners +='<input type="checkbox" name="checkBoxFilter" checked value="';
+								} else {
+									temp_partners +='<input type="radio" name="checkBoxFilter" value="';
+								}
 								temp_partners += data_partners[j].id+'">';
 								temp_partners += data_partners[j].title;
 								temp_partners +='<br>';
@@ -61,7 +92,7 @@ function subMenu(ids) {
 							break;
 						}
 					}
-					temp += '<h5>'+data_3.title+':</h5><select name="selectFilters">';
+					temp += '<h5>'+data_3.title+':</h5><select name="selectFilters[]">';
 					if (data_3.sub_category) {
 						var split_category_3_id = data_3.sub_category.split(",");
 				
@@ -77,6 +108,9 @@ function subMenu(ids) {
 					temp += '</select>';
 				} 
 			}
+			if (document.getElementById("Add")) {
+				temp += '<br><input type="hidden" value="'+ids+'" name="category"><input type="submit" value="Добавить товар">';
+			}
 			subMenu.innerHTML = temp;
 		}
 	
@@ -91,29 +125,20 @@ function goodsV(ids) {
 		success: function (data_goods) {
 			var goods = document.getElementById("goods");
 			for(i = 0; i < data_goods.length; i++){//берем всего 10 mоваров
-				
-				if (data_goods[i].category == ids) {
+				if (data_goods[i].category.split("/")[0] == ids) {
 					split_goods.push(data_goods[i].title);
 					split_goods.push(data_goods[i].price);
 				}
 			} 
 			
-			var temp_goods = '<table border="1">';//это создаеться хтмл код который пишеться в правой части 
-			for(i = 0;(i < split_goods.length - 1) && (i < 20); i++) {
-				
-				temp_goods += '<div class="span6"><tr>';
-				temp_goods += '<td>'+split_goods[i]+'</td>';
-				i++;
-				temp_goods += '<td>'+split_goods[i]+'</td>';
-				temp_goods += '</tr></div>';
-			}
-			temp_goods += '</table>';
-			goods.innerHTML = temp_goods;//в етом месте он перезаписываеться
+			goodsView(10);
 		}
 	});
 };
 
 function MyOnClick(ids) {
+	var last_check = document.getElementById("last_check");
+	last_check.innerHTML = ids;
 	$.ajax({
 		url: "categories.json",
 		dataType : "json",             
@@ -146,8 +171,7 @@ function MyOnClick(ids) {
 				if (i % 2 == 0) {
 					temp += '<tr>';
 				}
-				temp += '<td><a style="margin-left:20px;" onclick="checkBox('+arr[i]+');';
-				temp +=	'subMenu('+arr[i]+');goodsV('+arr[i]+')">';				
+				temp += '<td><a style="margin-left:20px;" onclick="lvl2click('+arr[i]+')">';				
 				for(p = 0; p < data.length;p++){
 					if (data[p].id == arr[i]) {
 						temp += data[p].title;
@@ -179,8 +203,7 @@ function MyOnClick(ids) {
 				var arr = datas.sub_category.split(",");
 				
 				for(i = 0; i < arr.length - 1; i++) {
-					temp += '<li><a style="margin-left:20px;" class="animated fadeInDown" onclick="checkBox('+arr[i]+');';
-					temp +=	'subMenu('+arr[i]+');goodsV('+arr[i]+')">';				
+					temp += '<li><a style="margin-left:20px;" class="animated fadeInDown" onclick="lvl2click('+arr[i]+')">';				
 					for(p = 0; p < data.length;p++){
 						if (data[p].id == arr[i]) {
 							temp += data[p].title;

@@ -12,8 +12,9 @@ function filters() {
 
 					var checkBoxFilters = document.getElementsByName("checkBoxFilter");
 					var checkBox = [];
-					var selectFilters = document.getElementsByName("selectFilters");
+					var selectFilters = document.getElementsByName("selectFilters[]");
 					var selectF = [];
+					split_goods = [];
 
 					for(i = 0; i < checkBoxFilters.length; i++){
 						if (checkBoxFilters[i].checked) {
@@ -25,22 +26,26 @@ function filters() {
 						selectF.push(selectFilters[i][selectFilters[i].selectedIndex].value);	
 					}
 					
-					//cпорный момент
-					ids = selectF[0];
-					//конец
+					var ids = selectF.join();
 					for(i = 0; i < data_goods.length; i++){
 				
-						if //((data_goods[i].category == ids) &&
+						if ((data_goods[i].category.split("/")[1] == ids) &&
 							(checkBox.some(function(item){
 								if (item == data_goods[i].producer) {
 									return true;
 								} else return false;
-							}))//)
+							})))
 						{
 							split_goods.push(data_goods[i].title);
 							split_goods.push(data_goods[i].price);
 						}
-					} 
+					}
+
+					if (split_goods.length == 0) {
+						goods.innerHTML = '<h4>Ничего не найдено</h4>';
+					} else {
+						goodsView(10);
+					}
 
 				}
 			});

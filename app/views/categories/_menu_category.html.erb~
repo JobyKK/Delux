@@ -10,7 +10,6 @@
 			<% if @i < 3 %>
 				<%= link_to ' Добавить подкатегорию ', Category.find(p.to_i), method: :add %>
 			<% end %>
-			<!-- Тут надо зделать вставку добавления продусеров я ее пока засунул в _form--> 
 
 			<%if Category.find(p.to_i).sub_category != nil%>
 					<% @i += 1 %>
@@ -31,30 +30,7 @@
 			<li> <a style="font-size:14pt;color:#000;"><%=r.title%></a>
 			<%= link_to ' Изменить ', edit_category_path(r) %>
 			<%= link_to ' Добавить подкатегорию ', r, method: :add %>	
-<<<<<<< HEAD
-        	 
-		<%if r.sub_category != ""%>
-			</li>     		
-			<% r.sub_category.to_s.split(',').each do |p| %>
-				<li><a style="margin-left:20px;color:red;font-size:12pt;"><%= Category.find(p.to_i).title%></a>
-				<%= link_to 'Изменить ', edit_category_path(Category.find(p.to_i)) %>
-		<!-- Тут надо зделать вставку добавления продусеров я ее п$.ajax({
-                url: "categories.json",
-                dataType : "json",             
-		success: function (data) {
-			for(i = 0; i < data.length;i++){
-				if (data[i].id == ids) {
-					var datas = data[i];
-					break;
-				}
-			}ока засунул в _form--> 
-				<%= link_to ' Удалить ', Category.find(p.to_i), method: :delete, data: { confirm: 'Are you sure?' } %></li>
-			<%end%>
-		<%else%>
-			<%= link_to 'Удалить', r, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-		<%end%>
-=======
->>>>>>> 4c15ceed0ea7d4f40c100897e71dfb78ec78e7a9
+
 
 			<%if r.sub_category != ""%>
 				<% rec r.id %>
@@ -65,3 +41,4 @@
 		<% end %>
 	<%end%>
 </ul>
+<h5><%= session[:id] %></h5>

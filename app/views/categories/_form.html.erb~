@@ -16,10 +16,7 @@
     <%= f.text_field :title %>
   </div>
 
-  <div class="field">
-    <%= f.label :partners %><br>
-    <%= f.text_field :partners %>
-  </div> 
+  <!--partners -->
   <div class="field"> 
     <%= f.label :descritpion %><br>
     <%= f.text_area :descritpion %>

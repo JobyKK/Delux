@@ -27,18 +27,19 @@ class CategoriesController < ApplicationController
     
   # GET /categories/1/edit
   def add
-
+    
    @old_category = @category
    @category = Category.new
+
    @category.super_category = @old_category.id.to_s
+
    @category.save
    if @old_category.sub_category != nil
-   	@old_category.sub_category += Category.last.id.to_s
-  	@old_category.sub_category += ","
-
+	   	@old_category.sub_category += Category.last.id.to_s
+	  	@old_category.sub_category += ","
    else
-  	@old_category.sub_category = Category.last.id.to_s
-  	@old_category.sub_category += ","
+		@old_category.sub_category = Category.last.id.to_s
+	  	@old_category.sub_category += ","
    end
 
    @old_category.save
@@ -50,6 +51,7 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
+
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: 'Category was successfully created.' }
@@ -66,6 +68,10 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1
   # PATCH/PUT /categories/1.json
   def update
+
+   @must_have = params[:category][:partners]
+   @category.partners = @must_have.join(",") if @must_have
+
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to '/categories', notice: 'Category was successfully updated.' }

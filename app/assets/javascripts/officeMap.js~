@@ -1,6 +1,6 @@
+var geocoder;
+var map;
 
-  var geocoder;
-  var map;
 function init_map(){
 	$.ajax({
 		url: "offices.json",
@@ -21,6 +21,7 @@ function init_map(){
 		}
 	});
 }
+
 function findOffice(address){
  	var infowindow = new google.maps.InfoWindow();
  	var marker, i;

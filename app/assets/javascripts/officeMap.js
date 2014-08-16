@@ -17,7 +17,7 @@ function init_map(){
 				var address = data_offices[i].address;
 				findOffice(address);
 
-		 	 }
+		 	}
 		}
 	});
 }

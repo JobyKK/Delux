@@ -10,7 +10,6 @@
 			<% if @i < 3 %>
 				<%= link_to ' Добавить подкатегорию ', Category.find(p.to_i), method: :add %>
 			<% end %>
-			<!-- Тут надо зделать вставку добавления продусеров я ее пока засунул в _form--> 
 
 			<%if Category.find(p.to_i).sub_category != nil%>
 					<% @i += 1 %>
@@ -42,3 +41,4 @@
 		<% end %>
 	<%end%>
 </ul>
+

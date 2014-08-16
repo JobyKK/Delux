@@ -1,9 +1,12 @@
 class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy]
-
+  @@checkBox = ""
+  @@select = ""
+  @@last_check = false
   # GET /goods
   # GET /goods.json
   def index
+    @last_check = @@last_check
     @goods = Good.all
   end
 
@@ -14,7 +17,15 @@ class GoodsController < ApplicationController
 
   # GET /goods/new
   def new
-    @good = Good.new
+	@@checkBox = params[:checkBoxFilter]
+	@category = params[:category]
+	@@select = params[:selectFilters].join(",")
+	@@select = @category+'/'+@@select
+	@good = Good.new
+	@@last_check = true
+		
+	
+	#@good.save	
   end
 
   # GET /goods/1/edit
@@ -24,7 +35,12 @@ class GoodsController < ApplicationController
   # POST /goods
   # POST /goods.json
   def create
+	
+	
     @good = Good.new(good_params)
+	session[:id] = @@select
+	@good.producer = @@checkBox if @@checkBox 
+	@good.category = @@select if @@select
 
     respond_to do |format|
       if @good.save

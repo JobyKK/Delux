@@ -1,13 +1,21 @@
 var split_goods = [];
+var startFrom = 0;
 $(document).ready(function(){
 
-	var startFrom = 0;
+	/*var last_check = document.getElementById("last_check");
+	if (last_check.name == "yes") {
+		last_check = last_check.innerHTML.split(",");
+		MyOnClick(last_check[0]);
+		lvl2click(last_check[1]);
+		last_check.name == "no"
+	}*/
+
 
 	$(window).scroll(function() {
 
 
         /* Если высота окна + высота прокрутки больше или равны высоте всего документа, то запускаем ajax-запрос */
-		if(($(window).scrollTop() + $(window).height() >= $(document).height() - 200) && (startFrom*2 <= split_goods.length)) {
+		if(($(window).scrollTop() + $(window).height() >= $(document).height() - 100) && (startFrom*2 <= split_goods.length)) {
 
 			if (document.getElementById('subMenu').getAttribute('name') != 'none') {
 				
@@ -24,7 +32,7 @@ $(document).ready(function(){
 				temp_goods += '</table>';
 			
 				goods.innerHTML += temp_goods;//в етом месте он перезаписываеться
-				//startFrom += 3;
+				startFrom += 3;
 			}
 		}
         });

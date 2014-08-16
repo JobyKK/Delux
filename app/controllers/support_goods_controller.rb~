@@ -60,7 +60,7 @@ class SupportGoodsController < ApplicationController
   # DELETE /support_goods/1
   # DELETE /support_goods/1.json
   def destroy
-    @support_good.destroy
+    @support_good.delete_from_categories
     respond_to do |format|
       format.html { redirect_to support_goods_url, notice: 'Support good was successfully destroyed.' }
       format.json { head :no_content }

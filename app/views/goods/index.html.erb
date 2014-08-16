@@ -5,7 +5,6 @@
 		<%= render 'menu_goods' %>
 		<%if current_admin%>
 			<h1 style="color:aaa;"><%= link_to 'BIG RED BUTTON', categories_path %></h1>
-			<%= link_to 'New Good', new_good_path %>
 			<br><%= link_to 'New support good', new_support_good_path %>
 		<%end%>
 	</div>
@@ -15,14 +14,16 @@
 			<button onclick="searchs()">Найти</button>
 		</p>
 		<div class="row">
+			<%if current_admin%><form accept-charset="UTF-8" action="/goods/new" method="GET" id="Add"><%end%>
+				<div class="span4" id="checkBox" class="animated fadeIn">
+				<!-- Тут хватаем js инфу из чекбоксов производителей и перезаписываем сюда новые js-->
+				</div>
 
-			<div class="span4" id="checkBox" class="animated fadeIn">
-			<!-- Тут хватаем js инфу из чекбоксов производителей и перезаписываем сюда новые js-->
-			</div>
-
-			<div class="span5" id="subMenu" class="animated fadeIn" name="none">
-			<!-- Тут хватаем запускаем js подменю-->			
-			</div>
+				<div class="span5" id="subMenu" class="animated fadeIn" name="none">
+				<!-- Тут хватаем запускаем js подменю-->			
+				</div>
+				<input type="hidden" id="last_check" name=<%if @last_check %><%="yes"%><%else%><%="no"%><%end%>></input>
+			<%if current_admin%></form><%end%>
 		</div>
 		<div id="goods">
 			<%i = 0%>

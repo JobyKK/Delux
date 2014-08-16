@@ -16,40 +16,54 @@ textarea{
       </ul>
     </div>
   <% end %>
+<div class="row">
+	<div class="span6">
+	  <div class="field">
+		<%= f.label :title %><br>
+		<%= f.text_field :title %>
+	  </div>
+	  <div class="field">
+		<%= f.label :price %><br>
+		<%= f.text_field :price %>
+	  </div>
+	  <div class="field">
+		<%= f.label :avatar %>
+		<%= f.file_field :avatar %>
+	  </div>
+	  <div class="field">
+		<%= f.label :short_description %><br>
+		<%= f.bootsy_area :short_description %>
+	  </div>
+	  <div class="field">
+		<%= f.label :description %><br>
+		<%= f.bootsy_area :description %>
+	  </div>
+	  <div class="field">
+		<%= f.label :available %><br>
+		<%= f.check_box :available %>
+	  </div>
+<!--
+	  <div class="field">
+		<%= f.label :category %><br>
+		<%= f.text_field :category %>
+	  </div>-->
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-  </div>
-  <div class="field">
-    <%= f.label :short_description %><br>
-    <%= f.bootsy_area :short_description %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.bootsy_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :available %><br>
-    <%= f.check_box :available %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :produser %><br>
-    <%= f.text_field :produser %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<!--	  <div class="field">
+		<%= f.label :producer %><br>
+		<%= f.text_field :producer %>
+	  </div-->
+	  <div class="actions">
+		<%= f.submit %>
+	  </div>
+	</div>
+	<div class="span6">
+			<h1>Выбирете партнеров для этой категории</h1>
+			<#% .all.each do |r| %>
+				<br><#%= check_box("category", "partners", {:multiple => true}, r.id, nil) %>
+				<#%= r.title %>
+			<#% end %>
+		<#% end %>
+	</div>
+<h2><%= session[:id] %></h2>
+</div>
 <% end %>

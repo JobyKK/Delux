@@ -2,7 +2,7 @@ function searchs() {
 	if (document.getElementById("search").value) {
 
 		var sub = document.getElementById("search").value;
-			
+		split_goods = [];	
 		$.ajax({
 			url: "goods.json",
 			dataType : "json",             
@@ -17,19 +17,12 @@ function searchs() {
 						split_goods.push(data_goods[i].price);							
 					}
 				} 
-		
-				var temp_goods = '<ul>';
-				for(i = 0;(i < split_goods.length - 1) && (i < 20); i++) {
-					temp_goods += '<li>';						
-					temp_goods += split_goods[i];
-					temp_goods += '</li>';
-					i++;
-					temp_goods += '<li>';				
-					temp_goods += split_goods[i];
-					temp_goods += '</li>';
+				if (split_goods.length == 0) {
+					goods.innerHTML = '<h4>Ничего не найдено</h4>';
+				} else {
+					goodsView(10);
 				}
-				temp_goods += '</ul>';
-				goods.innerHTML = temp_goods;
+				//может вывести первые товары
 			}
 		});
 	}

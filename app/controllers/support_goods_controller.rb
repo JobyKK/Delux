@@ -19,9 +19,6 @@ class SupportGoodsController < ApplicationController
 
   # GET /support_goods/1/edit
   def edit
-  end
-
-  def lol
   end	
 
   # POST /support_goods

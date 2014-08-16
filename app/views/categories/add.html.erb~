@@ -10,20 +10,30 @@
       </ul>
     </div>
   <% end %>
+<div class="row">
+	<div class="span6">
+		<div class="field">
+	    		<%= f.label :title %><br>
+	   		<%= f.text_field :title %>
+	  	</div>
+	  	<div class="field"> 
+	    		<%= f.label :descritpion %><br>
+	    		<%= f.text_area :descritpion %>
+	  	</div>
+		<div class="actions">
+			<%= f.submit "Создать"%>
+		</div>
+	 	
+	</div>
+	<div class="span6">
+		<%if @old_category.super_category == ""%>
+			<h1>Выбирете партнеров для этой категории</h1>
+			<% Partner.all.each do |r| %>
+				<br><%= check_box("category", "partners", {:multiple => true}, r.id, nil) %>
+				<%= r.title %>
+			<% end %>
+		<% end %>
+	</div>
+</div>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field"> 
-    <%= f.label :descritpion %><br>
-    <%= f.text_area :descritpion %>
-  </div>
- <div class="field"> 
-    <%= f.label :partners %><br>
-    <%= f.text_area :descritpion %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

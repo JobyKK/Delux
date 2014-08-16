@@ -1,19 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Название:</strong>
   <%= @good.title %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>Цена:</strong>
   <%= @good.price %>
 </p>
 
-<p>
-  <strong>Short description:</strong>
-  <%= @good.short_description %>
-</p>
 
 <p>
   <strong>Description:</strong>
@@ -26,14 +22,9 @@
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @good.category %>
-</p>
-
-<p>
-  <strong>Producer:</strong>
+  <strong>Производитель:</strong>
   <%= @good.producer %>
 </p>
 
-<%= link_to 'Edit', edit_good_path(@good) %> |
-<%= link_to 'Back', goods_path %>
+<%= link_to 'Изменить', edit_good_path(@good) %> |
+<a onclick ="backToLast()">Назад</a>
