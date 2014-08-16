@@ -32,6 +32,28 @@
 			<%= link_to ' Добавить подкатегорию ', r, method: :add %>	
 
 
+        	 
+		<%if r.sub_category != ""%>
+			</li>     		
+			<% r.sub_category.to_s.split(',').each do |p| %>
+				<li><a style="margin-left:20px;color:red;font-size:12pt;"><%= Category.find(p.to_i).title%></a>
+				<%= link_to 'Изменить ', edit_category_path(Category.find(p.to_i)) %>
+		<!-- Тут надо зделать вставку добавления продусеров я ее п$.ajax({
+                url: "categories.json",
+                dataType : "json",             
+		success: function (data) {
+			for(i = 0; i < data.length;i++){
+				if (data[i].id == ids) {
+					var datas = data[i];
+					break;
+				}
+			}ока засунул в _form--> 
+				<%= link_to ' Удалить ', Category.find(p.to_i), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+			<%end%>
+		<%else%>
+			<%= link_to 'Удалить', r, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+		<%end%>
+
 			<%if r.sub_category != ""%>
 				<% rec r.id %>
 				<%# @i -= 1 %>

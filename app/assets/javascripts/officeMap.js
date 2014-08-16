@@ -32,6 +32,7 @@ function findOffice(address){
             			map: map,
 				title: results[0].formatted_address,
             			position: results[0].geometry.location
+
        			});
 			google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
