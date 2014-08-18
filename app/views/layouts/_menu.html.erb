@@ -30,23 +30,33 @@
         border-right: 0;
         border-radius: 0 3px 3px 0;
       }
+
+ .column {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 30px;
+    -moz-column-gap: 30px;
+    column-gap: 30px;
+    -webkit-column-rule: 1px solid #ccc;
+    -moz-column-rule: 1px solid #ccc;
+    column-rule: 1px solid #ccc;
+   }
     </style>
 <div class="row">
 <div class="masthead">
-<div class="row">
+<div class="row" style="margin-left: 0px;">
 	<div class="span4">
 		<img src="<%= asset_path("logo.png") %>" height="140px"/>
 	</div>
-	<div class="span8">
-		<div class="row">
-		<div class="span4">
-			<h1>Lololol</h1>
-		</div>
-		<div class="span4 text-right" style="font-family:Geneva;"> 
+	<div class="span8 text-right" style="font-family:Geneva;"> 
+		  <div class="well well-small">
+			<div class="column">
 			<%= Office.first.numbers.html_safe if Office.first.numbers %>
-		</div>
-		</div>
+			</div>
+		  </div>
 	</div>
+	<div class="row">
 	<div class="span8">
 	<div class="navbar">
 	<div class="navbar-inner">
@@ -60,6 +70,7 @@
 	  	    </ul> 
   	    
     		</div>
+	</div>
 	</div>
 	</div>
  	</div>

@@ -1,0 +1,25 @@
+<style>
+.fcolor {
+	background:#88aee1;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+</style>
+<div class="footer text-center">
+	<div class="well well-small">
+		<div class="row">
+		<% i = Office.all.length%>
+		<% i = 4 if i > 4%>
+		<% iter = 0%>
+		<% Office.all.each do |f| %>		
+			<% break if iter == 4%>	
+			<div class=span<%= 12/i%> style="margin-left: 10px;">
+			<h5><%= f.title.html_safe%>:</h5>
+			<%= f.numbers.html_safe%>
+			</div>
+			<% iter += 1 %>
+		<% end %>
+		</div>	
+	</div>
+        <p style="color:#a3a9b0;">&copy; [A]ngle Все права защищены.</p>
+</div>

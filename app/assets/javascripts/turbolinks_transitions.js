@@ -164,28 +164,28 @@ function MyOnClick(ids) {
 	
 			//goods
 			var goods = document.getElementById("goods");
-			var temp = '<table align="center" class="animated zoomInRight">';
+			var temp = '';
 			var arr = datas.sub_category.split(",");
 				
 			for(i = 0; i < arr.length - 1; i++) {
 				if (i % 2 == 0) {
-					temp += '<tr>';
+					temp += '<div class="span4 text-center" style="margin-left: 60px;">';
 				}
-				temp += '<td><a style="margin-left:20px;" onclick="lvl2click('+arr[i]+')">';				
+				else {
+					temp += '<div class="span4 text-center">';
+				}
+				temp += '<a style="margin-left:20px;" onclick="lvl2click('+arr[i]+')">';				
 				for(p = 0; p < data.length;p++){
 					if (data[p].id == arr[i]) {
+						temp += '<img src="/assets/' + data[p].avatar_file_name + '"><br>';
 						temp += data[p].title;
 						break;
 					}
 				}
 				
-				temp +='</a></td>';
-				if (i % 2 != 0) {
-					temp += '</tr>';
-				}					
+				temp +='</a></div>';
+								
 			}			
-	
-			temp += '</table>';
 			goods.innerHTML = temp;
 
 			//end of goods

@@ -1,22 +1,32 @@
-<br>
+<style>
+  .panel-body img{
+	width: 200px;
+	height: 200px;
+	background: white;
+}
+</style>
+<div class="page-header">
+	<h1 style="font-family:Geneva;">Наш интернет-магазин</h1>
+</div>
 <script type="application/javascript;version=1.7"></script>
 <div class="row" >
 	<div class="span3" >
+		<p><b>Введите название товара:</b><br>
+			<div class="form-search">
+				<input type="text" size="40" style="height:24px" id="search">
+				<button onclick="searchs()">Найти</button>
+			</div>
+		</p>
 		<%= render 'menu_goods' %>
 		<%if current_admin%>
 			<h1 style="color:aaa;"><%= link_to 'BIG RED BUTTON', categories_path %></h1>
 			<br><%= link_to 'New support good', new_support_good_path %>
 		<%end%>
 	</div>
-	<div class="span9" >
-		<p><b>Введите название товара:</b><br>
-			<div class="form-search">
-				<input type="text" size="40" id="search">
-				<button onclick="searchs()">Найти</button>
-			</div>
-		</p>
+	<div class="span9">
 		<div class="row">
-			<%if current_admin%><form accept-charset="UTF-8" action="/goods/new" method="GET" id="Add"><%end%>
+			<%if current_admin%>
+				<form accept-charset="UTF-8" action="/goods/new" method="GET" id="Add"><%end%>
 				<div class="span4" id="checkBox" class="animated fadeIn">
 				<!-- Тут хватаем js инфу из чекбоксов производителей и перезаписываем сюда новые js-->
 				</div>
@@ -27,7 +37,31 @@
 				<input type="hidden" id="last_check" name=<%if @last_check %><%="yes"%><%else%><%="no"%><%end%>></input>
 			<%if current_admin%></form><%end%>
 		</div>
+
+			<div class="panel panel-default">
+			<div class="panel-body">
+			<div class="row">
 		<div id="goods">
+				<%i = 0%>
+				<% Category.all.each do |r| %>
+					<%if r.super_category == ""%>
+						<%if i % 2 == 0 %>
+							<div class="span4 text-center" style="margin-left: 60px;">
+						<% else %>
+							<div class="span4 text-center">
+						<%end%>	
+							<a onclick=<%='MyOnClick("'+r.id.to_s+'")'%> style="font-size:12pt">
+							    <%= image_tag(r.avatar.url) %>
+							<br><%= r.title%></a>
+						</div>					
+				<%i += 1%>
+					<%end%>
+				<%end%>
+			</div>
+			</div>
+			</div>
+		</div>
+		<!--div id="goods">
 			<%i = 0%>
 			<table align="center" class="animated fadeIn">
 			<% Category.all.each do |r| %>
@@ -44,6 +78,6 @@
 				<%end%>
 			<%end%>
 			</table>
-		</div>
+		</div-->
 	</div>
 </div>

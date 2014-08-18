@@ -1,0 +1,4 @@
+json.array!(@offers) do |offer|
+  json.extract! offer, :id, :title, :description, :avatar_file_name
+  json.url offer_url(offer, format: :json)
+end

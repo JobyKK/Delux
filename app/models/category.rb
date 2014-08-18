@@ -1,4 +1,8 @@
 class Category < ActiveRecord::Base
+	validates :avatar,
+	attachment_content_type: { content_type: /\Aimage\/.*\Z/ },
+	attachment_size: { less_than: 5.megabytes }
+	has_attached_file :avatar
 def destroy_sub 
 	if self.super_category != ""
 		@categor = Category.find(self.super_category.to_i)
