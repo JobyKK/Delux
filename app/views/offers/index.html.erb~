@@ -3,6 +3,9 @@
   width: 100px;
   height: 100px;
 }
+a:hover{
+	background:#fff;
+}
 </style>
 <h1><%if current_admin %>
 <%= link_to "Новая новость", new_offer_path %>
@@ -60,7 +63,7 @@
       	<%= element.description.html_safe if element.description%>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
       </div>
     </div>
   </div>

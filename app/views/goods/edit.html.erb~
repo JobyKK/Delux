@@ -52,7 +52,7 @@ textarea{
 			<h1>Выбирете производителя</h1>
 			<% Category.find(@good.category.split("/")[0]).partners.split(",").each do |ids|%>
 				<% if @good.producer == ids %>
-					<br><input type="radio" name="goods[producer]" checked="checked" value=<%= ids %>>
+					<br><input type="radio" class="goods[producer]" checked="checked" value=<%= ids %>>
 					<%= Partner.find(ids).title %>
 				<% else %>
 					<br><%= radio_button("goods", "producer", ids) %>

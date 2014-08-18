@@ -1,8 +1,5 @@
 function lvl2click(ids) {
-	var last_check = document.getElementById("last_check");
-	if (last_check.innerHTML.split(",")[1] != ids) {
-		last_check.innerHTML = last_check.innerHTML.split(",")[0]+','+ids;
-	}
+	split_goods = []
 	checkBox(ids);
 	subMenu(ids);
 	goodsV(ids);
@@ -137,8 +134,6 @@ function goodsV(ids) {
 };
 
 function MyOnClick(ids) {
-	var last_check = document.getElementById("last_check");
-	last_check.innerHTML = ids;
 	$.ajax({
 		url: "categories.json",
 		dataType : "json",             

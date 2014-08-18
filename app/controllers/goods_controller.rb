@@ -2,11 +2,9 @@ class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy]
   @@checkBox = ""
   @@select = ""
-  @@last_check = false
   # GET /goods
   # GET /goods.json
   def index
-    @last_check = @@last_check
     @goods = Good.all
   end
 
@@ -22,10 +20,7 @@ class GoodsController < ApplicationController
 	@@select = params[:selectFilters].join(",")
 	@@select = @category+'/'+@@select
 	@good = Good.new
-	@@last_check = true
-		
-	
-	#@good.save	
+
   end
 
   # GET /goods/1/edit
@@ -56,6 +51,7 @@ class GoodsController < ApplicationController
   # PATCH/PUT /goods/1
   # PATCH/PUT /goods/1.json
   def update
+    @good.producer = params[:goods][:producer]
     respond_to do |format|
       if @good.update(good_params)
         format.html { redirect_to @good, notice: 'Good was successfully updated.' }

@@ -18,9 +18,9 @@ color: red;
 
       <div class="jumbotron">
 	<% if current_admin %>
-	<h1>Welcome ADMIN</h1>
+	<h1>Добро пожаловать Админ</h1>
 	<!-- Не забыть удалить регистрацию -->
-	<p><%= link_to "Sign out", destroy_admin_session_path, :method => :delete %></p>
+	<p><%= link_to "Выйти", destroy_admin_session_path, :method => :delete %></p>
 	<%end%>
 
 	<div id="myCarousel" class="carousel slide">
@@ -113,7 +113,7 @@ color: red;
       	<%= Offer.all[-i].description.html_safe if Offer.all[-i].description%>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
       </div>
     </div>
   </div>
@@ -122,10 +122,5 @@ color: red;
 	</div>    
 	<%end%>
       </div>
-	<%end%>
-      <!-- Site footer -->
-      <div class="footer">
-        <p>&copy; Company 2014</p>
-      </div>
-
+	<%end%>   
 </div> 
