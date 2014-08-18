@@ -22,7 +22,6 @@
 
 				<div class="span5" id="subMenu" class="animated fadeIn" name="none">
 				</div>
-				<input type="hidden" id="last_check" name=<%if @last_check %><%="yes"%><%else%><%="no"%><%end%>></input>
 			<%if current_admin%></form><%end%>
 		</div>
 		<div id="goods">

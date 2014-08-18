@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 
         /* Если высота окна + высота прокрутки больше или равны высоте всего документа, то запускаем ajax-запрос */
-		if(($(window).scrollTop() + $(window).height() >= $(document).height() - 100) && (startFrom*2 <= split_goods.length)) {
+		if(($(window).scrollTop() + $(window).height() >= $(document).height() - 300) && (startFrom*2 <= split_goods.length)) {
 
 			if (document.getElementById('subMenu').getAttribute('name') != 'none') {
 				

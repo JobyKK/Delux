@@ -1,5 +1,46 @@
 <h1>Изменить катеорию</h1><hr>
 
-<%= render 'form' %>
+<%= form_for(@category) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-<%= link_to 'Назад', categories_path %>
+      <ul>
+      <% @category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div class="row">	
+		<div class="span6">
+		  <div class="field">
+			<%= f.label "Название" %><br>
+			<%= f.text_field :title %>
+		  </div>
+
+		  <div class="field"> 
+			<%= f.label "Описание" %><br>
+			<%= f.text_area :descritpion %>
+		  </div>
+		  <div class="actions">
+			<%= f.submit "Отправить" %>
+		  </div>
+		</div>
+		<div class="span6">
+			<%if Category.find(@category.super_category).super_category == ""%>
+				<h1>Выбирете партнеров для этой категории</h1>
+				<% Partner.all.each do |r| %>
+					<%if @category.partners.index(r.id.to_s) == nil%>
+						<br><%= check_box("category", "partners", {:multiple => true}, r.id, nil) %>
+						<%= r.title %>
+					<% else %>
+						<br><input type="checkbox" id=category_partners_<%= r.id %> name="category[partners][]" checked="checked" value=<%= r.id %> >
+						<%= r.title %>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+	<%= link_to 'Назад', categories_path %>
+<% end %>

@@ -1,4 +1,5 @@
 function lvl2click(ids) {
+	split_goods = []
 	checkBox(ids);
 	subMenu(ids);
 	goodsV(ids);
