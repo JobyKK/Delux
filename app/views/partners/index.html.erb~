@@ -3,6 +3,9 @@
 	width: 200px;
 	height: 200px;
 }
+a:hover {
+	background:#fff;
+}
 </style>
 <h1><%if current_admin %>
 <%= link_to "Новый партнер", new_partner_path %>

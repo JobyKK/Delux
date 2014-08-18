@@ -10,12 +10,10 @@
 	</div>
 	<div class="span9" >
 		<p><b>Введите название товара:</b><br>
-			<!-- Тут заменил форму, если не будет работать поиск, - замени братно -->
-			<form class="form-search">
-			<input type="text" size="40" id="search">
-			<!-- button onclick="searchs()">Найти</button-->
-			<button onclick="searchs()" type="submit" class="btn">Найти</button>
-			</form>
+			<div class="form-search">
+				<input type="text" size="40" id="search">
+				<button onclick="searchs()">Найти</button>
+			</div>
 		</p>
 		<div class="row">
 			<%if current_admin%><form accept-charset="UTF-8" action="/goods/new" method="GET" id="Add"><%end%>

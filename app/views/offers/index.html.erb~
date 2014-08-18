@@ -48,7 +48,7 @@
 			</div>
 		</div>
 	</div>
-<div class="modal fade" id="offerDetales<%=element.id.to_s%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+<div class="modal fade" id="offerDetales<%=element.id.to_s%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
