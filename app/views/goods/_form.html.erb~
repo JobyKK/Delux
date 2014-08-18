@@ -16,32 +16,31 @@ textarea{
       </ul>
     </div>
   <% end %>
-	<div class="span6">
 	  <div class="field">
-		<%= f.label :title %><br>
+		<%= f.label "Название" %><br>
 		<%= f.text_field :title %>
 	  </div>
 	  <div class="field">
-		<%= f.label :price %><br>
+		<%= f.label "Цена" %><br>
 		<%= f.text_field :price %>
 	  </div>
 	  <div class="field">
-		<%= f.label :avatar %>
+		<%= f.label "Фото" %>
 		<%= f.file_field :avatar %>
 	  </div>
 	  <div class="field">
-		<%= f.label :short_description %><br>
+		<%= f.label "Краткое описание" %><br>
 		<%= f.bootsy_area :short_description %>
 	  </div>
 	  <div class="field">
-		<%= f.label :description %><br>
+		<%= f.label "Полное описание" %><br>
 		<%= f.bootsy_area :description %>
 	  </div>
 	  <div class="field">
-		<%= f.label :available %><br>
+		<%= f.label "Наличие на складе" %><br>
 		<%= f.check_box :available %>
 	  </div>
 	  <div class="actions">
-		<%= f.submit %>
+		<%= f.submit "Отправить"%>
 	  </div>
 <% end %>

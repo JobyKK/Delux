@@ -33,7 +33,7 @@ class CategoriesController < ApplicationController
 
    @category.super_category = @old_category.id.to_s
 
-   @category.save
+   @category.save if @category.title != nil
    if @old_category.sub_category != nil
 	   	@old_category.sub_category += Category.last.id.to_s
 	  	@old_category.sub_category += ","
@@ -54,7 +54,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.html { redirect_to '/categories', notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
@@ -71,6 +71,7 @@ class CategoriesController < ApplicationController
 
    @must_have = params[:category][:partners]
    @category.partners = @must_have.join(",") if @must_have
+
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to '/categories', notice: 'Category was successfully updated.' }

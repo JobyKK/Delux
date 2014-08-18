@@ -1,29 +1,13 @@
-<h1>Listing categories</h1>
-<h1><%= link_to 'New Category', new_category_path %></h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Title</th>
-      <th>Supp</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-	<td><%= category.id %></td>
-        <td><%= category.title %></td>
-        <td><%= category.support_goods %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<h1>Категории и типы</h1><hr>
+<style>
+a:hover{
+	background:#fff;
+}
+</style>
+<h1><%= link_to 'Новая категория', new_category_path %></h1>
 
 <%= render 'menu_category' %>
 
-
+<br>
+<%= link_to 'Назад ', goods_path %>
 <br>

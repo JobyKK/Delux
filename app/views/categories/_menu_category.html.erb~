@@ -16,13 +16,16 @@
 				<% rec p.to_i %>
 					<% @i -= 1 %>
 			<%else%>
-				<%= link_to 'Удалить', Category.find(p.to_i), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+				<%= link_to 'Удалить', Category.find(p.to_i), method: :delete, data: { confirm: 'Вы уверены?' } %></li>
 			<%end%>
 		
 				
 		<%end%>
 	
 <%end%>
+	<%# Category.all.each do |r| %>
+		<#% r.destroy if r.title == nil%>	<!--Herna s udaleniem-->
+	<%#end%>
 
 	<% Category.all.each do |r| %>
 		<%if r.super_category == ""%>  		
@@ -36,7 +39,7 @@
 				<% rec r.id %>
 				<%# @i -= 1 %>
 			<%else%>
-				<%= link_to 'Удалить', r, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+				<%= link_to 'Удалить', r, method: :delete, data: { confirm: 'Вы уверены?' } %></li>
 			<%end%>
 		<% end %>
 	<%end%>

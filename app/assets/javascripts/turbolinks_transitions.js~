@@ -1,8 +1,4 @@
 function lvl2click(ids) {
-	var last_check = document.getElementById("last_check");
-	if (last_check.innerHTML.split(",")[1] != ids) {
-		last_check.innerHTML = last_check.innerHTML.split(",")[0]+','+ids;
-	}
 	checkBox(ids);
 	subMenu(ids);
 	goodsV(ids);
@@ -131,7 +127,7 @@ function goodsV(ids) {
 				}
 			} 
 			
-			goodsView(3);
+			goodsView(10);
 		}
 	});
 };

@@ -1,11 +1,11 @@
 <br>
-<script type="application/javascript;version=1.7"></script>
+<script type="application/javascript;"></script>
 <div class="row" >
 	<div class="span3" >
 		<%= render 'menu_goods' %>
 		<%if current_admin%>
-			<h1 style="color:aaa;"><%= link_to 'BIG RED BUTTON', categories_path %></h1>
-			<br><%= link_to 'New support good', new_support_good_path %>
+			<h1 style="color:aaa;"><%= link_to 'Изменение категорий', categories_path %></h1>
+			<br><%= link_to 'New support good', new_support_good_path %><!--need add to good-->
 		<%end%>
 	</div>
 	<div class="span9" >
@@ -18,13 +18,10 @@
 		<div class="row">
 			<%if current_admin%><form accept-charset="UTF-8" action="/goods/new" method="GET" id="Add"><%end%>
 				<div class="span4" id="checkBox" class="animated fadeIn">
-				<!-- Тут хватаем js инфу из чекбоксов производителей и перезаписываем сюда новые js-->
 				</div>
 
 				<div class="span5" id="subMenu" class="animated fadeIn" name="none">
-				<!-- Тут хватаем запускаем js подменю-->			
 				</div>
-				<input type="hidden" id="last_check" name=<%if @last_check %><%="yes"%><%else%><%="no"%><%end%>></input>
 			<%if current_admin%></form><%end%>
 		</div>
 		<div id="goods">
