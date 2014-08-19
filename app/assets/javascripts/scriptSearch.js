@@ -13,8 +13,16 @@ function searchs() {
 
 				for(i = 0; i < data_goods.length; i++){
 					if (data_goods[i].title.indexOf(sub) != -1) {
-						split_goods.push(data_goods[i].title);
-						split_goods.push(data_goods[i].price);							
+						var cgood = new cGood(data_goods[i].title,
+							data_goods[i].price,
+							data_goods[i].short,
+							data_goods[i].full,
+							data_goods[i].available,
+							data_goods[i].category,
+							data_goods[i].producer,
+							data_goods[i].avatar);
+				
+						split_goods.push(cgood);							
 					}
 				} 
 				if (split_goods.length == 0) {

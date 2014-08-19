@@ -36,8 +36,16 @@ function filters() {
 								} else return false;
 							})))
 						{
-							split_goods.push(data_goods[i].title);
-							split_goods.push(data_goods[i].price);
+							var cgood = new cGood(data_goods[i].title,
+								data_goods[i].price,
+								data_goods[i].short,
+								data_goods[i].full,
+								data_goods[i].available,
+								data_goods[i].category,
+								data_goods[i].producer,
+								data_goods[i].avatar);
+				
+							split_goods.push(cgood);
 						}
 					}
 

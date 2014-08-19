@@ -1,23 +1,79 @@
+function cGood(title,price,short,full,available,category,producer,avatar) {
+	this.title = title;
+	this.price = price;
+	this.short = short;
+	this.full = full;
+	this.available = available;
+	this.category = category;
+	this.producer = producer;
+	this.avatar = avatar;
+};
+
+
 function lvl2click(ids) {
 	split_goods = []
+	addFrame();
 	checkBox(ids);
 	subMenu(ids);
 	goodsV(ids);
 };
 
+function addFrame() {
+	temp = "";
+	var menuRow = document.getElementById("menuRow");
+	var menuFrame = document.getElementById("menuFrame");
+	var goods = document.getElementById("goods")
+	menuFrame.innerHTML = '';
+	temp += '<div class="panel panel-default"><div class="panel-body"><div class="row" id="menuRow">'
+	temp += menuRow.innerHTML;
+	temp += '</div></div></div>';
+	temp += '<div id="goods">'
+	temp += goods.innerHTML;
+	temp += '</div>'
+	menuFrame.innerHTML += temp;
+}
+
+function goodsV(ids) {
+//тут запрос в бд товаров и их вывод в правую часть
+	$.ajax({
+		url: "goods.json",
+		dataType : "json",             
+		success: function (data_goods) {
+			var goods = document.getElementById("goods");
+			for(i = 0; i < data_goods.length; i++){//берем всего 10 mоваров
+				if (data_goods[i].category.split("/")[0] == ids) {
+
+					var cgood = new cGood(data_goods[i].title,
+						data_goods[i].price,
+						data_goods[i].short,
+						data_goods[i].full,
+						data_goods[i].available,
+						data_goods[i].category,
+						data_goods[i].producer,
+						data_goods[i].avatar);
+				
+					split_goods.push(cgood);
+				}
+			} 
+			
+			goodsView(10);
+		}
+	});
+};
+
 function goodsView(k) {
 	startFrom = 0;
-	var temp_goods = '<table border="1">';//это создаеться хтмл код который пишеться в правой части 
-	for(i = 0;(i < split_goods.length - 1) && (i < k*2); i++) {
+	var temp_goods = '<div class="panel panel-default"><div class="panel-body"><div class="row">';//это создаеться хтмл код который пишеться в правой части 
+	for(i = 0;(i < split_goods.length) && (i < k); i++) {
 			
-		temp_goods += '<div class="span6"><tr>';
-		temp_goods += '<td>'+split_goods[i]+'</td>';
-		i++;
-		temp_goods += '<td>'+split_goods[i]+'</td>';
-		temp_goods += '</tr></div>';
+		temp_goods += '<div class="span6 " style="margin-left: 160px;">';
+		temp_goods += split_goods[i].title+'<br>';
+		temp_goods += split_goods[i].price;
+		temp_goods += '</div>';
+		k++;
 		startFrom++;
 	}
-	temp_goods += '</table>';
+	temp_goods += '</div></div></div>';
 	goods.innerHTML = temp_goods;//в етом месте он перезаписываеться
 };
 
@@ -114,24 +170,7 @@ function subMenu(ids) {
 	});	
 };
 
-function goodsV(ids) {
-//тут запрос в бд товаров и их вывод в правую часть
-	$.ajax({
-		url: "goods.json",
-		dataType : "json",             
-		success: function (data_goods) {
-			var goods = document.getElementById("goods");
-			for(i = 0; i < data_goods.length; i++){//берем всего 10 mоваров
-				if (data_goods[i].category.split("/")[0] == ids) {
-					split_goods.push(data_goods[i].title);
-					split_goods.push(data_goods[i].price);
-				}
-			} 
-			
-			goodsView(10);
-		}
-	});
-};
+
 
 function MyOnClick(ids) {
 	$.ajax({
@@ -159,7 +198,7 @@ function MyOnClick(ids) {
 	
 			//goods
 			var goods = document.getElementById("goods");
-			var temp = '';
+			var temp = '<div class="panel panel-default"><div class="panel-body"><div class="row">';
 			var arr = datas.sub_category.split(",");
 				
 			for(i = 0; i < arr.length - 1; i++) {
@@ -181,6 +220,7 @@ function MyOnClick(ids) {
 				temp +='</a></div>';
 								
 			}			
+			temp +='</div></div></div>'
 			goods.innerHTML = temp;
 
 			//end of goods
