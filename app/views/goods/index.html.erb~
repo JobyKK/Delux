@@ -24,22 +24,24 @@
 			<br><%= link_to 'New support good', new_support_good_path %><!--need add to good-->
 		<%end%>
 	</div>
-	<div class="span9">
-		<div class="row">
+	<div class="span9" id="menuFrame">
+		<div class="row" id="menuRow">
 			<%if current_admin%>
-				<form accept-charset="UTF-8" action="/goods/new" method="GET" id="Add"><%end%>
+				<form accept-charset="UTF-8" action="/goods/new" method="GET" id="Add">
+			<%end%>
 				<div class="span4" id="checkBox" class="animated fadeIn">
 				</div>
-
-				<div class="span5" id="subMenu" class="animated fadeIn" name="none">
+				<div class="span4" id="subMenu" class="animated fadeIn" name="none">
 				</div>
-			<%if current_admin%></form><%end%>
+			<%if current_admin%>
+				</form>
+			<%end%>
 		</div>
-
-			<div class="panel panel-default">
-			<div class="panel-body">
-			<div class="row">
-		<div id="goods">
+	<div id="goods">
+		<div class="panel panel-default">
+		<div class="panel-body">
+		<div class="row">
+			
 				<%i = 0%>
 				<% Category.all.each do |r| %>
 					<%if r.super_category == ""%>
@@ -55,27 +57,9 @@
 				<%i += 1%>
 					<%end%>
 				<%end%>
-			</div>
-			</div>
-			</div>
 		</div>
-		<!--div id="goods">
-			<%i = 0%>
-			<table align="center" class="animated fadeIn">
-			<% Category.all.each do |r| %>
-				<%if r.super_category == ""%>
-						<%if i % 2 == 0 %>
-						<tr>
-					<%end%>
-					<td>
-						<a onclick=<%='MyOnClick("'+r.id.to_s+'")'%> style="font-size:12pt"><%= r.title%></a></div>					</td>
-					<%if i % 2 != 0 %>
-						<tr/>
-					<%end%>	
-					<%i += 1%>
-				<%end%>
-			<%end%>
-			</table>
-		</div-->
+		</div>
+		</div>
+	</div>
 	</div>
 </div>
