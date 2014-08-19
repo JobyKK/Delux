@@ -41,6 +41,11 @@
 						<%= r.title %>
 					<% end %>
 				<% end %>
+				<br><br>
+				<div class="field">
+				    <%= f.label "Логотип" %>
+				    <%= f.file_field :avatar %>
+				</div>
 			<% end %>
 		  <% end %>
 		</div>

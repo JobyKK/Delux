@@ -181,8 +181,6 @@ function MyOnClick(ids) {
 				temp +='</a></div>';
 								
 			}			
-	
-			temp += '</div></div></div>';
 			goods.innerHTML = temp;
 
 			//end of goods

@@ -17,7 +17,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :"Логотип" %>
+    <%= f.label "Логотип" %>
     <%= f.file_field :avatar %>
   </div>
 
