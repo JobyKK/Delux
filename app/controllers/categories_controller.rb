@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy, :add]
+	before_action :is_admin, except: [:index]
 
   # GET /categories
   # GET /categories.json
@@ -106,7 +107,6 @@ class CategoriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
       params.require(:category).permit(:title, :sub_category, :avatar, :super_category, :descritpion, :partners, :support_goods)
-      
     end
 
     

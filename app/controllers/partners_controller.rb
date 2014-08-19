@@ -1,6 +1,6 @@
 class PartnersController < ApplicationController
   before_action :set_partner, only: [:show, :edit, :update, :destroy]
-  before_action :is_admin, only:[:new, :edit, :destroy, :update]
+  before_action :is_admin, except: [:index] 
   # GET /partners
   # GET /partners.json
   def index
