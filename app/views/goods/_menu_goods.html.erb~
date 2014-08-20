@@ -12,7 +12,7 @@ margin-bottom:0;
 margin-bottom:0;
 };
 </style>
-
+<div class="span3">
 <div class="well sidebar-nav">
 <ul class="nav nav-pills nav-stacked">
 
@@ -27,4 +27,5 @@ margin-bottom:0;
 	<%end%>
 <%end%>
 </ul>
+</div>
 </div>

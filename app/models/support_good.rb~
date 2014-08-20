@@ -22,7 +22,7 @@ def delete_from_categories
 		@categor = Category.find(c.to_i)
 		temp = @categor.support_goods
 		r = temp.to_s.split(",")
-		r.delete(self.id.to_i)
+		r.delete(self.id.to_s)
 		@categor.support_goods = r.join(",")
 		@categor.save
 	end

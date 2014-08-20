@@ -71,18 +71,24 @@ function goodsView(k) {
 		success: function (data_partners) {
 			var temp_goods = '<div class="panel panel-default"><div class="panel-body"><div class="row">';
 			for(i = 0;(i < split_goods.length) && (i < k); i++) {			
-				temp_goods += '<div class="span6 " style="margin-left: 160px;">';
-				temp_goods += split_goods[i].title+'<br>';
-				temp_goods += 'цена'+split_goods[i].price+'<br>';
-				temp_goods += split_goods[i].short+'<br>';
-				temp_goods += 'есть на складе:'+split_goods[i].available+'<br>';
-
+				temp_goods += '<div class="span6 offset1">';
+				temp_goods += '<div class="panel panel-primary"><div class="panel-heading">';
+					temp_goods += split_goods[i].title;
+				temp_goods += '</div>';
+				temp_goods += '<div class="panel-body">';
+					temp_goods += '<div class="good_img">'
+					temp_goods += '<img src="/assets/' + split_goods[i].avatar + '">';
+					temp_goods += '</div>'
+					temp_goods += 'цена'+split_goods[i].price+'<br>';
+					temp_goods += split_goods[i].short+'<br>';
+					temp_goods += 'есть на складе:'+split_goods[i].available+'<br>';
+				//temp_goods += 
 				for(j = 0; j < data_partners.length; j++) {
 					if (data_partners[j].id == split_goods[i].producer) {
 						temp_goods += 'Производиетль:'+data_partners[j].title;		
 					}		
 				}
-				temp_goods += '</div>';
+				temp_goods += '</div></div></div>';
 				startFrom++;
 			}
 			temp_goods += '</div></div></div>';
@@ -211,21 +217,24 @@ function MyOnClick(ids) {
 	
 			//goods
 			var goods = document.getElementById("goods");
-			var temp = '<div class="panel panel-default"><div class="panel-body"><div class="row">';
+			var temp = '<div class="panel panel-default"><div class="panel-body"><div class="row-fluid">';
 			var arr = datas.sub_category.split(",");
 				
 			for(i = 0; i < arr.length - 1; i++) {
 				if (i % 2 == 0) {
-					temp += '<div class="span4 text-center" style="margin-left: 60px;">';
+					temp += '<div class="span5 offset1 text-center">';
 				}
 				else {
-					temp += '<div class="span4 text-center">';
+					temp += '<div class="span5 text-center">';
 				}
 				temp += '<a style="margin-left:20px;" onclick="lvl2click('+arr[i]+')">';				
 				for(p = 0; p < data.length;p++){
 					if (data[p].id == arr[i]) {
-						temp += '<img src="/assets/' + data[p].avatar_file_name + '"><br>';
-						temp += data[p].title;
+						temp += '<div class="category_img">';
+							temp += '<img src="/assets/' + data[p].avatar_file_name + '"><br>';
+						temp += '</div>';
+						temp += '<h6>' + data[p].title + '</h6>';
+						
 						break;
 					}
 				}
