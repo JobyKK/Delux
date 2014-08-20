@@ -27,7 +27,7 @@ function filters() {
 					}
 					
 					var ids = selectF.join();
-					for(i = 0; i < data_goods.length ; i++){
+					for(i = 0; i < data_goods.length; i++){
 				
 						if ((data_goods[i].category.split("/")[1] == ids) &&
 							(checkBox.some(function(item){

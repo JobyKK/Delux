@@ -13,10 +13,7 @@ $(document).ready(function(){
 				var temp_goods = '<table border="1">';//это создаеться хтмл код который пишеться в правой части 
 
 				for(i = startFrom;i < (split_goods.length) && (i < startFrom+3); i++) {
-					temp_goods += '<div class="span6"><tr>';
-					temp_goods += '<td>'+split_goods[i].title+'</td>';
-					temp_goods += '<td>'+split_goods[i].price+'</td>';
-					temp_goods += '</tr></div>';
+					temp_goods += 'lol'
 
 				}
 				temp_goods += '</table>';

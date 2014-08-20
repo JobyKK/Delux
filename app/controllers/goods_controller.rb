@@ -1,5 +1,6 @@
 class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy]
+  before_action :is_admin, except: [:show,:index] #show?
   @@checkBox = ""
   @@select = ""
   # GET /goods
@@ -39,7 +40,7 @@ class GoodsController < ApplicationController
 
     respond_to do |format|
       if @good.save
-        format.html { redirect_to @good, notice: 'Good was successfully created.' }
+        format.html { redirect_to goods_url, notice: 'Good was successfully created.' }
         format.json { render :show, status: :created, location: @good }
       else
         format.html { render :new }
@@ -54,7 +55,7 @@ class GoodsController < ApplicationController
     @good.producer = params[:goods][:producer]
     respond_to do |format|
       if @good.update(good_params)
-        format.html { redirect_to @good, notice: 'Good was successfully updated.' }
+        format.html { redirect_to goods_url, notice: 'Good was successfully updated.' }
         format.json { render :show, status: :ok, location: @good }
       else
         format.html { render :edit }
