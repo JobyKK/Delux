@@ -1,4 +1,4 @@
-function cGood(title,price,short,full,available,category,producer,avatar) {
+function cGood(title, price, short, full, available, category, producer, avatar) {
 	this.title = title;
 	this.price = price;
 	this.short = short;
@@ -64,7 +64,7 @@ function goodsV(ids) {
 function goodsView(k) {
 	startFrom = 0;
 	var temp_goods = '<div class="panel panel-default"><div class="panel-body"><div class="row">';//это создаеться хтмл код который пишеться в правой части 
-	for(i = 0;(i < split_goods.length - 1) && (i < k); i++) {
+	for(i = 0;(i < split_goods.length) && (i < k); i++) {
 			
 		temp_goods += '<div class="span6 " style="margin-left: 160px;">';
 		temp_goods += split_goods[i].title+'<br>';

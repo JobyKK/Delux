@@ -1,4 +1,4 @@
-function cGood(title,price,short,full,available,category,producer,avatar) {
+function cGood(title, price, short, full, available, category, producer, avatar) {
 	this.title = title;
 	this.price = price;
 	this.short = short;
@@ -50,7 +50,7 @@ function goodsV(ids) {
 						data_goods[i].available,
 						data_goods[i].category,
 						data_goods[i].producer,
-						data_goods[i].avatar);
+						data_goods[i].avatar_file_name);
 				
 					split_goods.push(cgood);
 				}

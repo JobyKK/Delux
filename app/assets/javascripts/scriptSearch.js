@@ -20,7 +20,7 @@ function searchs() {
 							data_goods[i].available,
 							data_goods[i].category,
 							data_goods[i].producer,
-							data_goods[i].avatar);
+							data_goods[i].avatar_file_name);
 				
 						split_goods.push(cgood);							
 					}
