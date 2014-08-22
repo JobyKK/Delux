@@ -1,29 +1,29 @@
-<% @good = Good.first%>
+<% @goodd = Good.first%>
 <p>
   <strong>Название:</strong>
-  <%= @good.title %>
+  <%= @goodd.title %>
 </p>
 
 <p>
   <strong>Цена:</strong>
-  <%= @good.price %>
+  <%= @goodd.price %>
 </p>
 
 
 <p>
   <strong>Description:</strong>
-  <%= @good.description.html_safe if @good.description %>
+  <%= @goodd.description.html_safe if @goodd.description %>
 </p>
 
 <p>
   <strong>Available:</strong>
-  <%= @good.available %>
+  <%= @goodd.available %>
 </p>
 
 <p>
   <strong>Производитель:</strong>
-  <%= @good.producer %>
+  <%= @goodd.producer %>
 </p>
 
-<%= link_to 'Изменить', edit_good_path(@good) %> |
+<%= link_to 'Изменить', edit_good_path(@goodd) %> |
 <%= link_to 'Назад', goods_path %>

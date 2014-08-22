@@ -1,17 +1,25 @@
 Rails.application.routes.draw do
+  resources :offices
+
+  resources :support_goods
+
+  resources :goods
+  get 'goods/:id/purchase' => 'catalog#purchase', as: :purchase
+
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   resources :partners
 
   resources :categories
   post 'categories/:id' => 'categories#add'
 
-  resources :goods
-
   devise_for :admins
   get 'contact/index'
 
   resources :offers
   get 'offers/categories/:categoryid'  => 'offer#selectcategorized'
+
+	resources :offices
+  post 'send_mail' => 'offices#send_mail'
 
   match '/contacts',     to: 'contacts#new',             via: 'get'
   resources "contacts", only: [:new, :create]

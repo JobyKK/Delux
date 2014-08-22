@@ -32,10 +32,10 @@
 				<br><%= check_box("category", "partners", {:multiple => true}, r.id, nil) %>
 				<%= r.title %>
 			<% end %>
-		  <div class="field">
-		    <%= f.label "Логотип" %>
-		    <%= f.file_field :avatar %>
-		  </div>
+		  	<div class="field">
+			    <%= f.label "Логотип" %>
+			    <%= f.file_field :avatar %>
+			</div>
 		<% end %>
 	</div>
 </div>

@@ -1,0 +1,12 @@
+class Emailer < ActionMailer::Base
+
+default from: 'notifications@example.com'
+def contact_email(email_params)
+	@address = email_params[:address]
+	@name = email_params[:name]
+	@content = email_params[:content]
+	mail(to: @address, subject: @name) do |f|
+		f.text { render text: 'HEllo'}
+	end
+end
+end

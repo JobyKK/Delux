@@ -41,7 +41,20 @@ google.maps.event.addDomListener(window, 'load', init_map);
 		<div id="gmap_canvas" style="height:500px;width:500px;"></div>
 	</div>
 </div>
+<%= form_tag "/send_mail", method: 'POST' do |f| %>
 
+<div>
+	<label>Name:</label>
+	<input type="text" name="uname"/>
+</div>
+<div>
+	<label>Message</label>
+	<input type='hidde
+	<textarea name="content"></textarea>
+	<input type="submit" value="Send" />
+</div>
+
+<% end %>
 
 
 

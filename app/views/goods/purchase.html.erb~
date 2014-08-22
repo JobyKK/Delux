@@ -1,0 +1,40 @@
+<link data-turbolinks-track="true" href="/assets/twitter-bootstrap-static/bootstrap.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/twitter-bootstrap-static/fontawesome.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/twitter-bootstrap-static/sprites.css?body=1" media="all" rel="stylesheet" />
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-transition.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-alert.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-modal.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-tab.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-popover.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-button.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-collapse.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-carousel.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-affix.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap.js?body=1"></script>
+<style>
+	.row {
+		margin-left:20px
+	}
+</style>
+<div class="row">
+	<div class="span6">
+		<p><h3><%= @good.title %></h3></p>
+		<p><h5>Производитель: <%= Partner.find(@good.producer).title %><h5/></p>
+		<% if @good.available %>
+			<p><h5>Наличие: Есть на складе</h5></p>
+		<% else %>
+			<p><h5>Наличие: уточните</h5></p>
+		<% end %>
+		<p><h4>Описание:</h4><h5><%= @good.description.html_safe %></h45></p>
+		<br><br><br>
+		<p><h3 style="color:blue;"><%= @good.price %> UAH</h3></p>
+		<a class="btn btn-small btn-block" width="100px">Перезвонить Вам</a>
+	</div>
+	<div class="span6">
+		<%= image_tag(@good.avatar)%>
+	</div>
+</div>

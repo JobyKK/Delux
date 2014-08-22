@@ -1,4 +1,4 @@
-<% @good = Goods.first%>
+<% @good = Good.first%>
 <p>
   <strong>Название:</strong>
   <%= @good.title %>

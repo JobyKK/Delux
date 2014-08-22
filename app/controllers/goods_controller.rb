@@ -1,12 +1,16 @@
 class GoodsController < ApplicationController
-  before_action :set_good, only: [:show, :edit, :update, :destroy]
-  before_action :is_admin, except: [:show,:index] #show?
+  before_action :set_good, only: [:show, :edit, :update, :destroy, :purchase]
+  before_action :is_admin, except: [:purchase,:index]
   @@checkBox = ""
   @@select = ""
   # GET /goods
   # GET /goods.json
   def index
     @goods = Good.all
+  end
+
+  def purchase
+	render layout: false
   end
 
   # GET /goods/1

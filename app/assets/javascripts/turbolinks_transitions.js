@@ -1,4 +1,5 @@
-function cGood(title, price, short, full, available, category, producer, avatar) {
+function cGood(id, title, price, short, full, available, category, producer, avatar) {
+	this.id = id;
 	this.title = title;
 	this.price = price;
 	this.short = short;
@@ -24,7 +25,7 @@ function addFrame() {
 	var menuFrame = document.getElementById("menuFrame");
 	var goods = document.getElementById("goods")
 	menuFrame.innerHTML = '';
-	temp += '<div class="panel panel-default"><div class="panel-body"><div class="row" id="menuRow">'
+	temp += '<div class="panel panel-primary"><div class="panel-body"><div class="row" id="menuRow">'
 	temp += menuRow.innerHTML;
 	temp += '</div></div></div>';
 	temp += '<div id="goods">'
@@ -43,7 +44,9 @@ function goodsV(ids) {
 			for(i = 0; i < data_goods.length; i++){
 				if (data_goods[i].category.split("/")[0] == ids) {
 
-					var cgood = new cGood(data_goods[i].title,
+					var cgood = new cGood(
+						data_goods[i].id,						
+						data_goods[i].title,
 						data_goods[i].price,
 						data_goods[i].short_description,
 						data_goods[i].description,
@@ -69,26 +72,42 @@ function goodsView(k) {
 		url: "partners.json",
 		dataType : "json",             
 		success: function (data_partners) {
-			var temp_goods = '<div class="panel panel-default"><div class="panel-body"><div class="row">';
+			var temp_goods = '<div class="panel panel-default"><div class="panel-body"><div class="row-fluid">';
 			for(i = 0;(i < split_goods.length) && (i < k); i++) {			
-				temp_goods += '<div class="span6 offset1">';
-				temp_goods += '<div class="panel panel-primary"><div class="panel-heading">';
-					temp_goods += split_goods[i].title;
-				temp_goods += '</div>';
-				temp_goods += '<div class="panel-body">';
-					temp_goods += '<div class="good_img">'
-					temp_goods += '<img src="/assets/' + split_goods[i].avatar + '">';
-					temp_goods += '</div>'
-					temp_goods += 'цена'+split_goods[i].price+'<br>';
-					temp_goods += split_goods[i].short+'<br>';
-					temp_goods += 'есть на складе:'+split_goods[i].available+'<br>';
-				//temp_goods += 
-				for(j = 0; j < data_partners.length; j++) {
-					if (data_partners[j].id == split_goods[i].producer) {
-						temp_goods += 'Производиетль:'+data_partners[j].title;		
-					}		
-				}
-				temp_goods += '</div></div></div>';
+				temp_goods += '<div class="span10 offset1">';
+				temp_goods +=	 '<div class="panel panel-primary"><div class="panel-heading">';
+				temp_goods +=		'<h4>'+ split_goods[i].title + '<h4>';
+				temp_goods +=	 '</div>';
+				temp_goods += 	'<div class="panel-body">';			
+				temp_goods +=	'<div class="row-fluid">';
+				temp_goods +=	'<div class="span4">';
+				temp_goods += 		'<div class="good_img">';
+				temp_goods += 			'<img src="/assets/' + split_goods[i].avatar + '" class="img-polaroid" >';
+				temp_goods += 		'</div>';
+				temp_goods +=	'</div>';
+				temp_goods +=	'<div class="span4"><blockquote>';	
+				temp_goods +=	split_goods[i].short + '<br>';
+				temp_goods +=	'<strong>Производитель: </strong><br>';
+						  for(j = 0; j < data_partners.length; j++) {
+								if (data_partners[j].id == split_goods[i].producer) {
+								temp_goods += data_partners[j].title + '<br>';		
+								}		
+							}
+				temp_goods +=   '<strong>Наличие: </strong>';
+						if (split_goods[i].available == true){
+				temp_goods += 		'есть на складе';
+						}
+						else {
+				temp_goods +=		'уточните';						
+						}
+				temp_goods +=	'</blockquote></div>';
+				temp_goods +=	'<div class="span3">';
+				temp_goods +=		'<div class="panel panel-primary text-center" style="background: #D9EDF7;"><h4>Цена: ';
+				temp_goods += 		split_goods[i].price+'</h4></div>';
+				temp_goods +=   '<div class="well well-small"><a onclick="goodsShow('+split_goods[i].id+')" class="btn btn-large btn-block btn-primary">Подробнее</a>';
+				temp_goods += '<a class="btn btn-small btn-block" >Перезвонить Вам</a></div>';
+				temp_goods +=	'</div>'
+				temp_goods += '</div></div></div></div>';
 				startFrom++;
 			}
 			temp_goods += '</div></div></div>';
