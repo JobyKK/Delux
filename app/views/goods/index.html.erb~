@@ -9,6 +9,9 @@
 	height: 200px;
 	background: white;
   }
+  .row-fluid [class*="span"]:nth-child(3n+1) {
+  	margin-left: 30;
+  }
 </style>
 <div class="page-header">
 	<h1 style="font-family:Geneva;">Наш интернет-магазин</h1>
@@ -50,9 +53,9 @@
 				<% Category.all.each do |r| %>
 					<%if r.super_category == ""%>
 						<%if i % 2 == 0 %>
-							<div class="span6 text-center">
+							<div class="span5 offset1 text-center">
 						<% else %>
-							<div class="span6 text-center">
+							<div class="span5 text-center">
 						<%end%>	
 							<a onclick=<%='MyOnClick("'+r.id.to_s+'")'%> style="font-size:12pt">
 							<div class="category_img">

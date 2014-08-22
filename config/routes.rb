@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :offers
   get 'offers/categories/:categoryid'  => 'offer#selectcategorized'
 
+	resources :offices
+  post 'send_mail' => 'offices#send_mail'
+
   match '/contacts',     to: 'contacts#new',             via: 'get'
   resources "contacts", only: [:new, :create]
 # params[:categoryid]

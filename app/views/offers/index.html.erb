@@ -7,11 +7,15 @@ a:hover{
 	background:#fff;
 }
 </style>
+
+<div class="page-header">
+	<h1 style="font-family:Geneva;">Новости</h1>
+</div>
+
 <h1><%if current_admin %>
 <%= link_to "Новая новость", new_offer_path %>
 <%end%>
 </h1>
-<h1>Новости</h1>
 <div class="row">
 <% @list.each do |element| %>
 	<div class="panel span6">

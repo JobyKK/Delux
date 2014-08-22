@@ -13,7 +13,9 @@ function searchs() {
 
 				for(i = 0; i < data_goods.length; i++){
 					if (data_goods[i].title.indexOf(sub) != -1) {
-						var cgood = new cGood(data_goods[i].title,
+						var cgood = new cGood(
+							data_goods[i].id,							
+							data_goods[i].title,
 							data_goods[i].price,
 							data_goods[i].short_description,
 							data_goods[i].description,

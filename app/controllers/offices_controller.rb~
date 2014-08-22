@@ -7,6 +7,14 @@ class OfficesController < ApplicationController
     @offices = Office.all
   end
 
+  def send_mail
+#    Emailer::deliver_contact_email(params[:email])
+ 	#mail(to: "cgeek95@gmail.com", subject: 'Welcome to My Awesome Site')
+	email_params = { address: 'cgeek95@gmail.com', name:'Taras', content: 'txt' }
+	result = Emailer.sendmail(email_params).deliver
+	render :text => params.to_s + result.to_s
+  end
+
   # GET /offices/1
   # GET /offices/1.json
   def show
