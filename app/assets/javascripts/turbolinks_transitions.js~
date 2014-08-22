@@ -77,7 +77,7 @@ function goodsView(k) {
 				temp_goods += '</div>';
 				temp_goods += '<div class="panel-body">';
 					temp_goods += '<div class="good_img">'
-					temp_goods += '<img src="/assets/' + split_goods[i].avatar + '">';
+					temp_goods += '<a onclick="goodsShow()"><img src="/assets/' + split_goods[i].avatar + '"></a>';
 					temp_goods += '</div>'
 					temp_goods += 'цена'+split_goods[i].price+'<br>';
 					temp_goods += split_goods[i].short+'<br>';
@@ -217,15 +217,15 @@ function MyOnClick(ids) {
 	
 			//goods
 			var goods = document.getElementById("goods");
-			var temp = '<div class="panel panel-default"><div class="panel-body"><div class="row">';
+			var temp = '<div class="panel panel-default"><div class="panel-body"><div class="row-fluid">';
 			var arr = datas.sub_category.split(",");
 				
 			for(i = 0; i < arr.length - 1; i++) {
 				if (i % 2 == 0) {
-					temp += '<div class="span4 text-center" style="margin-left: 60px;">';
+					temp += '<div class="span5 offset1 text-center">';
 				}
 				else {
-					temp += '<div class="span4 text-center">';
+					temp += '<div class="span5 text-center">';
 				}
 				temp += '<a style="margin-left:20px;" onclick="lvl2click('+arr[i]+')">';				
 				for(p = 0; p < data.length;p++){
