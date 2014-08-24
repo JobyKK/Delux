@@ -103,7 +103,7 @@ function goodsView(k) {
 				temp_goods +=	'</blockquote></div>';
 				temp_goods +=	'<div class="span3">';
 				temp_goods +=		'<div class="panel panel-primary text-center" style="background: #D9EDF7;"><h4>Цена: ';
-				temp_goods += 		split_goods[i].price+'</h4></div>';
+				temp_goods += 		split_goods[i].price+' UAH</h4></div>';
 				temp_goods +=   '<div class="well well-small"><a onclick="goodsShow('+split_goods[i].id+')" class="btn btn-large btn-block btn-primary">Подробнее</a>';
 				temp_goods += '<a class="btn btn-small btn-block" >Перезвонить Вам</a></div>';
 				temp_goods +=	'</div>'
@@ -209,8 +209,6 @@ function subMenu(ids) {
 	});	
 };
 
-
-
 function MyOnClick(ids) {
 	$.ajax({
 		url: "categories.json",
@@ -233,9 +231,19 @@ function MyOnClick(ids) {
 			subMenu.setAttribute('name', 'none');
 			split_goods = [];
 			//конец блока субМеню	
-	
-			//goods
+			
+			main_temp = '';
+			var menuRow = document.getElementById("menuRow");
+			var menuFrame = document.getElementById("menuFrame");
 			var goods = document.getElementById("goods");
+			menuFrame.innerHTML = '';
+			main_temp += '<div class="row" id="menuRow">'
+			main_temp += menuRow.innerHTML;
+			main_temp += '</div>';
+			main_temp += '<div id="goods">'
+			
+			
+			
 			var temp = '<div class="panel panel-default"><div class="panel-body"><div class="row-fluid">';
 			var arr = datas.sub_category.split(",");
 				
@@ -263,7 +271,9 @@ function MyOnClick(ids) {
 			}			
 			temp +='</div></div></div>'
 			goods.innerHTML = temp;
-
+			main_temp += goods.innerHTML;
+			main_temp += '</div>';
+			menuFrame.innerHTML +=main_temp;
 			//end of goods
 
 			//менюшка	

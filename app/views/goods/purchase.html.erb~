@@ -19,22 +19,50 @@
 	.row {
 		margin-left:20px
 	}
+	.imgspan img {
+	width: 300px;
+	height: 300px;	
+	}
 </style>
+<div class="panel panel-primary" id="wrap_frame"><div class="panel-body">
 <div class="row">
-	<div class="span6">
-		<p><h3><%= @good.title %></h3></p>
-		<p><h5>Производитель: <%= Partner.find(@good.producer).title %><h5/></p>
-		<% if @good.available %>
-			<p><h5>Наличие: Есть на складе</h5></p>
-		<% else %>
-			<p><h5>Наличие: уточните</h5></p>
-		<% end %>
-		<p><h4>Описание:</h4><h5><%= @good.description.html_safe %></h45></p>
-		<br><br><br>
-		<p><h3 style="color:blue;"><%= @good.price %> UAH</h3></p>
+	<div class="span6"><!-- тут надо сделать так, чтобы выбиралась картика с большим разрешением-->
+		<div class="imgspan">
+			<%= image_tag(@good.avatar.url)%>
+		</div>
+		<div class="panel panel-primary text-center" style="background: #D9EDF7;">
+			<div class="panel-body">
+			<h4>Цена: <%= @good.price %> UAH</h4>
+			</div>
+		</div>
 		<a class="btn btn-small btn-block" width="100px">Перезвонить Вам</a>
 	</div>
 	<div class="span6">
-		<%= image_tag(@good.avatar)%>
-	</div>
+	<div class="panel panel-success" id="wrap_frame"><div class="panel-body">
+		<h3><%= @good.title %></h3>
+		<strong>Производитель: </strong>
+			<%= Partner.find(@good.producer).title %><br>
+		<% if @good.available %>
+			<strong>Наличие:</strong> eсть на складе
+		<% else %>
+			<string>Наличие:</strong> уточните
+		<% end %>
+		<h4>Описание:</h4> 
+			<%= @good.description.html_safe %>
+	</div></div>
 </div>
+</div>
+	
+	<% category = Category.find(@good.category.split("/")[0]) %>
+	<h1><%= category.id %></h1>
+	
+		<% category.support_goods.split(",").each do |s| %>
+			<% support_good = SupportGood.find(s) %>
+			<h1><%= support_good.title %></h1>		
+		<% end %>
+
+</div></div>
+<script>
+    var h = document.getElementById('iframe').contentWindow.document.body.getElementById('wrap_frame').height;
+    document.getElementById('iframe').height = h;
+</script>

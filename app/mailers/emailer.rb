@@ -1,6 +1,6 @@
 class Emailer < ActionMailer::Base
 
-default from: 'notifications@example.com'
+default from: 'service@delux.com.ua'
 def sendmail(email_params)
 	@address = email_params[:address]
 	@name = email_params[:name]

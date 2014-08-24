@@ -5,6 +5,7 @@ function goodsShow(ids) {
 	good.appendChild(el);
 	el.id = 'iframe';
 	el.style.width = "100%";
-	el.style.height = "350px";
-	el.src = '/goods/'+ids+'/purchase';
+	el.frameBorder=0;
+  	el.src = '/goods/'+ids+'/purchase';
+	el.style.height = "600px";
 };

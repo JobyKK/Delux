@@ -8,10 +8,9 @@
 	width: 200px;
 	height: 200px;
 	background: white;
+}
   }
-  .row-fluid [class*="span"]:nth-child(3n+1) {
-  	margin-left: 30;
-  }
+
 </style>
 <div class="page-header">
 	<h1 style="font-family:Geneva;">Наш интернет-магазин</h1>
@@ -45,10 +44,11 @@
 				</form>
 			<%end%>
 		</div>
-	<div id="goods">
+	
 		<div class="panel panel-default">
 		<div class="panel-body text-center">
 		<div class="row-fluid">
+		<div id="goods">
 				<%i = 0%>
 				<% Category.all.each do |r| %>
 					<%if r.super_category == ""%>
