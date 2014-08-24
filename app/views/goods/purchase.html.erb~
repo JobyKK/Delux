@@ -53,7 +53,11 @@
 	
 	<% category = Category.find(@good.category.split("/")[0]) %>
 	<h1><%= category.id %></h1>
+<<<<<<< HEAD
 	<% if category.support_goods != nil %>
+=======
+	<% if category.support_goods.to_s != nil %>
+>>>>>>> 71642cf5a69e1e493e2c65d0445a7864d9d56ce7
 		<% category.support_goods.split(",").each do |s| %>
 			<% support_good = SupportGood.find(s) %>
 			<h1><%= support_good.title %></h1>		
