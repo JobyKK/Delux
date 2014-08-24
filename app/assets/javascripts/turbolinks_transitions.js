@@ -258,7 +258,7 @@ function MyOnClick(ids) {
 						temp += '<div class="category_img">';
 							temp += '<img src="/assets/' + data[p].avatar_file_name + '"><br>';
 						temp += '</div>';
-						temp += '<h6>' + data[p].title + '</h6>';
+						temp += '<h4>' + data[p].title + '</h4>';
 						
 						break;
 					}
