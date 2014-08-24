@@ -17,56 +17,51 @@
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap.js?body=1"></script>
 <style>
 	.row {
-		margin-left:20px
+		margin-left:20px;
 	}
-	.imgspan img {
-	width: 300px;
-	height: 300px;	
+	#img {
+		height:300px;
+		width:300px;
 	}
 	#iframe{
 	height: #wrap_frame.height;
 	background: red;
 }
 </style>
-<div class="panel panel-primary" id="wrap_frame"><div class="panel-body">
-<div class="row">
-	<div class="span6"><!-- тут надо сделать так, чтобы выбиралась картика с большим разрешением-->
-		<div class="imgspan">
-			<%= image_tag(@good.avatar.url)%>
+<div class="panel panel-primary" id="wrap_frame">
+<div class="panel-body">
+	<div class="row">
+
+		<div class="span6"><!-- тут надо сделать так, чтобы выбиралась картика с большим разрешением-->
+
+			<%= image_tag(@good.avatar.url, id:"img")%>
+			<h4 class="panel panel-primary panel-body text-center " style="background: #D9EDF7;">Цена: <%= @good.price %> UAH</h4>
+			<a class="btn btn-small btn-block" width="100px">Перезвонить Вам</a>
 		</div>
-		<div class="panel panel-primary text-center">
-			<div class="panel-body" style="background: #D9EDF7;">
-				<h4>Цена: <%= @good.price %> UAH</h4>
+
+		<div class="span6">
+			<div class="panel panel-success panel-body" id="wrap_frame">
+				<h3><%= @good.title %></h3>
+				<strong>Производитель: </strong>
+					<%= Partner.find(@good.producer).title %><br>
+				<% if @good.available %>
+					<strong>Наличие:</strong> eсть на складе
+				<% else %>
+					<string>Наличие:</strong> уточните
+				<% end %>
+				<h4>Описание:</h4> 
+					<%= @good.description.html_safe %>
 			</div>
 		</div>
-		<a class="btn btn-small btn-block" width="100px">Перезвонить Вам</a>
 	</div>
-	<div class="span6">
-	<div class="panel panel-success" id="wrap_frame"><div class="panel-body">
-		<h3><%= @good.title %></h3>
-		<strong>Производитель: </strong>
-			<%= Partner.find(@good.producer).title %><br>
-		<% if @good.available %>
-			<strong>Наличие:</strong> eсть на складе
-		<% else %>
-			<string>Наличие:</strong> уточните
-		<% end %>
-		<h4>Описание:</h4> 
-			<%= @good.description.html_safe %>
-	</div></div>
-</div>
-</div>
 	
 	<% category = Category.find(@good.category.split("/")[0]) %>
 	<h1><%= category.id %></h1>
-	<% if category.support_goods.to_s != nil %>
+
+	<% if category.support_goods != nil %>
 		<% category.support_goods.split(",").each do |s| %>
 			<% support_good = SupportGood.find(s) %>
 			<h1><%= support_good.title %></h1>		
 		<% end %>
 	<% end %>
 </div></div>
-<script>
-    var h = document.getElementById('iframe').contentWindow.document.body.getElementById('wrap_frame').height;
-    document.getElementById('iframe').height = h;
-</script>

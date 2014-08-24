@@ -8,5 +8,11 @@ function goodsShow(ids) {
 	el.style.width = "100%";
 	el.frameBorder=0;
   	el.src = '/goods/'+ids+'/purchase';
-	el.style.height = "600px";
+	el.onload = function() {
+		var h = document.getElementById('iframe');
+		var y = (h.contentWindow || h.contentDocument);
+		el.height = y.document.body.children[0].clientHeight + 40;
+	}
 };
+
+    //document.getElementById('iframe').height = h;

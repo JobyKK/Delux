@@ -6,13 +6,16 @@ function goodsShow(ids) {
 	good.appendChild(el);
 	el.id = 'iframe';
 	el.style.width = "100%";
-<<<<<<< HEAD
 	el.frameBorder=0;
   	el.src = '/goods/'+ids+'/purchase';
-	el.style.height = "600px";
-=======
-	el.style.height = "600px";
-	el.src = '/goods/'+ids+'/purchase';
-	
->>>>>>> 6f7d1c1f2e22afe9c58cf4c1a0f9a3ef21c3ab56
+	el.onload = function() {
+		var h = document.getElementById('iframe');
+		//sleep(500);
+
+		var y = (h.contentWindow || h.contentDocument);
+		var b = y.document.body.children[0].clientHeight;
+		el.height = b+40;
+	}
 };
+
+    //document.getElementById('iframe').height = h;
