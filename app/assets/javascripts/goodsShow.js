@@ -1,5 +1,6 @@
 function goodsShow(ids) {
 	var good = document.getElementById('goods');
+	$(window).scrollTop($("#goods").offset().top);
 	good.innerHTML = '';
 	var el = document.createElement('iframe');
 	good.appendChild(el);

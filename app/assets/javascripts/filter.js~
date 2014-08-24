@@ -38,8 +38,8 @@ function filters() {
 						{
 							var cgood = new cGood(data_goods[i].title,
 								data_goods[i].price,
-								data_goods[i].short,
-								data_goods[i].full,
+								data_goods[i].short_description,
+								data_goods[i].description,
 								data_goods[i].available,
 								data_goods[i].category,
 								data_goods[i].producer,

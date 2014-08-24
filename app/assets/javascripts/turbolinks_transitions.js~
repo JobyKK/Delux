@@ -67,7 +67,6 @@ function goodsV(ids) {
 function goodsView(k) {
 	startFrom = 0;
 	
-//тут так надо потому что надо читать продусера мы в джейсоне храним только айди, доделай только тут я автопрокрутку сам доделаю по твоему примеру
 	$.ajax({
 		url: "partners.json",
 		dataType : "json",             

@@ -24,14 +24,13 @@ function addFrame() {
 	var menuRow = document.getElementById("menuRow");
 	var menuFrame = document.getElementById("menuFrame");
 	var goods = document.getElementById("goods")
-	menuFrame.innerHTML = '';
 	temp += '<div class="panel panel-primary"><div class="panel-body"><div class="row" id="menuRow">'
 	temp += menuRow.innerHTML;
 	temp += '</div></div></div>';
 	temp += '<div id="goods">'
 	temp += goods.innerHTML;
 	temp += '</div>'
-	menuFrame.innerHTML += temp;
+	menuFrame.innerHTML = temp;
 }
 
 function goodsV(ids) {
@@ -67,7 +66,6 @@ function goodsV(ids) {
 function goodsView(k) {
 	startFrom = 0;
 	
-//тут так надо потому что надо читать продусера мы в джейсоне храним только айди, доделай только тут я автопрокрутку сам доделаю по твоему примеру
 	$.ajax({
 		url: "partners.json",
 		dataType : "json",             

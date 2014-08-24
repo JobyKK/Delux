@@ -1,11 +1,18 @@
 function goodsShow(ids) {
 	var good = document.getElementById('goods');
+	$(window).scrollTop($("#goods").offset().top);
 	good.innerHTML = '';
 	var el = document.createElement('iframe');
 	good.appendChild(el);
 	el.id = 'iframe';
 	el.style.width = "100%";
+<<<<<<< HEAD
 	el.frameBorder=0;
   	el.src = '/goods/'+ids+'/purchase';
-	el.style.height = "600%";
+	el.style.height = "600px";
+=======
+	el.style.height = "600px";
+	el.src = '/goods/'+ids+'/purchase';
+	
+>>>>>>> 6f7d1c1f2e22afe9c58cf4c1a0f9a3ef21c3ab56
 };
