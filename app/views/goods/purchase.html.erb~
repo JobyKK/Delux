@@ -30,9 +30,9 @@
 		<div class="imgspan">
 			<%= image_tag(@good.avatar.url)%>
 		</div>
-		<div class="panel panel-primary text-center" style="background: #D9EDF7;">
-			<div class="panel-body">
-			<h4>Цена: <%= @good.price %> UAH</h4>
+		<div class="panel panel-primary text-center">
+			<div class="panel-body" style="background: #D9EDF7;">
+				<h4>Цена: <%= @good.price %> UAH</h4>
 			</div>
 		</div>
 		<a class="btn btn-small btn-block" width="100px">Перезвонить Вам</a>
@@ -55,12 +55,12 @@
 	
 	<% category = Category.find(@good.category.split("/")[0]) %>
 	<h1><%= category.id %></h1>
-	
+	<% category.supurt_goods.to_s != "null"%>
 		<% category.support_goods.split(",").each do |s| %>
 			<% support_good = SupportGood.find(s) %>
 			<h1><%= support_good.title %></h1>		
 		<% end %>
-
+	<% end %>
 </div></div>
 <script>
     var h = document.getElementById('iframe').contentWindow.document.body.getElementById('wrap_frame').height;
