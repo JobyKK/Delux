@@ -1,7 +1,8 @@
 var split_goods = [];
 var startFrom = 0;
-$(document).ready(function(){
 
+$(document).ready(function(){
+	$('#liquid').liquidcarousel({height:160});
 	$(window).scroll(function() {
 
 
@@ -14,7 +15,7 @@ $(document).ready(function(){
 					dataType : "json",             
 					success: function (data_partners) {
 						var goods = document.getElementById('goods').children[0].children[0].children[0];
-						var temp_goods = '<div class="panel panel-default"><div class="panel-body"><div class="row-fluid">';
+						var temp_goods = '';
 						for(i = startFrom;(i < split_goods.length) && (i < startFrom + 3); i++) {			
 							temp_goods += '<div class="span10 offset1">';
 							temp_goods +=	 '<div class="panel panel-primary"><div class="panel-heading">';
@@ -52,7 +53,6 @@ $(document).ready(function(){
 							temp_goods += '</div></div></div></div>';
 							startFrom++;
 						}
-						temp_goods += '</div></div></div>';
 						goods.innerHTML += temp_goods;
 					}
 				});

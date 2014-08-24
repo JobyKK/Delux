@@ -10,7 +10,7 @@
 	background: white;
 }
  #iframe{
-	height: 100%;
+	height: #wrap_frame.height;
 	background: red;
 }
   }
