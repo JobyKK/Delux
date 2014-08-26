@@ -51,9 +51,6 @@
 		</div>
 	</div>
 	
-	<% category = Category.find(@good.category.split("/")[0]) %>
-	<h1><%= category.id %></h1>
-
 	<% if category.support_goods != nil %>
 		<% category.support_goods.split(",").each do |s| %>
 			<% support_good = SupportGood.find(s) %>
@@ -61,3 +58,4 @@
 		<% end %>
 	<% end %>
 </div></div>
+

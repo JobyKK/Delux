@@ -31,7 +31,7 @@ field{
     <%= f.file_field :avatar %>
   </div>
 
- <div class="field">
+  <div class="field">
     <%= f.label "Краткое описание" %>
     <%= f.bootsy_area :short_description %>
   </div> 
