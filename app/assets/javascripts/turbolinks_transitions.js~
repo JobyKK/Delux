@@ -24,14 +24,13 @@ function addFrame() {
 	var menuRow = document.getElementById("menuRow");
 	var menuFrame = document.getElementById("menuFrame");
 	var goods = document.getElementById("goods")
-	menuFrame.innerHTML = '';
 	temp += '<div class="panel panel-primary"><div class="panel-body"><div class="row" id="menuRow">'
 	temp += menuRow.innerHTML;
 	temp += '</div></div></div>';
 	temp += '<div id="goods">'
 	temp += goods.innerHTML;
 	temp += '</div>'
-	menuFrame.innerHTML += temp;
+	menuFrame.innerHTML = temp;
 }
 
 function goodsV(ids) {
@@ -208,21 +207,6 @@ function subMenu(ids) {
 	});	
 };
 
-function DeletePanel() {
-
-			var menuRow = document.getElementById("menuRow");
-			var menuFrame = document.getElementById("menuFrame");
-			var goods = document.getElementById("goods")
-			menuFrame.innerHTML = '';
-			temp += '<div class="row" id="menuRow">'
-			temp += menuRow.innerHTML;
-			temp += '</div>';
-			temp += '<div id="goods">'
-			temp += goods.innerHTML;
-			temp += '</div>'
-			menuFrame.innerHTML += temp;
-};
-
 function MyOnClick(ids) {
 	$.ajax({
 		url: "categories.json",
@@ -234,8 +218,6 @@ function MyOnClick(ids) {
 					break;
 				}
 			}
-			
-			//DeletePanel();
 
 			//тут блок создния чекБоксов
 			var checkBox = document.getElementById("checkBox");

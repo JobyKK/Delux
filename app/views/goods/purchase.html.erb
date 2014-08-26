@@ -15,6 +15,8 @@
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1"></script>
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-affix.js?body=1"></script>
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap.js?body=1"></script>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jquery.liquidcarousel.js"></script>
 <style>
 	.row {
 		margin-left:20px;
@@ -51,5 +53,23 @@
 		</div>
 	</div>
 	
+
+	<% category = Category.find(@good.category.split("/")[0]) %>
+	<h1><%= category.id %></h1>
+
+	<% if category.support_goods != nil %>
+	<div id="liquid">
+	<span class="previous"></span>
+	<div class="wrapper">
+		<ul>
+		<% category.support_goods.split(",").each do |s| %>
+			<% support_good = SupportGood.find(s) %>
+			<li><a href="#"><%= image_tag(support_good.avatar.url) %></a></li>		
+		<% end %>
+	<% end %> 
+	</div>
+	<span class="next"></span>
+</div>
+
 </div></div>
 
