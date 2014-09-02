@@ -53,6 +53,8 @@
 		</div>
 	</div>
 	
+<<<<<<< HEAD
+=======
 	<% category = Category.find(@good.category.split("/")[0]) %>
 	<h1><%= category.id %></h1>
 
@@ -65,9 +67,10 @@
 			<% support_good = SupportGood.find(s) %>
 			<li><a href="#"><%= image_tag(support_good.avatar.url) %></a></li>		
 		<% end %>
-	<% end %>
+	<% end %> 
 	</div>
 	<span class="next"></span>
 </div>
+>>>>>>> 7d75712ac6beba9c8c03766bceea8f82abd2b935
 </div></div>
 

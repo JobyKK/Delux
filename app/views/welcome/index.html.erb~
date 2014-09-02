@@ -23,7 +23,6 @@ color: red;
 	<% else %>
 		<h1 style="font-family:Geneva;">Добро пожаловать</h1>
 	<%end%>
-	<h1 style="font-family:Geneva;">Наш интернет-магазин</h1>
 </div>
       <div class="jumbotron">
 	

@@ -36,7 +36,8 @@ function filters() {
 								} else return false;
 							})))
 						{
-							var cgood = new cGood(data_goods[i].title,
+							var cgood = new cGood(data_goods[i].id,
+								data_goods[i].title,
 								data_goods[i].price,
 								data_goods[i].short_description,
 								data_goods[i].description,
