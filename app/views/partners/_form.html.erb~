@@ -1,3 +1,13 @@
+<style>
+textarea{
+  width: 650px;
+  height: 200px;
+}
+field{
+  width: 650px;
+  height: 200px;
+}
+</style>
 <%= form_for(@partner) do |f| %>
   <% if @partner.errors.any? %>
     <div id="error_explanation">
@@ -12,12 +22,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :название %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.label :описание %><br>
+    <%= f.bootsy_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :аватар %>
+    <%= f.file_field :avatar %>
   </div>
   <div class="actions">
     <%= f.submit %>
