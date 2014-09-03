@@ -23,7 +23,7 @@ test:
 #production:
  # <<: *default
  # database: db/production.mysql
-development:
+production:
     adapter: postgresql
     database: blog_development
     pool: 5
