@@ -16,7 +16,7 @@ config.action_mailer.smtp_settings = {
   #enable_starttls_auto: false
 }
 config.action_mailer.raise_delivery_errors = true
-config.serve_static_assets = true
+
 
   # Do not eager load code on boot.
   config.eager_load = false
