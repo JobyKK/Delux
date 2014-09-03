@@ -104,6 +104,7 @@ function goodsView(k) {
 				temp_goods += 		split_goods[i].price+' UAH</h4></div>';
 				temp_goods +=   '<div class="well well-small"><a onclick="goodsShow('+split_goods[i].id+')" class="btn btn-large btn-block btn-primary">Подробнее</a>';
 				temp_goods += '<a class="btn btn-small btn-block" >Перезвонить Вам</a></div>';
+				temp_goods += '<a data-confirm="Вы уверены?" data-method="delete" href="/goods/'+split_goods[i].id+'" rel="nofollow">Удалить</a>';
 				temp_goods +=	'</div>'
 				temp_goods += '</div></div></div></div>';
 				startFrom++;
