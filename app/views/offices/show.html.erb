@@ -12,7 +12,7 @@
 
 <p>
   <strong>Numbers:</strong>
-  <%= @office.numbers %>
+  <%= @office.numbers.html_safe if @office.numbers %>
 </p>
 
 <%= link_to 'Edit', edit_office_path(@office) %> |

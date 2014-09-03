@@ -7,7 +7,7 @@
 
 <p>
   <strong>Address:</strong>
-  <%= @office.address %>
+  <%= @office.address.html_safe if @office.address%>
 </p>
 
 <p>
