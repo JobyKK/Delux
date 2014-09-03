@@ -1,0 +1,78 @@
+    <style type="text/css">
+     
+      /* Customize the navbar links to be fill the entire space of the .navbar */
+      .navbar .navbar-inner {
+        padding: 0;
+      }
+      .navbar .nav {
+        margin: 0;
+        display: table;
+        width: 100%;
+      }
+      .navbar .nav li {
+        display: table-cell;
+        width: 1%;
+        float: none;
+      }
+      .navbar .nav li a {
+        font-weight: bold;
+        text-align: center;
+        border-left: 1px solid rgba(255,255,255,.75);
+        border-right: 1px solid rgba(0,0,0,.1);
+      }
+      .navbar .nav li:first-child a {
+        border-left: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      .navbar .nav li:last-child a {
+        border-right: 0;
+        border-radius: 0 3px 3px 0;
+      }
+      #logo img{
+        height: 177%;
+    	}
+ .column {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 30px;
+    -moz-column-gap: 30px;
+    column-gap: 30px;
+    -webkit-column-rule: 1px solid #ccc;
+    -moz-column-rule: 1px solid #ccc;
+    column-rule: 1px solid #ccc;
+   }
+    </style>
+<div class="row">
+<div class="masthead">
+<div class="row" style="margin-left: 0px;">
+	<div class="span4" id="logo">
+		<img src="<%= asset_path("logo.png") %>"/>
+	</div>
+	<div class="span8 text-right" style="font-family:Geneva;"> 
+		  <div class="well well-small">
+			<div class="column">
+			<%= Office.first.numbers.html_safe if Office.first.numbers %>
+			</div>
+		  </div>
+	</div>
+	<div class="row">
+	<div class="span8" style="margin-top:4%">
+	<div class="navbar">
+	<div class="navbar-inner">
+     	<div class="container">
+   	 	    <ul class="nav">
+ 	 	      <li class="<%= 'active' if current_page?(root_path) %>"><a href="/">О компани</a></li>
+   	  	      <li class="<%= 'active' if current_page?(offers_path) %>"><a href="/offers">Новости</a></li>
+  	 	      <li class="<%= 'active' if current_page?(goods_path) %>"><a data-no-turbolink='true' href="/goods">Магазин</a></li>
+   	   	      <li class="<%= 'active' if current_page?(partners_path) %>"><a href="/partners">Партнеры</a></li>
+  	  	      <li class="<%= 'active' if current_page?(offices_path) %>"><a data-no-turbolink='true' href="/offices">Контакты</a></li>
+	  	    </ul> 
+    	</div>
+	</div>
+	</div>
+	</div>
+ 	</div>
+</div>
+</div>
+</div>

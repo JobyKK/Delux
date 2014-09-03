@@ -1,0 +1,66 @@
+<h1>Изменить товар</h1><hr>
+
+<style>
+textarea{
+  width: 650px;
+  height: 200px;
+}
+</style>
+<%= form_for(@good) do |f| %>
+  <% if @good.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@good.errors.count, "error") %> prohibited this good from being saved:</h2>
+
+      <ul>
+      <% @good.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+	<div class="span6">
+	  <div class="field">
+		<%= f.label "Название" %><br>
+		<%= f.text_field :title %>
+	  </div>
+	  <div class="field">
+		<%= f.label "Цена" %><br>
+		<%= f.text_field :price %>
+	  </div>
+	  <div class="field">
+		<%= f.label "Фото" %>
+		<%= f.file_field :avatar %>
+	  </div>
+	  <div class="field">
+		<%= f.label "Краткое описание" %><br>
+		<%= f.bootsy_area :short_description %>
+	  </div>
+	  <div class="field">
+		<%= f.label "Полное описание" %><br>
+		<%= f.bootsy_area :description %>
+	  </div>
+	  <div class="field">
+		<%= f.label "Наличие на складе" %><br>
+		<%= f.check_box :available %>
+	  </div>
+	  <div class="actions">
+		<%= f.submit "Отправить"%>
+	  </div>
+	</div>
+	  <div class="span6">
+			<h1>Выбирете производителя</h1>
+			<% Category.find(@good.category.split("/")[0]).partners.split(",").each do |ids|%>
+				<% if @good.producer == ids %>
+					<br><input type="radio" name="goods[producer]" checked="checked" value=<%= ids %>>
+					<%= Partner.find(ids).title %>
+				<% else %>
+					<br><%= radio_button("goods", "producer", ids) %>
+					<%= Partner.find(ids).title %>
+				<% end %>
+			<% end %>
+	</div>
+  </div>
+<% end %>
+
+<%= link_to 'Назад', goods_path %>

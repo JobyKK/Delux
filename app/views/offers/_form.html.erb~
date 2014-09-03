@@ -1,0 +1,45 @@
+<style>
+textarea{
+  width: 650px;
+  height: 200px;
+}
+field{
+  width: 650px;
+  height: 200px;
+}
+</style>
+<%= form_for(@offer, multipart: true) do |f| %>
+  <% if @offer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
+
+      <ul>
+      <% @offer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Название" %><br>
+    <%= f.text_field :title%>
+  </div>
+
+  <div class="field">
+    <%= f.label "Фото" %>
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Краткое описание" %>
+    <%= f.bootsy_area :short_description %>
+  </div> 
+  <div class="field">
+    <%= f.label :"Полное описание" %>
+    <%= f.bootsy_area :description %>
+  </div>       
+  <div class="actions">
+    <%= f.submit "Отправить"%>
+  </div>
+<% end %>

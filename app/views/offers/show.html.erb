@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @offer.title %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @offer.description.html_safe if @offer.description %>
+</p>
+<%if current_admin %>
+<br><%= link_to 'Изменить', edit_offer_path(@offer) %>
+<%end%>
+<br><%= link_to 'Вернуться к списку новостей', offers_path %>

@@ -1,0 +1,5 @@
+<h1>Изменить новость</h1><hr>
+
+<%= render 'form' %>
+<%= link_to 'Показать', @offer %> |
+<%= link_to 'Назад', offers_path %>

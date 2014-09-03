@@ -1,0 +1,29 @@
+<% @good = Good.first%>
+<p>
+  <strong>Название:</strong>
+  <%= @good.title %>
+</p>
+
+<p>
+  <strong>Цена:</strong>
+  <%= @good.price %>
+</p>
+
+
+<p>
+  <strong>Description:</strong>
+  <%= @good.description.html_safe if @good.description %>
+</p>
+
+<p>
+  <strong>Available:</strong>
+  <%= @good.available %>
+</p>
+
+<p>
+  <strong>Производитель:</strong>
+  <%= @good.producer %>
+</p>
+
+<%= link_to 'Изменить', edit_good_path(@good) %> |
+<%= link_to 'Назад', goods_path %>

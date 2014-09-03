@@ -1,0 +1,76 @@
+<link data-turbolinks-track="true" href="/assets/twitter-bootstrap-static/bootstrap.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/twitter-bootstrap-static/fontawesome.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/twitter-bootstrap-static/sprites.css?body=1" media="all" rel="stylesheet" />
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-transition.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-alert.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-modal.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-tab.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-popover.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-button.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-collapse.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-carousel.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-affix.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap.js?body=1"></script>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jquery.liquidcarousel.js"></script>
+<style>
+	.row {
+		margin-left:20px;
+	}
+	#img {
+		height:300px;
+		width:300px;
+	}
+</style>
+<div class="panel panel-primary" id="wrap_frame">
+<div class="panel-body">
+	<div class="row">
+
+		<div class="span6"><!-- тут надо сделать так, чтобы выбиралась картика с большим разрешением-->
+
+			<%= image_tag(@good.avatar.url, id:"img")%>
+			<h4 class="panel panel-primary panel-body text-center " style="background: #D9EDF7;">Цена: <%= @good.price %> UAH</h4>
+			<a class="btn btn-small btn-block" width="100px">Перезвонить Вам</a>
+		</div>
+
+		<div class="span6">
+			<div class="panel panel-success panel-body" id="wrap_frame">
+				<h3><%= @good.title %></h3>
+				<strong>Производитель: </strong>
+					<%= Partner.find(@good.producer).title %><br>
+				<% if @good.available %>
+					<strong>Наличие:</strong> eсть на складе
+				<% else %>
+					<string>Наличие:</strong> уточните
+				<% end %>
+				<h4>Описание:</h4> 
+					<%= @good.description.html_safe %>
+			</div>
+		</div>
+	</div>
+	
+<<<<<<< HEAD
+=======
+	<% category = Category.find(@good.category.split("/")[0]) %>
+	<h1><%= category.id %></h1>
+
+	<% if category.support_goods != nil %>
+	<div id="liquid">
+	<span class="previous"></span>
+	<div class="wrapper">
+		<ul>
+		<% category.support_goods.split(",").each do |s| %>
+			<% support_good = SupportGood.find(s) %>
+			<li><a href="#"><%= image_tag(support_good.avatar.url) %></a></li>		
+		<% end %>
+	<% end %> 
+	</div>
+	<span class="next"></span>
+</div>
+>>>>>>> 7d75712ac6beba9c8c03766bceea8f82abd2b935
+</div></div>
+

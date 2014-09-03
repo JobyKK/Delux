@@ -1,0 +1,54 @@
+<style>
+.span3 img{
+	width: 200px;
+	height: 200px;
+}
+a:hover {
+	background:#fff;
+}
+</style>
+
+<div class="page-header">
+	<h1 style="font-family:Geneva;">Партнеры</h1>
+</div>
+
+<h1><%if current_admin %>
+<%= link_to "Новый партнер", new_partner_path %>
+<%end%>
+</h1>
+<div class="row">
+<% @list.each do |element| %>
+	<div class="span3">
+				<a data-toggle="modal" data-target="#partnersDetales<%=element.id.to_s%>">
+				<%=image_tag(element.avatar.url) %>
+				</a>
+<div class="modal fade" id="partnersDetales<%=element.id.to_s%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!--button type="button" class="close" data-dismiss="modal">
+		<span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button-->
+        <h2 class="modal-title" id="myModalLabel"><%= element.title %></h2>
+      </div>
+      <div class="modal-body">
+		
+      	<%= element.description.html_safe if element.description %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+			<%if current_admin %>
+				<table>
+				<tr>
+				<td colspan="2">  		
+					<%= link_to "Изменить", edit_partner_path(element.id) %>
+					<%= link_to "Удалить", element, method: :delete %>
+				</td></tr>
+				</table>
+			<%end%>
+	</div>
+<% end %>
+</div>

@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="span3">
+	</div>
+
+	<div class="span9">
+		<p id="notice"><%= notice %></p>
+
+		<p>
+		  <strong>Title:</strong>
+		  <%= @partner.title %>
+		</p>
+
+		<p>
+		  <strong>Description:</strong>
+		  <%= @partner.description %>
+		</p>
+
+		<%= link_to 'Edit', edit_partner_path(@partner) %> |
+		<%= link_to 'Back', partners_path %>
+	
+	</div>
+</div>

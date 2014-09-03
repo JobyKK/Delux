@@ -1,0 +1,31 @@
+<style>
+a:hover {
+background:#F5F5F5;
+};
+.nav {
+margin-bottom:0;
+};
+.nav-pills {
+margin-bottom:0;
+};
+.nav-stacked {
+margin-bottom:0;
+};
+</style>
+<div class="span3">
+<div class="well sidebar-nav">
+<ul class="nav nav-pills nav-stacked">
+
+<% Category.all.each do |r| %>		  
+
+	<%if r.super_category == ""%>
+		<li>
+			<a onclick=<%='MyOnClick("'+r.id.to_s+'")'%> style="font-size:12pt;"><%= r.title%></a>
+		</li>
+		<div id='<%= r.id.to_s%>'></div>
+		  
+	<%end%>
+<%end%>
+</ul>
+</div>
+</div>

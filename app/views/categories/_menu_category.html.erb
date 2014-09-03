@@ -1,0 +1,47 @@
+<ul>
+<% @i = 1 %>
+<% def rec t %>
+	<% r = Category.find(t) %>
+		</li>
+		     		
+		<% r.sub_category.to_s.split(',').each do |p| %>
+			<li><a style="margin-left:<%=@i*30%>px;color:red;font-size:12pt;"><%= Category.find(p.to_i).title%></a>
+			<%= link_to 'Изменить ', edit_category_path(Category.find(p.to_i)) %>
+			<% if @i < 3 %>
+				<%= link_to ' Добавить подкатегорию ', Category.find(p.to_i), method: :add %>
+			<% end %>
+
+			<%if Category.find(p.to_i).sub_category != nil%>
+					<% @i += 1 %>
+				<% rec p.to_i %>
+					<% @i -= 1 %>
+			<%else%>
+				<%= link_to 'Удалить', Category.find(p.to_i), method: :delete, data: { confirm: 'Вы уверены?' } %></li>
+			<%end%>
+		
+				
+		<%end%>
+	
+<%end%>
+	<!--<%# Category.all.each do |r| %>
+		<#% r.destroy if r.title == nil%>	Herna s udaleniem
+	<%#end%>-->
+
+	<% Category.all.each do |r| %>
+		<%if r.super_category == ""%>  		
+
+			<li> <a style="font-size:14pt;color:#000;"><%=r.title%></a>
+			<%= link_to ' Изменить ', edit_category_path(r) %>
+			<%= link_to ' Добавить подкатегорию ', r, method: :add %>	
+
+
+			<%if r.sub_category != ""%>
+				<% rec r.id %>
+				<%# @i -= 1 %>
+			<%else%>
+				<%= link_to 'Удалить', r, method: :delete, data: { confirm: 'Вы уверены?' } %></li>
+			<%end%>
+		<% end %>
+	<%end%>
+</ul>
+
