@@ -76,7 +76,7 @@ color: red;
 					<h2><%= Offer.all[-i].title %></h2>
 				</div>
 				<div class="panel-body">
-					<div class="row">
+					<div class="row-fluid">
 						<div class="span3">
 							<%= image_tag(Offer.all[-i].avatar) %>
 						</div>
