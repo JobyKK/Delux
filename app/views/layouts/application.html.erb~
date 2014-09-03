@@ -5,11 +5,13 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
 </head>
 <body>
-<div class="container">
+<!--div class="container"-->
 <style>
+body {
+ background-image: url(<%= asset_path 'fon_kafel.png' %>) , url(<%= asset_path 'molekuly_verh.png' %>), url(<%= asset_path 'molekuly_niz.png' %>);
+}
 a:hover{
 	background:#fff;
 }
@@ -19,7 +21,7 @@ a:hover{
 <%= yield %>
 
 <%=render 'layouts/bottom_menu' %>
-</div>
+<!--/div-->
 
 </body>
 </html>
