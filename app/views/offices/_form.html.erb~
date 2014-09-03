@@ -18,6 +18,17 @@ textarea{
   <% end %>
 
   <div class="field">
+<<<<<<< HEAD
+    <%= f.label :Название %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :Адрес %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :Номера и электронная почта %><br>
+=======
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
@@ -27,6 +38,7 @@ textarea{
   </div>
   <div class="field">
     <%= f.label :numbers %><br>
+>>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
     <%= f.bootsy_area :numbers %>
   </div>
   <div class="actions">

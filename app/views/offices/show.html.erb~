@@ -7,12 +7,20 @@
 
 <p>
   <strong>Address:</strong>
+<<<<<<< HEAD
   <%= @office.address.html_safe if @office.address%>
+=======
+  <%= @office.address %>
+>>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
 </p>
 
 <p>
   <strong>Numbers:</strong>
+<<<<<<< HEAD
+  <%= @office.numbers.html_safe if @office.numbers %>
+=======
   <%= @office.numbers %>
+>>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
 </p>
 
 <%= link_to 'Edit', edit_office_path(@office) %> |

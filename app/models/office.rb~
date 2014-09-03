@@ -1,2 +1,6 @@
 class Office < ActiveRecord::Base
+<<<<<<< HEAD
+include Bootsy::Container
+=======
+>>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
 end

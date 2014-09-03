@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
 textarea{
   width: 650px;
@@ -8,6 +9,8 @@ field{
   height: 200px;
 }
 </style>
+=======
+>>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
 <%= form_for(@partner) do |f| %>
   <% if @partner.errors.any? %>
     <div id="error_explanation">
@@ -22,15 +25,27 @@ field{
   <% end %>
 
   <div class="field">
-    <%= f.label :название %><br>
+<<<<<<< HEAD
+    <%= f.label :Название %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :описание %><br>
+    <%= f.label :Описание %><br>
     <%= f.bootsy_area :description %>
   </div>
   <div class="field">
-    <%= f.label :аватар %>
+    <%= f.label :Аватар %>
+=======
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :avatar %>
+>>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
     <%= f.file_field :avatar %>
   </div>
   <div class="actions">

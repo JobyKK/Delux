@@ -12,7 +12,11 @@
 </script>
 
 <% if current_admin %>
+<<<<<<< HEAD
 	<%= link_to 'Новый офис', new_office_path %>
+=======
+	<%= link_to 'New Office', new_office_path %>
+>>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
 <% end %>
 <div class="row">
 	<div class="span6">
@@ -45,6 +49,7 @@
 	</div>
 	<div class="span6">
 		<div id="gmap_canvas" style="height:500px;width:500px;"></div>
+<<<<<<< HEAD
 		<h4>Напишите нам</h4>
 		<%= form_tag "/send_mail", method: 'POST' do |f| %>
 
@@ -56,11 +61,33 @@
 			<label>Сообщение:</label>
 
 			<textarea name="content"></textarea>
-			<p><input type="submit" value="Send"/>
+			<p><input type="submit" value="Отправить"/>
 		</div>
 
 		<% end %>
 
 	</div>
 </div>
+=======
+	</div>
+</div>
+<%= form_tag "/send_mail", method: 'POST' do |f| %>
+
+<div>
+	<label>Name:</label>
+	<input type="text" name="uname"/>
+</div>
+<div>
+	<label>Message</label>
+
+	<textarea name="content"></textarea>
+	<input type="submit" value="Send" />
+</div>
+
+<% end %>
+
+
+
+
+>>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
 

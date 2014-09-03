@@ -1,5 +1,5 @@
 class OfficesController < ApplicationController
-  before_action :set_office, only: [:show, :edit, :update, :destroy]
+    before_action :set_office, only: [:show, :edit, :update, :destroy]
     before_action :is_admin, except: [:index] 
   # GET /offices
   # GET /offices.json

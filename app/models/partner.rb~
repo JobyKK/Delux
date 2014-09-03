@@ -1,4 +1,8 @@
 class Partner < ActiveRecord::Base
+<<<<<<< HEAD
+include Bootsy::Container
+=======
+>>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
    #accepts_nested_attributes_for :avatar
 	validates :title, presence: true
 	validates :avatar,
