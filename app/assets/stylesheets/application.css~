@@ -14,4 +14,9 @@
  *= require_self
  *= require bootsy
  *= require animate
+<<<<<<< HEAD
+ *= liquidcarousel.css
+
+=======
+>>>>>>> 1ac9ae70258f5c1eba4c7ce1ae22403343ab04ea
  */

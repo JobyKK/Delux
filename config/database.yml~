@@ -20,6 +20,17 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+<<<<<<< HEAD
+#production:
+ # <<: *default
+ # database: db/production.mysql
+production:
+    adapter: postgresql
+    database: blog_development
+    pool: 5
+
+=======
 production:
   <<: *default
   database: db/production.mysql
+>>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344

@@ -20,6 +20,12 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+#production:
+ # <<: *default
+ # database: db/production.mysql
 production:
-  <<: *default
-  database: db/production.mysql
+    adapter: postgresql
+    database: blog_development
+    pool: 5
+
+

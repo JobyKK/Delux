@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+<<<<<<< HEAD
 ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -11,6 +11,14 @@ group :production do
   gem 'pg'
 end
 
+=======
+
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.1.4'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3'
+>>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -54,5 +62,7 @@ gem 'spring', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+<<<<<<< HEAD
 gem 'rails_12factor', group: :production
+=======
+>>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344

@@ -1,7 +1,4 @@
     <style type="text/css">
-     
-
-
       /* Customize the navbar links to be fill the entire space of the .navbar */
       .navbar .navbar-inner {
         padding: 0;
@@ -30,11 +27,13 @@
         border-right: 0;
         border-radius: 0 3px 3px 0;
       }
-
+      #logo img{
+        height: 177px;
+    	}
  .column {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
     -webkit-column-gap: 30px;
     -moz-column-gap: 30px;
     column-gap: 30px;
@@ -46,9 +45,10 @@
 <div class="row">
 <div class="masthead">
 <div class="row" style="margin-left: 0px;">
-	<div class="span4">
-		<img src="<%= asset_path("logo.png") %>" height="140px"/>
+	<div class="span4" id="logo">
+		<img src="<%= asset_path("logo.png") %>"/>
 	</div>
+	<% if Office.all[0] != nil %>
 	<div class="span8 text-right" style="font-family:Geneva;"> 
 		  <div class="well well-small">
 			<div class="column">
@@ -56,6 +56,7 @@
 			</div>
 		  </div>
 	</div>
+	<% end %>
 	<div class="row">
 	<div class="span8" style="margin-top:4%">
 	<div class="navbar">
