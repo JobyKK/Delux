@@ -46,9 +46,9 @@
     column-rule: 1px solid #ccc;
    }
     </style>
-<div class="row" id="top" >
+<div id="top" class="container">
 <div class="masthead">
-<div class="row" style="margin-right: 30px; margin-left: 30px;" >
+<div class="row" >
 	<div class="span4" id="logo">
 		<img src="<%= asset_path("logo.png") %>"/>
 	</div>
@@ -62,7 +62,7 @@
 	</div>
 	<% end %>
 	<div class="row">
-	<div class="span8" style="margin-top:4%">
+	<div class="span8" style="margin-top:10px">
 	<div class="navbar">
 	<div class="navbar-inner">
      	<div class="container">
@@ -78,6 +78,7 @@
 	</div>
 	</div>
  	</div>
+</div>
 </div>
 </div>
 </div>
