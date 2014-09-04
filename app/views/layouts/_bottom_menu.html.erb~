@@ -10,8 +10,8 @@
  padding-bottom: 0px;
 }
 </style>
-<div class="footer text-center" id="down">
-	<div class="well well-small" style="margin-right: 30px; margin-left: 30px;">
+<div class="footer text-center navbar-fixed-bottom" id="down">
+	<div class="well well-small">
 		<div class="row-fluid">
 		<% i = Office.all.length%>
 		<% i = 4 if i > 4%>
@@ -27,4 +27,5 @@
 		</div>	
 	</div>
         <strong style="color:#a3a9b0;">&copy; [A]ngle Все права защищены.</strong>
+
 </div>
