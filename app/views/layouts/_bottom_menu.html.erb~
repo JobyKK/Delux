@@ -11,6 +11,7 @@
 }
 </style>
 <div class="footer text-center navbar-fixed-bottom" id="down">
+<div class="container">
 	<div class="well well-small">
 		<div class="row-fluid">
 		<% i = Office.all.length%>
@@ -27,5 +28,5 @@
 		</div>	
 	</div>
         <strong style="color:#a3a9b0;">&copy; [A]ngle Все права защищены.</strong>
-
+</div>
 </div>
