@@ -30,9 +30,10 @@
       #logo img{
         height: 177px;
     	}
-     /* #top {
- background-image: url(<%= asset_path 'molekuly_verh.png' %>);
-}*/
+      #top {
+ 	background-image: url(<%= asset_path 'molekuly_verh.png' %>);
+	background-size:1000px;
+	}
  .column {
     -webkit-column-count: 3;
     -moz-column-count: 3;
@@ -45,14 +46,14 @@
     column-rule: 1px solid #ccc;
    }
     </style>
-<div class="row">
+<div class="row" id="top" >
 <div class="masthead">
-<div class="row" style="margin-left: 0px;" id="top">
+<div class="row" style="margin-right: 30px; margin-left: 30px;" >
 	<div class="span4" id="logo">
 		<img src="<%= asset_path("logo.png") %>"/>
 	</div>
 	<% if Office.all[0] != nil %>
-	<div class="span8 text-right" style="font-family:Geneva;"> 
+	<div class="span8 text-right" style="font-family:Geneva;padding-top:10px;"> 
 		  <div class="well well-small">
 			<div class="column">
 			<%= Office.first.numbers.html_safe if Office.first.numbers %>
@@ -61,7 +62,7 @@
 	</div>
 	<% end %>
 	<div class="row">
-	<div class="span8" style="margin-top:4%">
+	<div class="span8" style="margin-top:10px">
 	<div class="navbar">
 	<div class="navbar-inner">
      	<div class="container">

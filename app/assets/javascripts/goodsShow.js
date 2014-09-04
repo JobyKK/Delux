@@ -1,5 +1,6 @@
 function goodsShow(ids) {
-	var good = document.getElementById('goods');
+	createPanel();
+	var good = document.getElementById('frame');
 	$(window).scrollTop($("#goods").offset().top);
 	good.innerHTML = '';
 	var el = document.createElement('iframe');
@@ -14,5 +15,10 @@ function goodsShow(ids) {
 		el.height = y.document.body.children[0].clientHeight + 40;
 	}
 };
-
+function createPanel(){
+	var good = document.getElementById('goods');
+	good.innerHTML = '';
+	var temp = '<div class="panel panel-primary" ><div class="panel-body" id="frame"></div></div>';
+	good.innerHTML += temp;
+};
     //document.getElementById('iframe').height = h;

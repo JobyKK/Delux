@@ -7,21 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!--div class="container"-->
+
 <style>
 body {
- background-image: url(<%= asset_path 'fon_kafel.png' %>) , url(<%= asset_path 'molekuly_verh.png' %>), url(<%= asset_path 'molekuly_niz.png' %>);
+ background-image: url(<%= asset_path 'fon_kafel.png' %>);
 }
 a:hover{
 	background:#fff;
 }
 </style>
 <%=render 'layouts/menu' %>
-
+<div class="container">
 <%= yield %>
-
+</div>
 <%=render 'layouts/bottom_menu' %>
-<!--/div-->
+
 
 </body>
 </html>
