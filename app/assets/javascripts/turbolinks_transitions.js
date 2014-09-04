@@ -81,7 +81,7 @@ function goodsView(k) {
 				temp_goods +=	'<div class="row-fluid">';
 				temp_goods +=	'<div class="span4">';
 				temp_goods += 		'<div class="good_img">';
-				temp_goods += 			'<img src="/assets/' + split_goods[i].avatar + '" class="img-polaroid" >';
+				temp_goods += 			'<img src="/system/goods/avatars/original/' + split_goods[i].avatar + '" class="img-polaroid" >';
 				temp_goods += 		'</div>';
 				temp_goods +=	'</div>';
 				temp_goods +=	'<div class="span4"><blockquote>';	
@@ -104,12 +104,36 @@ function goodsView(k) {
 				temp_goods +=		'<div class="panel panel-primary text-center" style="background: #D9EDF7;"><h4>Цена: ';
 				temp_goods += 		split_goods[i].price+' UAH</h4></div>';
 				temp_goods +=   '<div class="well well-small"><a onclick="goodsShow('+split_goods[i].id+')" class="btn btn-large btn-block btn-primary">Подробнее</a>';
-				temp_goods += '<a class="btn btn-small btn-block" >Перезвонить Вам</a></div>';
+				temp_goods +=   '<button class="btn btn-small btn-block" data-toggle="modal" data-target="#goodsmail'+split_goods[i].id+'">Обратная связь</button></div>';
 				if(is_admin){
 					temp_goods += '<a data-confirm="Вы уверены?" data-method="delete" href="/goods/'+split_goods[i].id+'" rel="nofollow">Удалить</a>';
 				};
-				temp_goods +=	'</div>'
+				
 				temp_goods += '</div></div></div></div>';
+temp_goods += '<div class="modal fade" id="goodsmail'+split_goods[i].id+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" hidden="true">';
+
+  				temp_goods += '<div class="modal-dialog text-left">';
+   				 temp_goods += '<div class="modal-content">';
+     				 temp_goods += '<div class="modal-header">';
+					temp_goods += '<h2 class="modal-title" id="myModalLabel">Напишите нам</h2>';
+      				 temp_goods += '</div>';
+      				  temp_goods += '<div class="modal-body">';
+					temp_goods += '<form action="mail.php">';
+	      				temp_goods += '<label>Имя:</label>';
+					temp_goods += '<input type="text" name="uname"/>';
+					temp_goods += '<label>Сообщение:</label>';
+					temp_goods += '<input type="hidden" name="good" value="'+split_goods[i].title+'"/>';
+					temp_goods += '<textarea name="content"></textarea>';
+					temp_goods += '<p><input type="submit" value="Отправить"/>';
+					temp_goods += '</form>';
+      				  temp_goods += '</div>';
+      				 temp_goods += '</div>';
+      				   temp_goods += '<div class="modal-footer">';
+        			     temp_goods += '<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>';
+      				temp_goods += '</div>';
+    				temp_goods += '</div>';
+  				temp_goods += '</div>';
+				temp_goods += '</div>';
 				startFrom++;
 			}
 			temp_goods += '</div></div></div>';
@@ -260,7 +284,7 @@ function MyOnClick(ids) {
 				for(p = 0; p < data.length;p++){
 					if (data[p].id == arr[i]) {
 						temp += '<div class="category_img">';
-							temp += '<img src="/assets/' + data[p].avatar_file_name + '"><br>';
+							temp += '<img src="/system/categories/avatars/original/' + data[p].avatar_file_name + '"><br>';
 						temp += '</div>';
 						temp += '<h4>' + data[p].title + '</h4>';
 						
