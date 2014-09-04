@@ -16,7 +16,7 @@
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-affix.js?body=1"></script>
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap.js?body=1"></script>
 <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="jquery.liquidcarousel.js"></script>
+<script type="text/javascript" src="jquery.thslide.min.js"></script>
 <style>
 	.row {
 		margin-left:20px;
@@ -55,21 +55,33 @@
 	
 
 	<% category = Category.find(@good.category.split("/")[0]) %>
-	<h1><%= category.id %></h1>
-
+	
 	<% if category.support_goods != nil %>
-	<div id="liquid">
-	<span class="previous"></span>
-	<div class="wrapper">
-		<ul>
-		<% category.support_goods.split(",").each do |s| %>
-			<% support_good = SupportGood.find(s) %>
-			<li><a href="#"><%= image_tag(support_good.avatar.url) %></a></li>		
-		<% end %>
-	<% end %> 
-	</div>
-	<span class="next"></span>
-</div>
-
+		<div id="thslide_basic" class="thslide">
+			<div class="thslide_nav_previous">
+				<a href="#"> </a>
+			</div>
+			<div class="thslide_list">
+				<ul>
+		    		<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>         		<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
+					<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
+					<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
+					<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
+					<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
+					<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
+					<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
+				</ul>
+			</div>
+			<div class="thslide_nav_next">
+				<a href="#"> </a>
+			</div>
+		</div>
+	<% end %>
+<script>
+	$('#thslide_basic').thslide({
+    itemOffset: 93,
+    infiniteScroll: 1    
+});
+</script>
 </div></div>
 
