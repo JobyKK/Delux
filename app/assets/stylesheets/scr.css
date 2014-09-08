@@ -1,0 +1,22 @@
+#viewportss {
+    width: 440px;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+	border: 2px solid CornflowerBlue;
+  	border-radius: 15px;
+}
+.slidess {
+	width:220px;
+	height:220px;
+	position: absolute;
+    left: 0;
+    top: 0;
+	margin:0;
+	cursor:pointer;
+	padding:10px;
+	background-color:#eee;
+}
+#prevb,#nextb {
+	cursor:pointer;
+} 

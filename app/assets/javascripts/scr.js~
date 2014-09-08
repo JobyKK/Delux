@@ -1,0 +1,19 @@
+var slideWidth = 200;
+var sliderTimer;
+document.getElementById('scrollss').style.width = document.getElementById('scrollss').children().size()*slideWidth;
+    sliderTimer=setInterval(nextSlide,1000);
+    document.getElementById('viewport').hover(function(){
+        clearInterval(sliderTimer);
+    },function(){
+        sliderTimer=setInterval(nextSlide,1000);
+    });
+
+function nextSlide(){
+    var currentSlide=parseInt(document.getElementById('scrollss').data('current'));
+    currentSlide++;
+    if(currentSlide>=document.getElementById('scrollss').children().size())
+    {
+        currentSlide=0;   
+    }
+    $document.getElementById('scrollss').animate({left: -currentSlide*slideWidth},300).data('current',currentSlide);
+}

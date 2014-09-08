@@ -2,7 +2,6 @@ var split_goods = [];
 var startFrom = 0;
 
 $(document).ready(function(){
-	$('#liquid').liquidcarousel({height:160});
 	$(window).scroll(function() {
 
 

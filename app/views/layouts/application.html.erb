@@ -7,18 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
+
 <style>
+body {
+ background-image: url(<%= asset_path 'fon_kafel.png' %>);
+ padding-top: 0px;
+}
 a:hover{
 	background:#fff;
 }
 </style>
 <%=render 'layouts/menu' %>
-
+<div class="container">
 <%= yield %>
-
-<%=render 'layouts/bottom_menu' %>
 </div>
+<%=render 'layouts/bottom_menu' %>
+
 
 </body>
 </html>

@@ -4,10 +4,16 @@
 	padding-top:10px;
 	padding-bottom:10px;
 }
+.footer {
+ background-image: url(<%= asset_path 'molekuly_niz.png' %>);
+ background-size:1000px;
+ padding-bottom: 0px;
+}
 </style>
-<div class="footer text-center">
+<div class="footer text-center" id="down">
+<div class="container">
 	<div class="well well-small">
-		<div class="row">
+		<div class="row-fluid">
 		<% i = Office.all.length%>
 		<% i = 4 if i > 4%>
 		<% iter = 0%>
@@ -21,5 +27,6 @@
 		<% end %>
 		</div>	
 	</div>
-        <p style="color:#a3a9b0;">&copy; [A]ngle Все права защищены.</p>
+        <strong style="color:#a3a9b0;">&copy; [A]ngle Все права защищены.</strong>
+</div>
 </div>

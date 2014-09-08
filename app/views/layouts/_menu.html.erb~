@@ -1,10 +1,4 @@
     <style type="text/css">
-     
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
       /* Customize the navbar links to be fill the entire space of the .navbar */
       .navbar .navbar-inner {
         padding: 0;
@@ -33,21 +27,17 @@
         border-right: 0;
         border-radius: 0 3px 3px 0;
       }
-<<<<<<< HEAD
       #logo img{
         height: 177px;
     	}
+      #top {
+ 	background-image: url(<%= asset_path 'molekuly_verh.png' %>);
+	background-size:1000px;
+	}
  .column {
     -webkit-column-count: 3;
     -moz-column-count: 3;
     column-count: 3;
-=======
-
- .column {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
->>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
     -webkit-column-gap: 30px;
     -moz-column-gap: 30px;
     column-gap: 30px;
@@ -56,32 +46,23 @@
     column-rule: 1px solid #ccc;
    }
     </style>
-<div class="row">
+<div id="top" class="container">
 <div class="masthead">
-<div class="row" style="margin-left: 0px;">
-<<<<<<< HEAD
+<div class="row" >
 	<div class="span4" id="logo">
 		<img src="<%= asset_path("logo.png") %>"/>
 	</div>
 	<% if Office.all[0] != nil %>
-=======
-	<div class="span4">
-		<img src="<%= asset_path("logo.png") %>" height="140px"/>
-	</div>
->>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
-	<div class="span8 text-right" style="font-family:Geneva;"> 
+	<div class="span8 text-right" style="font-family:Geneva;padding-top:10px;"> 
 		  <div class="well well-small">
 			<div class="column">
 			<%= Office.first.numbers.html_safe if Office.first.numbers %>
 			</div>
 		  </div>
 	</div>
-<<<<<<< HEAD
 	<% end %>
-=======
->>>>>>> 37770de4610d9a66d834dec8f342cfa9db58b344
 	<div class="row">
-	<div class="span8" style="margin-top:4%">
+	<div class="span8" style="margin-top:10px">
 	<div class="navbar">
 	<div class="navbar-inner">
      	<div class="container">
@@ -97,6 +78,7 @@
 	</div>
 	</div>
  	</div>
+</div>
 </div>
 </div>
 </div>

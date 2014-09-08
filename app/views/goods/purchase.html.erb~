@@ -1,6 +1,7 @@
 <link data-turbolinks-track="true" href="/assets/twitter-bootstrap-static/bootstrap.css?body=1" media="all" rel="stylesheet" />
 <link data-turbolinks-track="true" href="/assets/twitter-bootstrap-static/fontawesome.css?body=1" media="all" rel="stylesheet" />
 <link data-turbolinks-track="true" href="/assets/twitter-bootstrap-static/sprites.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/scr.css" media="all" rel="stylesheet" />
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-transition.js?body=1"></script>
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-alert.js?body=1"></script>
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-modal.js?body=1"></script>
@@ -15,8 +16,8 @@
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1"></script>
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-affix.js?body=1"></script>
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap.js?body=1"></script>
-<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="jquery.thslide.min.js"></script>
+
+<!--<script data-turbolinks-track="true" type="text/javascript" src="public/scr.js"></script>-->
 <style>
 	.row {
 		margin-left:20px;
@@ -26,11 +27,10 @@
 		width:300px;
 	}
 </style>
-<div class="panel panel-primary" id="wrap_frame">
-<div class="panel-body">
-	<div class="row">
+<div id="wrap_frame">
+	<div class="row-fluid">
 
-		<div class="span6"><!-- тут надо сделать так, чтобы выбиралась картика с большим разрешением-->
+		<div class="span5"><!-- тут надо сделать так, чтобы выбиралась картика с большим разрешением-->
 
 			<%= image_tag(@good.avatar.url, id:"img")%>
 			<h4 class="panel panel-primary panel-body text-center " style="background: #D9EDF7;">Цена: <%= @good.price %> UAH</h4>
@@ -57,32 +57,24 @@
 	<% category = Category.find(@good.category.split("/")[0]) %>
 	
 	<% if category.support_goods != nil %>
-		<div id="thslide_basic" class="thslide">
-			<div class="thslide_nav_previous">
-				<a href="#"> </a>
-			</div>
-			<div class="thslide_list">
-				<ul>
-		    		<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>         		<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
-					<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
-					<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
-					<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
-					<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
-					<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
-					<li><a href="#"><%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name) %></a></li>
-				</ul>
-			</div>
-			<div class="thslide_nav_next">
-				<a href="#"> </a>
-			</div>
-		</div>
+		<br><br><br>
+		<table><tr><td><div id="prevb">
+						<img src="/assets/previous.png" onclick="prevSlide()">
+					</div></td>
+					<td><div id="viewportss" >
+			
+							<div id="scrollss">
+									<%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar_file_name, class: "slidess") %>
+									<%= image_tag(SupportGood.find(category.support_goods.split(",")[1]).avatar_file_name, class: "slidess") %>
+									<%= image_tag(SupportGood.find(category.support_goods.split(",")[2]).avatar_file_name, class: "slidess") %>
+									<%= image_tag(SupportGood.find(category.support_goods.split(",")[3]).avatar_file_name, class: "slidess") %>
+							</div>
+						</div></td>
+					<td><div id="nextb">
+							<img src="/assets/next.png" onclick="nextSlide()">
+						</div></td></tr></table>
 	<% end %>
-<script>
-	alert("lol")
-	$('#thslide_basic').thslide({
-    itemOffset: 93,
-    infiniteScroll: 1    
-});
-</script>
-</div></div>
+</div>
+<script data-turbolinks="true" src="/assets/newimgslider.js"></script>
+<script></script>
 

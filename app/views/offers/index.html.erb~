@@ -27,7 +27,7 @@
 							<%= image_tag(element.avatar) %>
 						</div>
 						<div class="span3">
-							<p><%= element.short_description.html_safe[0,100] if element.short_description %><br>
+							<p><%= element.short_description.html_safe if element.short_description %><br>
 
 						</div>
 					</div>

@@ -5,21 +5,23 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
 </head>
 <body>
-<div class="container">
+
 <style>
+body {
+ background-image: url(<%= asset_path 'fon_kafel.png' %>);
+}
 a:hover{
 	background:#fff;
 }
 </style>
 <%=render 'layouts/menu' %>
-
+<div class="container">
 <%= yield %>
-
-<%=render 'layouts/bottom_menu' %>
 </div>
+<%=render 'layouts/bottom_menu' %>
+
 
 </body>
 </html>
