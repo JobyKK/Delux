@@ -1,5 +1,5 @@
 <!--DOCTYPE html-->
- <link href="../assets/stylesheets/bootstrap.css" rel="stylesheet">
+
 
 	<link rel="stylesheet" href="assets/coin-slider-styles.css" type="text/css" />
 <style>
@@ -71,7 +71,7 @@ color: red;
 	<% for i in 1..3 do %>
 	<div class="panel span4">
 		<div>
-			<div class="panel panel-default">
+			<div class="panel panel-default" style="margin-bottom: 0px;">
 				<div class="panel-heading">
 					<h2><%= Offer.all[-i].title %></h2>
 				</div>
