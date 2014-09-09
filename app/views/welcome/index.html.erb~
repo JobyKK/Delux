@@ -1,5 +1,5 @@
 <!--DOCTYPE html-->
-
+ <link href="../assets/stylesheets/bootstrap.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="assets/coin-slider-styles.css" type="text/css" />
 <style>
@@ -16,9 +16,9 @@ color: red;
 </style>
 <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 
-<div class="page-header" style="font-family:Geneva;">
+<div class="page-header" >
 	<% if current_admin %>
-		<h1>Добро пожаловать Админ</h1>
+		<h1 style="font-family:Geneva;">Добро пожаловать Админ</h1>
 		<!-- Не забыть удалить регистрацию -->
 		<p><%= link_to "Выйти", destroy_admin_session_path, :method => :delete %></p>
 	<%end%>

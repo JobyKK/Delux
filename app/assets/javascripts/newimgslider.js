@@ -26,9 +26,8 @@ function initS(slideWidths,longs) {
 function nextSlide() {
 	if (!work) {
 		work = true;
-		temp.unshift(tk.pop());alert(temp[0].style.left);
+		temp.unshift(tk.pop());
 		temp[0].style.left = -slideWidth;
-		alert("lol")
 		intern = setInterval(function(){
 			left += 20;
 			
@@ -46,10 +45,8 @@ function nextSlide() {
 function prevSlide() {
 	if (!work) {
 		work = true;
-		alert(1);
-		temp.push(tk.shift());alert(2);
+		temp.push(tk.shift());
 		temp[0].style.left = long*slideWidth;
-		alert(3);
 		interp = setInterval(function(){
 			left -= 20;
 			for(i = 0; i < long + 1; i++)	temp[i].style.left = left + i*slideWidth;
