@@ -64,10 +64,17 @@
 					<td><div id="viewportss" >
 			
 							<div id="scrollss">
+<<<<<<< HEAD
 									<%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar.url, class: "slidess") %>
 									<%= image_tag(SupportGood.find(category.support_goods.split(",")[1]).avatar.url, class: "slidess") %>
 									<%= image_tag(SupportGood.find(category.support_goods.split(",")[2]).avatar.url, class: "slidess") %>
 									<%= image_tag(SupportGood.find(category.support_goods.split(",")[3]).avatar.url, class: "slidess") %>
+=======
+									<%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar, class: "slidess") %>
+									<%= image_tag(SupportGood.find(category.support_goods.split(",")[1]).avatar, class: "slidess") %>
+									<%= image_tag(SupportGood.find(category.support_goods.split(",")[2]).avatar, class: "slidess") %>
+									<%= image_tag(SupportGood.find(category.support_goods.split(",")[3]).avatar, class: "slidess") %>
+>>>>>>> 7d48a8a1288e4b1a85f1c9cdc65241a20a0589cd
 							</div>
 						</div></td>
 					<td><div id="nextb">
