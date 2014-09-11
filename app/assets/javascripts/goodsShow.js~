@@ -1,4 +1,5 @@
 function goodsShow(ids) {
+	createPanel();
 	var good = document.getElementById('frame');
 	$(window).scrollTop($("#goods").offset().top);
 	good.innerHTML = '';
@@ -18,6 +19,6 @@ function createPanel(){
 	var good = document.getElementById('goods');
 	good.innerHTML = '';
 	var temp = '<div class="panel panel-primary" ><div class="panel-body" id="frame"></div></div>';
-	good.innerHTML = temp;
+	good.innerHTML += temp;
 };
     //document.getElementById('iframe').height = h;

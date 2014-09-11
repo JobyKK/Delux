@@ -10,6 +10,7 @@ class SupportGoodsController < ApplicationController
   # GET /support_goods/1
   # GET /support_goods/1.json
   def show
+	render layout: false
   end
 
   # GET /support_goods/new

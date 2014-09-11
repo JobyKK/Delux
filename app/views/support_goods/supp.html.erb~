@@ -17,13 +17,6 @@
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-affix.js?body=1"></script>
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap.js?body=1"></script>
 
-<!--<script data-turbolinks-track="true" type="text/javascript" src="public/scr.js"></script>-->
-<script>
-	function supp(id) {
-		document.location.href = "/support_goods/"+id;
-		document.body.style.height = document.body.children[0].clientHeight + 40+'px';
-	}
-</script>
 <style>
 	.row {
 		margin-left:20px;
@@ -70,9 +63,10 @@
 					<td><div id="viewportss" >
 			
 							<div id="scrollss">
-									<% category.support_goods.split(",").each do |c|%>
-										<%= image_tag(SupportGood.find(c).avatar, class: "slidess", :onClick => "supp("+c+")") %>
-									<% end %>
+									<%= image_tag(SupportGood.find(category.support_goods.split(",")[0]).avatar, class: "slidess") %>
+									<%= image_tag(SupportGood.find(category.support_goods.split(",")[1]).avatar, class: "slidess") %>
+									<%= image_tag(SupportGood.find(category.support_goods.split(",")[2]).avatar, class: "slidess") %>
+									<%= image_tag(SupportGood.find(category.support_goods.split(",")[3]).avatar, class: "slidess") %>
 							</div>
 						</div></td>
 					<td><div id="nextb">
@@ -81,5 +75,5 @@
 	<% end %>
 </div>
 <script data-turbolinks="true" src="/assets/newimgslider.js"></script>
-
+<script></script>
 
