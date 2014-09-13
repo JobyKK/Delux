@@ -107,6 +107,7 @@ function goodsView(k) {
 				temp_goods +=   '<button class="btn btn-small btn-block" data-toggle="modal" data-target="#goodsmail'+split_goods[i].id+'">Обратная связь</button></div>';
 				if(is_admin){
 					temp_goods += '<a data-confirm="Вы уверены?" data-method="delete" href="/goods/'+split_goods[i].id+'" rel="nofollow">Удалить</a>';
+					temp_goods += '<a href="/goods/'+split_goods[i].id+'/edit" rel="nofollow">Изменить</a>';
 				};
 				
 				temp_goods += '</div></div></div></div>';
@@ -334,3 +335,4 @@ function MyOnClick(ids) {
 		}	
 	});
 };
+

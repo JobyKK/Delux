@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :support_goods
 
   resources :goods
-  get 'goods/:id/purchase' => 'catalog#purchase', as: :purchase
+  get 'goods/:id/purchase' => 'goods#purchase', as: :purchase
 
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   resources :partners

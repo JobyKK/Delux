@@ -121,6 +121,8 @@ temp_goods += '<div class="modal fade" id="goodsmail'+split_goods[i].id+'" tabin
 					temp_goods += '<form action="mail.php">';
 	      				temp_goods += '<label>Имя:</label>';
 					temp_goods += '<input type="text" name="uname"/>';
+					temp_goods += '<label>Телефон:</label>';
+					temp_goods += '<input type="text" name="phone"/>';
 					temp_goods += '<label>Сообщение:</label>';
 					temp_goods += '<input type="hidden" name="good" value="'+split_goods[i].title+'"/>';
 					temp_goods += '<textarea name="content"></textarea>';
@@ -332,3 +334,4 @@ function MyOnClick(ids) {
 		}	
 	});
 };
+

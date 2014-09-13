@@ -1,25 +1,62 @@
-<p id="notice"><%= notice %></p>
+<html>
+</head>
+<link data-turbolinks-track="true" href="/assets/twitter-bootstrap-static/bootstrap.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/twitter-bootstrap-static/fontawesome.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/twitter-bootstrap-static/sprites.css?body=1" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="/assets/scr.css" media="all" rel="stylesheet" />
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-transition.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-alert.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-modal.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-dropdown.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-scrollspy.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-tab.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-tooltip.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-popover.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-button.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-collapse.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-carousel.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-typeahead.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap/bootstrap-affix.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/twitter/bootstrap.js?body=1"></script>
+	<script>	
+		setTimeout(function(){		
+		document.body.style.height = document.body.children[0].clientHeight;
+		},300);		
+	</script>
+	<style>
+	#img {
+		height:300px;
+		width:300px;
+	}
+	</style>
+</head>
+<body>
+<div id="first">
+<div class="row-fluid">
+		<div class="span5"><!-- тут надо сделать так, чтобы выбиралась картика с большим разрешением-->
 
-<p>
-  <strong>Title:</strong>
-  <%= @support_good.title %>
-</p>
+			<%= image_tag(@support_good.avatar.url, id:"img")%>
+			<h4 class="panel panel-primary panel-body text-center " style="background: #D9EDF7;">Цена: <%= @support_good.price %> UAH</h4>
+			<a class="btn btn-small btn-block" width="100px">Перезвонить Вам</a>
+		</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @support_good.description.html_safe if @support_good.description %>
-</p>
-
-
-<p>
-  <strong>Available:</strong>
-  <%= @support_good.available %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @support_good.price %>
-</p>
-
-<%= link_to 'Edit', edit_support_good_path(@support_good) %> |
-<%= link_to 'Back', support_goods_path %>
+		<div class="span6">
+			<div class="panel panel-success panel-body" id="wrap_frame">
+				<h3><%= @support_good.title %></h3>
+				<% if @support_good.available %>
+					<strong>Наличие:</strong> eсть на складе
+				<% else %>
+					<string>Наличие:</strong> уточните
+				<% end %>
+				<h4>Описание:</h4> 
+					<%= @support_good.description.html_safe %>
+			</div>
+		</div>
+	</div>
+<% if current_admin %>
+ <h1><%= link_to 'Edit', edit_support_good_path(@support_good) %></h1>
+ <h1><%= link_to 'Destroy', @support_good, method: :delete, data: { confirm: 'Are you sure?' } %></h1>
+<% end %>
+</div>
+</body>
+</html>

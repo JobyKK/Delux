@@ -3,6 +3,8 @@ textarea{
   width: 650px;
   height: 200px;
 }
+
+
 </style>
 <%= form_for(@good) do |f| %>
   <% if @good.errors.any? %>
@@ -43,5 +45,4 @@ textarea{
 	  <div class="actions">
 		<%= f.submit "Отправить"%>
 	  </div>
-	<!-- Add partners if update-->
 <% end %>

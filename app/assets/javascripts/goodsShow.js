@@ -21,4 +21,3 @@ function createPanel(){
 	var temp = '<div class="panel panel-primary" ><div class="panel-body" id="frame"></div></div>';
 	good.innerHTML += temp;
 };
-    //document.getElementById('iframe').height = h;

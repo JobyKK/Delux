@@ -34,6 +34,11 @@
  	background-image: url(<%= asset_path 'molekuly_verh.png' %>);
 	background-size:1000px;
 	}
+      #facebook img{
+	width: 60%;
+	height: 60%;
+	padding-top: 10px;
+	}
  .column {
     -webkit-column-count: 3;
     -moz-column-count: 3;
@@ -46,14 +51,20 @@
     column-rule: 1px solid #ccc;
    }
     </style>
-<div id="top" class="container">
+<div id="top">
+<div class="container">
 <div class="masthead">
 <div class="row" >
 	<div class="span4" id="logo">
 		<img src="<%= asset_path("logo.png") %>"/>
 	</div>
 	<% if Office.all[0] != nil %>
-	<div class="span8 text-right" style="font-family:Geneva;padding-top:10px;"> 
+	<div class="span1" id="facebook">
+		<a href="#">
+			<img src="<%= asset_path("facebook_logo_detail.gif") %>"/>
+		</a>
+	</div>
+	<div class="span7 text-right" style="font-family:Geneva;padding-top:10px;"> 
 		  <div class="well well-small">
 			<div class="column">
 			<%= Office.first.numbers.html_safe if Office.first.numbers %>

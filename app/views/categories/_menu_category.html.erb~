@@ -12,14 +12,14 @@
 				<%= link_to ' Добавить подкатегорию ', Category.find(p.to_i), method: :add %>
 			<% end %>
 
-			<%if Category.find(p.to_i).sub_category != nil%>
+			<%if Category.find(p.to_i).sub_category != nil || Category.find(p.to_i).sub_category != ""%>
 					<% @i += 1 %>
 					<% rec p.to_i %>
 					<% @i -= 1 %>
 			<%else%>
-				<%= link_to 'Удалить', Category.find(p.to_i), method: :delete, data: { confirm: 'Вы уверены?' } %></li>
+				<%= link_to 'Удалить', Category.find(p.to_i), method: :delete, data: { confirm: 'Вы уверены?' } %>
 			<%end%>
-		
+			</li>
 				
 		<%end%>
 	
@@ -27,7 +27,7 @@
 
 	<% Category.all.each do |r| %>
 		<%if r.super_category == ""%>  		
-			<br><br>
+			<br>
 			<li> <a style="font-size:14pt;color:#000;"><%=r.title%></a>
 			<%= link_to ' Изменить ', edit_category_path(r) %>
 			<%= link_to ' Добавить подкатегорию ', r, method: :add %>	
@@ -37,8 +37,9 @@
 				<% rec r.id %>
 				<%# @i -= 1 %>
 			<%else%>
-				<%= link_to 'Удалить', r, method: :delete, data: { confirm: 'Вы уверены?' } %></li>
+				<%= link_to 'Удалить', r, method: :delete, data: { confirm: 'Вы уверены?' } %>
 			<%end%>
+			</li>
 		<% end %>
 	<%end%>
 </ul>

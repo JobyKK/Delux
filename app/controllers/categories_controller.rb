@@ -33,7 +33,7 @@ class CategoriesController < ApplicationController
    @category = Category.new
 
    @category.super_category = @old_category.id.to_s
-
+   @category.sub_category = ""
    @category.save
    if @old_category.sub_category != nil
 	   	@old_category.sub_category += Category.last.id.to_s
