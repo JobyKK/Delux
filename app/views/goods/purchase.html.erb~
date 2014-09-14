@@ -43,7 +43,7 @@
 			<a class="btn btn-small btn-block" width="100px">Перезвонить Вам</a>
 		</div>
 
-		<div class="span6">
+		<div class="span7">
 			<div class="panel panel-success panel-body" id="wrap_frame">
 				<h3><%= @good.title %></h3>
 				<strong>Производитель: </strong>
@@ -71,8 +71,11 @@
 			
 						 <div id="scrollss">
 						  <% category.support_goods.split(",").each do |c|%>
-						   <%= image_tag(SupportGood.find(c).avatar, class: "slidess", :onClick => "supp("+c+")") %>
-						   <%= SupportGood.find(c).price %>
+							<table class="slidess">
+								<tr><td><%= SupportGood.find(c).title %></td></tr>
+						   		<tr><td><%= image_tag(SupportGood.find(c).avatar,  :onClick => "supp("+c+")") %></td></tr>
+						   		<tr><td><%= SupportGood.find(c).price %></td></tr>
+							</table>
 						  <% end %>
 						 </div>
 						</div></td>

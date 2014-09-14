@@ -31,6 +31,10 @@ field{
 		    <%= f.file_field :avatar %>
 		</div>
 		<div class="field">
+		    <%= f.label :price %><br>
+		    <%= f.text_field :price %>
+		</div>
+		<div class="field">
 		    <%= f.label :short_description %><br>
 		    <%= f.bootsy_area :short_description %>
 		</div>
@@ -42,10 +46,7 @@ field{
 		    <%= f.label :available %><br>
 		    <%= f.check_box :available %>
 		</div>
-		<div class="field">
-		    <%= f.label :price %><br>
-		    <%= f.text_field :price %>
-		</div>
+		
 		<div class="actions">
 		    <%= f.submit %>
 		</div>

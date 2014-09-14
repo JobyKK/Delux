@@ -37,7 +37,7 @@
 			<%if current_admin%>
 				<form accept-charset="UTF-8" action="/goods/new" method="GET" id="Add">
 			<%end%>
-				<div class="span2 offset2" id="checkBox" class="animated fadeIn">
+				<div class="span3 offset1" id="checkBox" class="animated fadeIn">
 				</div>
 				<div class="span4" id="subMenu" class="animated fadeIn" name="none">
 				</div>
