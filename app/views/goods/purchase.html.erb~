@@ -18,24 +18,59 @@
 <script data-turbolinks-track="true" src="/assets/twitter/bootstrap.js?body=1"></script>
 
 <!--<script data-turbolinks-track="true" type="text/javascript" src="public/scr.js"></script>-->
-<script>
+<!--script>
 	function supp(id) {
 		document.location.href = "/support_goods/"+id;
 		document.body.style.height = document.body.children[0].clientHeight + 40+'px';
 	}
-</script>
+</script-->
 <style>
-	.row {
-		margin-left:20px;
-	}
-	#img {
+  .category_img img{
+	width: 300px;
+	height: 300px;
+	background: white;
+  }
+  .good_img img{
+	width: 200px;
+	height: 200px;
+	background: white;
+   }
+   #img {
 		height:300px;
 		width:300px;
-	}
+   }
+  }
 </style>
-<div id="wrap_frame">
-	<div class="row">
-
+<div class="page-header">
+	<h1 style="font-family:Geneva;">Наш</h1>
+</div>
+<div class="row" >
+	<div class="span3">
+		<p><b>Введите название товара:</b><br>
+			<div class="form-search">
+				<input type="text" size="40" style="height:24px" id="search">
+				<button onclick="searchs()">Найти</button>
+			</div>
+		</p>
+		<%= render 'menu_goods' %>
+	</div>
+	<div class="span9" id="menuFrame">
+		<div class="row" id="menuRow">
+			<%if current_admin%>
+				<form accept-charset="UTF-8" action="/goods/new" method="GET" id="Add">
+			<%end%>
+				<div class="span3 offset1" id="checkBox" class="animated fadeIn">
+				</div>
+				<div class="span4" id="subMenu" class="animated fadeIn" name="none">
+				</div>
+			<%if current_admin%>
+				</form>
+			<%end%>
+		</div>
+	<div id="goods">
+		<div class="panel panel-default">
+		<div class="panel-body text-center">
+		<div class="row-fluid">
 		<div class="span5"><!-- тут надо сделать так, чтобы выбиралась картика с большим разрешением-->
 
 			<%= image_tag(@good.avatar.url, id:"img")%>
@@ -43,7 +78,7 @@
 			<a class="btn btn-small btn-block" width="100px">Перезвонить Вам</a>
 		</div>
 
-		<div class="span7">
+		<div class="span6">
 			<div class="panel panel-success panel-body" id="wrap_frame">
 				<h3><%= @good.title %></h3>
 				<strong>Производитель: </strong>
@@ -83,7 +118,13 @@
 							<img src="/assets/next.png" onclick="nextSlide()">
 						</div></td></tr></table>
 	<% end %>
+		</div>
+		</div>
+	</div>
+	</div>
 </div>
-<script data-turbolinks="true" src="/assets/newimgslider.js"></script>
 
+<script src="/assets/newimgslider.js"></script>
 
+<h1><%= link_to 'Изменить', edit_good_path(@good) %></h1>
+<h1><%= link_to 'Назад', goods_path %></h1>
