@@ -47,11 +47,7 @@ function prevSlide() {
 	if (!work) {
 		work = true;
 		temp.push(tk.shift());
-<<<<<<< HEAD
-		temp[0].style.left = long*slideWidth;
-=======
 		temp[long].style.left = long*slideWidth;
->>>>>>> 7d48a8a1288e4b1a85f1c9cdc65241a20a0589cd
 		interp = setInterval(function(){
 			left -= 20;
 			for(i = 0; i < long + 1; i++) temp[i].style.left = left + i*slideWidth;
@@ -65,4 +61,4 @@ function prevSlide() {
 	}
 }
 
-initS(220,3);
+initS(220,1);

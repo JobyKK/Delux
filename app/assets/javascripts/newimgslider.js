@@ -61,4 +61,4 @@ function prevSlide() {
 	}
 }
 
-initS(220,3);
+initS(220,1);
