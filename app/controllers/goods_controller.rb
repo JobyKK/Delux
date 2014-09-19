@@ -10,7 +10,7 @@ class GoodsController < ApplicationController
   end
 
   def purchase
-	render layout: false
+	#render layout: false
   end
 
   # GET /goods/1

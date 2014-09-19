@@ -36,7 +36,7 @@ function addFrame() {
 function goodsV(ids) {
 //тут запрос в бд товаров и их вывод в правую часть
 	$.ajax({
-		url: "goods.json",
+		url: "/goods.json",
 		dataType : "json",             
 		success: function (data_goods) {
 			var goods = document.getElementById("goods");
@@ -67,7 +67,7 @@ function goodsView(k) {
 	startFrom = 0;
 	
 	$.ajax({
-		url: "partners.json",
+		url: "/partners.json",
 		dataType : "json",             
 		success: function (data_partners) {
 			var is_admin = document.getElementById("Add");
@@ -103,7 +103,7 @@ function goodsView(k) {
 				temp_goods +=	'<div class="span3">';
 				temp_goods +=		'<div class="panel panel-primary text-center" style="background: #D9EDF7;"><h4>Цена: ';
 				temp_goods += 		split_goods[i].price+' UAH</h4></div>';
-				temp_goods +=   '<div class="well well-small"><a onclick="goodsShow('+split_goods[i].id+')" class="btn btn-large btn-block btn-primary">Подробнее</a>';
+				temp_goods +=   '<div class="well well-small"><a href="/goods/'+split_goods[i].id+'" class="btn btn-large btn-block btn-primary">Подробнее</a>';
 				temp_goods +=   '<button class="btn btn-small btn-block" data-toggle="modal" data-target="#goodsmail'+split_goods[i].id+'">Обратная связь</button></div>';
 				if(is_admin){
 					temp_goods += '<a data-confirm="Вы уверены?" data-method="delete" href="/goods/'+split_goods[i].id+'" rel="nofollow">Удалить</a>';
@@ -148,7 +148,7 @@ temp_goods += '<div class="modal fade" id="goodsmail'+split_goods[i].id+'" tabin
 
 function checkBox(ids) {
 	$.ajax({
-		url: "categories.json",
+		url: "/categories.json",
 		dataType : "json",             
 		success: function (data) {
 			for(i = 0; i < data.length; i++){
@@ -158,7 +158,7 @@ function checkBox(ids) {
 				}
 			}
 			$.ajax({
-				url: "partners.json",
+				url: "/partners.json",
 				dataType : "json",             
 				success: function (data_partners) {
 					temp_partners ='';
@@ -191,7 +191,7 @@ function checkBox(ids) {
 
 function subMenu(ids) {
 	$.ajax({
-		url: "categories.json",
+		url: "/categories.json",
 		dataType : "json",             
 		success: function (data) {
 			for(i = 0; i < data.length;i++){
@@ -240,7 +240,7 @@ function subMenu(ids) {
 
 function MyOnClick(ids) {
 	$.ajax({
-		url: "categories.json",
+		url: "/categories.json",
 		dataType : "json",             
 		success: function (data) {
 			for(i = 0; i < data.length;i++){
