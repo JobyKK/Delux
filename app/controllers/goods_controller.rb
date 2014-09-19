@@ -1,6 +1,6 @@
 class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy, :purchase]
-  before_action :is_admin, except: [:purchase,:index]
+  before_action :is_admin, except: [:purchase,:index,:show]
   @@checkBox = ""
   @@select = ""
   # GET /goods

@@ -13,9 +13,10 @@
 		height:300px;
 		width:300px;
    }
-  }
+
 </style>
-<script src="/assets/turbolinks_transitions.js"></script>
+
+<!--<script src="/assets/newimgslider.js"></script>-->
 <div class="page-header">
 	<h1 style="font-family:Geneva;">Наш</h1>
 </div>
@@ -78,8 +79,7 @@
 		<table><tr><td><div id="prevb">
 						<img src="/assets/previous.png" onclick="prevSlide()">
 					</div></td>
-					<td><div id="viewportss" >
-			
+					<td><div id="viewportss">
 						 <div id="scrollss">
 						  <% category.support_goods.split(",").each do |c|%>
 							<table class="slidess">
@@ -89,18 +89,20 @@
 							</table>
 						  <% end %>
 						 </div>
-						</div></td>
+						</div>
+					</td>
 					<td><div id="nextb">
 							<img src="/assets/next.png" onclick="nextSlide()">
-						</div></td></tr></table>
+						</div>
+					</td>
+				</tr></table>
 	<% end %>
 		</div>
 		</div>
 	</div>
 	</div>
 </div>
-
-<script src="/assets/newimgslider.js"></script>
-
 <h1><%= link_to 'Изменить', edit_good_path(@good) %></h1>
 <h1><%= link_to 'Назад', goods_path %></h1>
+
+<script>initS(220,3);</script>
