@@ -12,7 +12,7 @@ function searchs() {
 				var k = 0;
 
 				for(i = 0; i < data_goods.length; i++){
-					if (data_goods[i].title.indexOf(sub) != -1) {
+					if (data_goods[i].title.indexOf(sub.toLowerCase()) != -1) {
 						var cgood = new cGood(
 							data_goods[i].id,							
 							data_goods[i].title,
